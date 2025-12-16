@@ -30,7 +30,6 @@ public partial class Player : CharacterBody3D
 		camera = GetNode<Camera3D>("%Camera3D");
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
-
 	
 	public override void _UnhandledInput(InputEvent e)
 	{
@@ -43,7 +42,6 @@ public partial class Player : CharacterBody3D
 					camera.RotationDegrees.Z
 			);
 		}
-
 		if (e.IsActionPressed("ui_cancel"))
 		{
 			Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -52,14 +50,15 @@ public partial class Player : CharacterBody3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 input = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
-		Vector3 direction = (Transform.Basis * new Vector3(input.X, 0, -input.Y)).Normalized();
+		Vector2 inputDirection2D = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
+		Vector3 inputDirection3D = new Vector3(
+			inputDirection2D.X, 0.0f, -inputDirection2D.Y
+		);
 
 		Vector3 horizontalVelocity = direction * speed;
-
 		Vector3 velocity = Velocity;
 		velocity.Y -= gravity * (float)delta;
-
+		
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
 			velocity.Y = jumpVelocity;
 
@@ -69,7 +68,6 @@ public partial class Player : CharacterBody3D
 			GlobalTransform = GlobalTransform.Translated(stepResult.DiffPosition);
 			velocity.Y = 0;
 		}
-
 		velocity.X = horizontalVelocity.X;
 		velocity.Z = horizontalVelocity.Z;
 

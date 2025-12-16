@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvs0asagx18s0"]
+
+[ext_resource type="Script" uid="uid://dpxjjiswr8lod" path="res://Bullet.cs" id="1_v7oki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtl8c"]
+albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7oki"]
+material = SubResource("StandardMaterial3D_rtl8c")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v8qja"]
+
+[node name="Bullet" type="Area3D"]
+top_level = true
+script = ExtResource("1_v7oki")
+speed = 180.0
+maxDistance = 250.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_v7oki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v8qja")
