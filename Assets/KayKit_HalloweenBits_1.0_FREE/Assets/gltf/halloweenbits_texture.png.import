@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e66t2xqqxlut"
-path.s3tc="res://.godot/imported/mannequin_texture.png-ab50a8cc0dd1a5320e890843162d4201.s3tc.ctex"
+uid="uid://cwb4vrkx17kk6"
+path.s3tc="res://.godot/imported/halloweenbits_texture.png-3eb18a2ffd723deff00d71fa4ee29d8a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/KayKit_Character_Animations_1.1/KayKit_Character_Animations_1.1/Mannequin Character/Textures/mannequin_texture.png"
-dest_files=["res://.godot/imported/mannequin_texture.png-ab50a8cc0dd1a5320e890843162d4201.s3tc.ctex"]
+source_file="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/gltf/halloweenbits_texture.png"
+dest_files=["res://.godot/imported/halloweenbits_texture.png-3eb18a2ffd723deff00d71fa4ee29d8a.s3tc.ctex"]
 
 [params]
 

@@ -1,3 +1,123 @@
-[gd_scene load_steps=0 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=9 format=3 uid="uid://btqkdw3kspncg"]
+
+[ext_resource type="PackedScene" uid="uid://dayk257sv3nj4" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/floor_dirt.fbx" id="1_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://qygnpweiwbrt" path="res://Assets/kenney_mini-dungeon/Models/FBX format/stairs.fbx" id="2_f2txt"]
+[ext_resource type="PackedScene" uid="uid://chrn2xot7gb0a" path="res://Assets/kenney_mini-dungeon/Models/FBX format/wall-opening.fbx" id="3_1ainy"]
+[ext_resource type="PackedScene" uid="uid://bywrl2iofqi21" path="res://Assets/kenney_mini-dungeon/Models/FBX format/wall-narrow.fbx" id="4_n6hdu"]
+[ext_resource type="PackedScene" uid="uid://dbno3f1q0bdkp" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/arch.fbx" id="5_km5ld"]
+[ext_resource type="PackedScene" uid="uid://bomnbnb0ok2kb" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/bench.fbx" id="6_i2t4f"]
+[ext_resource type="PackedScene" uid="uid://cfwx7hbtqlcaj" path="res://Assets/kenney_mini-dungeon/Models/FBX format/column.fbx" id="7_8cye3"]
+[ext_resource type="PackedScene" uid="uid://c3hq1dj862n2o" path="res://Assets/kenney_mini-dungeon/Models/FBX format/wall.fbx" id="8_2orkt"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="floor_dirt" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.028625, 0.06815739, -3.981735)
+
+[node name="floor_dirt2" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.040312, 0.06815739, -3.981735)
+
+[node name="floor_dirt3" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.028625, 0.06815739, -11.9744835)
+
+[node name="floor_dirt4" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.040312, 0.06815739, -11.9744835)
+
+[node name="floor_dirt5" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.038381, 0.06815739, -19.963474)
+
+[node name="floor_dirt6" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, -19.963474)
+
+[node name="floor_dirt7" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.038381, 0.06815739, -27.956223)
+
+[node name="floor_dirt8" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, -27.956223)
+
+[node name="floor_dirt9" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.038381, 0.06815739, -3.981735)
+
+[node name="floor_dirt10" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, -3.981735)
+
+[node name="floor_dirt11" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.038381, 0.06815739, -11.9744835)
+
+[node name="floor_dirt12" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, -11.9744835)
+
+[node name="floor_dirt13" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.939894, 0.06815739, -3.981735)
+
+[node name="floor_dirt14" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.928205, 0.06815739, -3.981735)
+
+[node name="floor_dirt15" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.939894, 0.06815739, -11.9744835)
+
+[node name="floor_dirt16" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.928205, 0.06815739, -11.9744835)
+
+[node name="stairs" parent="." instance=ExtResource("2_f2txt")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 11.92399, -0.11893463, -20.02328)
+
+[node name="wall-opening" parent="." instance=ExtResource("3_1ainy")]
+transform = Transform3D(-3.496911e-07, 0, 8, 0, 8, 0, -8, 0, -3.496911e-07, 11.919747, -0.13400406, -28.032)
+
+[node name="wall-narrow" parent="." instance=ExtResource("4_n6hdu")]
+transform = Transform3D(-3.496911e-07, 0, 8, 0, 8, 0, -8, 0, -3.496911e-07, 11.92, -0.13500406, -36.004)
+
+[node name="floor_dirt17" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.038381, 0.06815739, -35.951805)
+
+[node name="floor_dirt18" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, -35.951805)
+
+[node name="floor_dirt19" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.038381, 0.06815739, -43.94455)
+
+[node name="floor_dirt20" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, -43.94455)
+
+[node name="floor_dirt21" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.863125, 0.06815739, -43.927296)
+
+[node name="floor_dirt22" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.851439, 0.06815739, -43.927296)
+
+[node name="floor_dirt23" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.863125, 0.06815739, -51.92004)
+
+[node name="floor_dirt24" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.851439, 0.06815739, -51.92004)
+
+[node name="floor_dirt25" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.883654, 0.06815739, -19.963474)
+
+[node name="floor_dirt26" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.883654, 0.06815739, -27.956223)
+
+[node name="floor_dirt27" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.883654, 0.06815739, -35.951805)
+
+[node name="floor_dirt28" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, 12.011917)
+
+[node name="floor_dirt29" parent="." instance=ExtResource("1_0b4ue")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.9499316, 0.06815739, 4.019169)
+
+[node name="arch" parent="." instance=ExtResource("5_km5ld")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 3.9673166, 0.105051875, 0.7106589)
+
+[node name="bench" parent="." instance=ExtResource("6_i2t4f")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 6.7399087, 0, -35.76037)
+
+[node name="column" parent="." instance=ExtResource("7_8cye3")]
+transform = Transform3D(5.5, 0, 0, 0, 6.5, 0, 0, 0, 5.5, 11.917608, 0, -45.310757)
+
+[node name="column2" parent="." instance=ExtResource("7_8cye3")]
+transform = Transform3D(5.5, 0, 0, 0, 6.5, 0, 0, 0, 5.5, 11.917608, 0, -52.371624)
+
+[node name="wall" parent="." instance=ExtResource("8_2orkt")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 13.294461, 0, -58.925343)
