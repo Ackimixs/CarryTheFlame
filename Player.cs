@@ -1,36 +1,25 @@
 using Godot;
 using System;
 
-public class StepResult
-{
-	public Vector3 DiffPosition = Vector3.Zero;
-	public Vector3 Normal = Vector3.Zero;
-	public bool IsStepUp = false;
-}
-
-
 public partial class Player : CharacterBody3D
 {
-	[Export]
-	private Vector2 mouseSensitivity = new Vector2(0.1f, 0.1f);
-	[Export]
-	private float speed = 25f;
-	private Camera3D camera;
-	[Export]
-	private float gravity = 20f;
-	[Export]
-	private float jumpVelocity = 10f;
-	[Export] public float StepHeight = 0.6f;
-	[Export] public float MaxStepSlope = 40.0f;
-	[Export] public int StepCheckCount = 2;
-
+	[Export] private Vector2 mouseSensitivity = new Vector2(0.1f, 0.1f);
+	[Export] private float speed = 10f;
+	[Export] private float gravity = 20f;
+	[Export] private float jumpVelocity = 10f;
 	
+	// Paramètres pour les marches
+	[Export] private float maxStepHeight = 0.5f;
+	private float verticalVelocity = 0;
+	
+	private Camera3D camera;
+
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("%Camera3D");
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
-	
+
 	public override void _UnhandledInput(InputEvent e)
 	{
 		if (e is InputEventMouseMotion mouseMotion)
@@ -38,8 +27,8 @@ public partial class Player : CharacterBody3D
 			RotateY(-mouseMotion.Relative.X * mouseSensitivity.X);
 			camera.RotationDegrees = new Vector3(
 				Mathf.Clamp(camera.RotationDegrees.X - mouseMotion.Relative.Y * mouseSensitivity.Y, -80f, 80f),
-					camera.RotationDegrees.Y,
-					camera.RotationDegrees.Z
+				camera.RotationDegrees.Y,
+				camera.RotationDegrees.Z
 			);
 		}
 		if (e.IsActionPressed("ui_cancel"))
@@ -47,93 +36,87 @@ public partial class Player : CharacterBody3D
 			Input.MouseMode = Input.MouseModeEnum.Visible;
 		}
 	}
-	
+
 	public override void _PhysicsProcess(double delta)
 	{
-		// Vector2 inputDirection2D = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
-		/*Vector3 inputDirection3D = new Vector3(
-			inputDirection2D.X, 0.0f, -inputDirection2D.Y
-		);*/
+		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
+		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, -inputDir.Y)).Normalized();
 
-		Vector2 input = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
-		Vector3 direction = (Transform.Basis * new Vector3(input.X, 0, -input.Y)).Normalized();
-
-		Vector3 horizontalVelocity = direction * speed;
 		Vector3 velocity = Velocity;
-		velocity.Y -= gravity * (float)delta;
-		
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
-			velocity.Y = jumpVelocity;
 
-		StepResult stepResult = new StepResult();
-		if (StepCheck(delta, horizontalVelocity, stepResult))
-		{
-			GlobalTransform = GlobalTransform.Translated(stepResult.DiffPosition);
-			velocity.Y = 0;
-		}
+		// Gravité
+		if (!IsOnFloor())
+			verticalVelocity -= gravity * (float)delta;
+		else
+			verticalVelocity = 0;
+
+		// Saut
+		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+			verticalVelocity = jumpVelocity;
+
+		// Mouvement horizontal
+		Vector3 horizontalVelocity = direction * speed;
 		velocity.X = horizontalVelocity.X;
 		velocity.Z = horizontalVelocity.Z;
+		velocity.Y = verticalVelocity;
+
+		// Application du Step Climb avant le MoveAndSlide
+		if (direction.Length() > 0)
+		{
+			ApplyStepClimb(ref velocity, direction, (float)delta);
+		}
 
 		Velocity = velocity;
 		MoveAndSlide();
 	}
 
-	private bool StepCheck(double delta, Vector3 horizontalVelocity, StepResult result)
+	private void ApplyStepClimb(ref Vector3 currentVelocity, Vector3 direction, float delta)
 	{
-		if (!IsOnFloor())
-			return false;
+		// On ne monte des marches que si on est au sol ou presque
+		if (!IsOnFloor() && verticalVelocity > 0) return;
 
-		Vector3 stepHeightVec = Vector3.Up * StepHeight;
-		Vector3 stepIncrement = stepHeightVec / StepCheckCount;
+		var params3D = new PhysicsTestMotionParameters3D();
+		params3D.From = GlobalTransform;
+		params3D.Motion = direction * currentVelocity.Length() * delta;
+		
+		var result = new PhysicsTestMotionResult3D();
 
-		for (int i = 0; i < StepCheckCount; i++)
+		// Si on touche un obstacle devant nous
+		if (PhysicsServer3D.BodyTestMotion(GetRid(), params3D, result))
 		{
-			Vector3 stepOffset = stepHeightVec - stepIncrement * i;
-
-			// 1️⃣ Test UP
-			Transform3D upTransform = GlobalTransform;
-			upTransform.Origin += stepOffset;
-
-			// 2️⃣ Test FORWARD
-			var forwardParams = new PhysicsTestMotionParameters3D
+			// 1. On tente de monter (Levage virtuel)
+			Vector3 stepUpDist = Vector3.Up * maxStepHeight;
+			params3D.From = GlobalTransform;
+			params3D.Motion = stepUpDist;
+			
+			// Si on peut monter sans heurter un plafond
+			if (!PhysicsServer3D.BodyTestMotion(GetRid(), params3D, result))
 			{
-				From = upTransform,
-				Motion = horizontalVelocity * (float)delta
-			};
-
-			var forwardResult = new PhysicsTestMotionResult3D();
-
-			if (PhysicsServer3D.BodyTestMotion(GetRid(), forwardParams, forwardResult))
-				continue;
-
-			upTransform.Origin += forwardParams.Motion;
-
-			// 3️⃣ Test DOWN
-			var downParams = new PhysicsTestMotionParameters3D
-			{
-				From = upTransform,
-				Motion = -stepOffset
-			};
-
-			var downResult = new PhysicsTestMotionResult3D();
-
-			if (PhysicsServer3D.BodyTestMotion(GetRid(), downParams, downResult))
-			{
-				float slopeAngle = downResult
-					.GetCollisionNormal()
-					.AngleTo(Vector3.Up);
-
-				if (slopeAngle <= Mathf.DegToRad(MaxStepSlope))
+				// 2. On avance une fois en haut
+				Transform3D testTransform = GlobalTransform;
+				testTransform.Origin += stepUpDist;
+				params3D.From = testTransform;
+				params3D.Motion = direction * speed * delta;
+				
+				if (!PhysicsServer3D.BodyTestMotion(GetRid(), params3D, result))
 				{
-					result.IsStepUp = true;
-					result.DiffPosition = -downResult.GetRemainder();
-					result.Normal = downResult.GetCollisionNormal();
-					return true;
+					// 3. On redescend pour se poser sur la marche
+					testTransform.Origin += params3D.Motion;
+					params3D.From = testTransform;
+					params3D.Motion = -stepUpDist;
+
+					if (PhysicsServer3D.BodyTestMotion(GetRid(), params3D, result))
+					{
+						// On calcule la distance réellement montée
+						float climbedAmount = maxStepHeight + result.GetTravel().Y;
+						if (climbedAmount > 0.01f)
+						{
+							// On téléporte légèrement le joueur vers le haut pour "enjamber"
+							GlobalTransform = new Transform3D(GlobalTransform.Basis, GlobalTransform.Origin + Vector3.Up * climbedAmount);
+						}
+					}
 				}
 			}
 		}
-
-		return false;
 	}
-
 }
