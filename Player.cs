@@ -17,6 +17,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("%Camera3D");
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
 	
@@ -30,6 +31,11 @@ public partial class Player : CharacterBody3D
 					camera.RotationDegrees.Y,
 					camera.RotationDegrees.Z
 			);
+		}
+
+		if (e.IsActionPressed("ui_cancel"))
+		{
+			Input.MouseMode = Input.MouseModeEnum.Visible;
 		}
 	}
 	
