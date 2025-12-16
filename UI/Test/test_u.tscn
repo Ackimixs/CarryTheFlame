@@ -1,0 +1,103 @@
+﻿[gd_scene load_steps=2 format=3 uid="uid://djg0jjhhv1ljt"]
+
+[sub_resource type="Theme" id="Theme_civxm"]
+default_font_size = 0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_civxm")
+
+[node name="Bonus2" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -91.5
+offset_right = 90.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Grant more speed/damage/health to the players"
+autowrap_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Bonus3" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = -90.0
+offset_right = -136.0
+offset_bottom = 90.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Once in the game, you can survive by 1HP to a killing damage"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.5
+offset_top = 72.0
+offset_right = 350.5
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Choisis un pouvoir parmi ces trois"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bonus1" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = -90.0
+offset_right = 324.0
+offset_bottom = 90.0
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath("../Bonus3")
+autowrap_mode = 3
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/Bonus1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Bonus1/MarginContainer"]
+layout_mode = 2
+text = "With range weapons, shots go through enemies"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

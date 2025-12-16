@@ -50,10 +50,13 @@ public partial class Player : CharacterBody3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 inputDirection2D = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
-		Vector3 inputDirection3D = new Vector3(
+		// Vector2 inputDirection2D = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
+		/*Vector3 inputDirection3D = new Vector3(
 			inputDirection2D.X, 0.0f, -inputDirection2D.Y
-		);
+		);*/
+
+		Vector2 input = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
+		Vector3 direction = (Transform.Basis * new Vector3(input.X, 0, -input.Y)).Normalized();
 
 		Vector3 horizontalVelocity = direction * speed;
 		Vector3 velocity = Velocity;
