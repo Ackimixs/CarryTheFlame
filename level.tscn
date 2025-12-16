@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=10 format=3 uid="uid://btqkdw3kspncg"]
 
 [ext_resource type="PackedScene" uid="uid://dayk257sv3nj4" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/floor_dirt.fbx" id="1_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://qygnpweiwbrt" path="res://Assets/kenney_mini-dungeon/Models/FBX format/stairs.fbx" id="2_f2txt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bomnbnb0ok2kb" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/bench.fbx" id="6_i2t4f"]
 [ext_resource type="PackedScene" uid="uid://cfwx7hbtqlcaj" path="res://Assets/kenney_mini-dungeon/Models/FBX format/column.fbx" id="7_8cye3"]
 [ext_resource type="PackedScene" uid="uid://c3hq1dj862n2o" path="res://Assets/kenney_mini-dungeon/Models/FBX format/wall.fbx" id="8_2orkt"]
+[ext_resource type="PackedScene" uid="uid://r3l8dkkougqm" path="res://player.tscn" id="9_i2t4f"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -121,3 +122,7 @@ transform = Transform3D(5.5, 0, 0, 0, 6.5, 0, 0, 0, 5.5, 11.917608, 0, -52.37162
 
 [node name="wall" parent="." instance=ExtResource("8_2orkt")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 13.294461, 0, -58.925343)
+
+[node name="Player" parent="." instance=ExtResource("9_i2t4f")]
+transform = Transform3D(0.9197667, 0, -0.39246553, 0, 1, 0, 0.39246553, 0, 0.9197667, 1.7467093, 3.0322056, -33.73999)
+mouseSensitivity = Vector2(0.008, 0.2)
