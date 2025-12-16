@@ -3046,3 +3046,6 @@ shape = SubResource("BoxShape3D_vonw3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.000597, 0.0007324219, 59.92962)
 mesh = ExtResource("3_oi3di")
 skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.6391035, -0.76912075, 0, 0.088280536, 0.07335701, 0.9933908, -0.7640375, -0.6348795, 0.11478111, 30.372398, 20.501862, 28.665882)
