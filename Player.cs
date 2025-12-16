@@ -3,9 +3,9 @@ using System;
 
 public class StepResult
 {
-    public Vector3 DiffPosition = Vector3.Zero;
-    public Vector3 Normal = Vector3.Zero;
-    public bool IsStepUp = false;
+	public Vector3 DiffPosition = Vector3.Zero;
+	public Vector3 Normal = Vector3.Zero;
+	public bool IsStepUp = false;
 }
 
 
