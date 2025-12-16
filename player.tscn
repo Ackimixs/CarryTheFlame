@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=12 format=3 uid="uid://272llceugjpx"]
 
 [ext_resource type="Script" uid="uid://vjudetqhg3os" path="res://Player.cs" id="1_onrkg"]
 [ext_resource type="ArrayMesh" uid="uid://p4ckxt0l4h7w" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/OBJ/Pistol.obj" id="2_onrkg"]
@@ -30,32 +30,32 @@ shape = SubResource("CapsuleShape3D_sh265")
 [node name="Head" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64833236, 0)
 
-[node name="Marker3D" type="Marker3D" parent="Body/Head"]
-
-[node name="Camera3D" type="Camera3D" parent="Body/Head/Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="Body/Head"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015028834, 0)
 
-[node name="Pistol" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.156, -0.497)
+[node name="Pistol" type="MeshInstance3D" parent="Body/Head/Camera3D"]
+transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.42738506, -0.44826496, -0.58669853)
 mesh = ExtResource("2_onrkg")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_i3pqv")
 script = ExtResource("4_2hs0m")
 bulletScene = ExtResource("5_1jxqw")
 
-[node name="Marker3D" type="Marker3D" parent="Camera3D/Pistol"]
+[node name="Marker3D" type="Marker3D" parent="Body/Head/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 9.517478, 1.6334429, 0)
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 9.517478, 1.0001394, 0)
 
-[node name="Musketoon" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.156, -0.497)
+[node name="Musketoon" type="MeshInstance3D" parent="Body/Head/Camera3D"]
+transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.78930354, -0.497)
 visible = false
 mesh = ExtResource("4_sweqy")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1jxqw")
 
-[node name="PistolAxe" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.15600002, -0.497)
+[node name="PistolAxe" type="MeshInstance3D" parent="Body/Head/Camera3D"]
+transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.78930354, -0.497)
 visible = false
 mesh = ExtResource("5_2hs0m")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_dw050")
