@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=12 format=3 uid="uid://btqkdw3kspncg"]
 
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_vonw3"]
 [ext_resource type="ArrayMesh" uid="uid://0nrrsqomojey" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/arch.obj" id="3_oi3di"]
+[ext_resource type="ArrayMesh" uid="uid://ctnfadj80ck15" path="res://Assets/kenney_mini-dungeon/Models/OBJ format/stairs.obj" id="4_0b4ue"]
 [ext_resource type="PackedScene" path="res://player.tscn" id="9_i2t4f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vonw3"]
 size = Vector3(4.009018, 0.5007324, 4.002075)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0b4ue"]
+size = Vector3(1, 0.14978027, 0.14816666)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2txt"]
+size = Vector3(1, 0.29745483, 0.15081787)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ainy"]
+size = Vector3(1, 0.44989014, 0.150177)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6hdu"]
+size = Vector3(1, 0.59802246, 0.15188599)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
+size = Vector3(1, 0.7513428, 0.15078735)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2t4f"]
+size = Vector3(0.9995117, 0.8998718, 0.24987793)
 
 [node name="Level" type="Node3D"]
 
@@ -3049,3 +3068,36 @@ skeleton = NodePath("../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.6391035, -0.76912075, 0, 0.088280536, 0.07335701, 0.9933908, -0.7640375, -0.6348795, 0.11478111, 30.372398, 20.501862, 28.665882)
+
+[node name="Stairs" type="Node3D" parent="."]
+
+[node name="Stairs" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.951485, -0.0052695274, 49.904045)
+mesh = ExtResource("4_0b4ue")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stairs/Stairs"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0748291, 0.4251852)
+shape = SubResource("BoxShape3D_0b4ue")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Stairs/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15132576, 0.27528572)
+shape = SubResource("BoxShape3D_f2txt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Stairs/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22506714, 0.12498474)
+shape = SubResource("BoxShape3D_1ainy")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Stairs/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30023193, -0.025039673)
+shape = SubResource("BoxShape3D_n6hdu")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Stairs/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37469482, -0.17555237)
+shape = SubResource("BoxShape3D_km5ld")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Stairs/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, 0.4498468, -0.37506104)
+shape = SubResource("BoxShape3D_i2t4f")
