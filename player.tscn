@@ -44,7 +44,7 @@ bulletScene = ExtResource("5_1jxqw")
 
 [node name="Marker3D" type="Marker3D" parent="Body/Head/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 9.517478, 1.0001394, 0)
+transform = Transform3D(-0.9999999, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.9999999, 0.4289671, -0.37954578, -0.97157574)
 
 [node name="Musketoon" type="MeshInstance3D" parent="Body/Head/Camera3D"]
 transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.78930354, -0.497)
