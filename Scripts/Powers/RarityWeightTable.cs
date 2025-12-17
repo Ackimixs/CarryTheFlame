@@ -1,6 +1,7 @@
 ﻿using Godot;
 using System.Collections.Generic;
 
+[GlobalClass]
 public partial class RarityWeightTable : Resource
 {
     [Export] public float Common = 60f;

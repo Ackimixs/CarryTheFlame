@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://baytdi4lcie5s"]
+
+[ext_resource type="Script" uid="uid://dhx4il6ym0qra" path="res://Scripts/UI/PowerButton.cs" id="1_21fyg"]
+
+[node name="Button" type="Button"]
+offset_right = 59.0
+offset_bottom = 60.0
+text = "test"
+script = ExtResource("1_21fyg")

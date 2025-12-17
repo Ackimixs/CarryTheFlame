@@ -7,11 +7,20 @@ public partial class PowerManager : Node
 {
 	[Export] public Godot.Collections.Array<PowerData> AllPowers;
 	[Export] public RarityWeightTable WeightTable;
+	[Export] public Player Player;
+
+	public static PowerManager Instance { get; private set; }
+
+	private List<PowerData> _activePowers = new();
 
 	public override void _Ready()
 	{
-		/*foreach (var power in AllPowers)
-			GD.Print(power.DisplayName);*/
+		Instance = this;
+
+		foreach (var power in AllPowers)
+		{
+			GD.Print(power.DisplayName);
+		}
 	}
 
 	public List<PowerData> GetRandomPowers(int count)
@@ -52,5 +61,20 @@ public partial class PowerManager : Node
 		if (roll <= acc) return PowerRarity.Elite;
 
 		return PowerRarity.Legendary;
+	}
+
+	public void AddSelectedPower(PowerData power)
+	{
+		_activePowers.Add(power);
+		power.Apply(Player);
+	}
+
+	public void RemovePower(PowerData power)
+	{
+		if (_activePowers.Contains(power))
+		{
+			_activePowers.Remove(power);
+			power.Remove(Player);
+		}
 	}
 }

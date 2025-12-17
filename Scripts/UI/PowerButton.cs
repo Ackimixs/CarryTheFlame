@@ -11,6 +11,16 @@ public partial class PowerButton : Button
         Power = power;
         Text = power.DisplayName;
         Icon = power.Icon;
-        Pressed += () => PowerSelected?.Invoke(Power);
+        Pressed += () =>
+        {
+            GD.Print($"Power Button Pressed: {power.DisplayName}");
+            PowerSelected?.Invoke(Power);
+        };
+    }
+
+    public void _OnPressed()
+    {
+        GD.Print("Pressed");
+        PowerSelected?.Invoke(Power);
     }
 }

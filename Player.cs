@@ -11,6 +11,11 @@ public partial class Player : CharacterBody3D
 	[Export] private float jumpVelocity = 10f;
 	[Export] private float acceleration = 10f;
 	[Export] private float airAcceleration = 2f;
+
+	public bool canDoubleJump = false;
+	private int jumpNb = 0;
+
+	// Paramètres pour les marches
 	[Export] private float maxStepHeight = 0.5f;
 	private float verticalVelocity = 0;
 	private int currentWeaponIndex = 0;
@@ -20,7 +25,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("%Camera3D");
-		Input.MouseMode = Input.MouseModeEnum.Captured;
+		HideCursor();
 
 		// On récupère automatiquement Musketoon, PistolAxe et PistolManager
 		foreach (Node child in camera.GetChildren())
@@ -31,7 +36,7 @@ public partial class Player : CharacterBody3D
 				weapon.Hide(); // Cache toutes les armes au départ
 			}
 		}
-		
+
 		// Affiche la première arme par défaut
 		if (weapons.Count > 0) weapons[currentWeaponIndex].Show();
 	}
@@ -49,9 +54,9 @@ public partial class Player : CharacterBody3D
 		}
 		if (e.IsActionPressed("ui_cancel"))
 		{
-			Input.MouseMode = Input.MouseModeEnum.Visible;
+			ShowCursor();
 		}
-		
+
 		if (weapons.Count > 0)
 		{
 			if (e.IsActionPressed("next_weapon"))
@@ -76,17 +81,25 @@ public partial class Player : CharacterBody3D
 		Vector3 velocity = Velocity;
 
 		float accel = IsOnFloor() ? acceleration : airAcceleration;
-		
+
 		velocity.X = Mathf.Lerp(velocity.X, targetVelocity.X, accel * (float)delta);
 		velocity.Z = Mathf.Lerp(velocity.Z, targetVelocity.Z, accel * (float)delta);
 
 		if (!IsOnFloor())
+		{
 			verticalVelocity -= gravity * (float)delta;
+		}
 		else
+		{
 			verticalVelocity = 0;
+			jumpNb = 0;
+		}
 
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || (canDoubleJump && jumpNb < 2)))
+		{
 			verticalVelocity = jumpVelocity;
+			jumpNb++;
+		}
 
 		velocity.Y = verticalVelocity;
 
@@ -114,7 +127,7 @@ public partial class Player : CharacterBody3D
 			Vector3 stepUpDist = Vector3.Up * maxStepHeight;
 			params3D.From = GlobalTransform;
 			params3D.Motion = stepUpDist;
-			
+
 			if (!PhysicsServer3D.BodyTestMotion(GetRid(), params3D, result))
 			{
 				Transform3D testTransform = GlobalTransform;
@@ -140,14 +153,30 @@ public partial class Player : CharacterBody3D
 			}
 		}
 	}
-	
+
 	private void ChangeWeapon(int direction)
 	{
 		weapons[currentWeaponIndex].Hide(); // Cache l'arme actuelle
-		
+
 		// Calcule le nouvel index et boucle si on dépasse la taille de la liste
 		currentWeaponIndex = (currentWeaponIndex + direction + weapons.Count) % weapons.Count;
-		
+
 		weapons[currentWeaponIndex].Show(); // Affiche la nouvelle arme
+	}
+
+	public void ShowCursor()
+	{
+		Input.MouseMode = Input.MouseModeEnum.Visible;
+	}
+
+	public void HideCursor()
+	{
+		Input.MouseMode = Input.MouseModeEnum.Captured;
+	}
+
+	public void SetSpeed(float newSpeed)
+	{
+		speed = newSpeed;
+		sprintSpeed = newSpeed * 1.5f;
 	}
 }
