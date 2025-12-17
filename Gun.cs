@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Gun : MeshInstance3D
+public partial class Gun : Node3D
 {
 	
 	[Export]
@@ -15,12 +15,11 @@ public partial class Gun : MeshInstance3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-	  if (Input.IsActionJustPressed("shoot"))
-	  {
-		Bullet bullet = bulletScene.Instantiate<Bullet>();
-		marker.AddChild(bullet);
-		bullet.Position = marker.GlobalPosition;
-		bullet.Basis = marker.GlobalBasis;
-	  }
+		if (Input.IsActionJustPressed("shoot"))
+		{
+			Bullet bullet = bulletScene.Instantiate<Bullet>();
+			GetTree().CurrentScene.AddChild(bullet);
+			bullet.GlobalTransform = marker.GlobalTransform;
+		}
 	}
 }

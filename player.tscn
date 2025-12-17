@@ -10,13 +10,13 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pqv"]
-albedo_texture = ExtResource("3_i3pqv")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jxqw"]
 albedo_texture = ExtResource("3_i3pqv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dw050"]
+albedo_texture = ExtResource("3_i3pqv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pqv"]
 albedo_texture = ExtResource("3_i3pqv")
 
 [node name="Player" type="CharacterBody3D"]
@@ -34,18 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64833236, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015028834, 0)
 
-[node name="Pistol" type="MeshInstance3D" parent="Body/Head/Camera3D"]
-transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.42738506, -0.44826496, -0.58669853)
-mesh = ExtResource("2_onrkg")
-skeleton = NodePath("../../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_i3pqv")
-script = ExtResource("4_2hs0m")
-bulletScene = ExtResource("5_1jxqw")
-
-[node name="Marker3D" type="Marker3D" parent="Body/Head/Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(-0.9999999, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.9999999, 0.4289671, -0.37954578, -0.97157574)
-
 [node name="Musketoon" type="MeshInstance3D" parent="Body/Head/Camera3D"]
 transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.33, -0.78930354, -0.497)
 visible = false
@@ -59,3 +47,19 @@ visible = false
 mesh = ExtResource("5_2hs0m")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_dw050")
+
+[node name="PistolManager" type="Node3D" parent="Body/Head/Camera3D"]
+script = ExtResource("4_2hs0m")
+bulletScene = ExtResource("5_1jxqw")
+
+[node name="Pistol" type="MeshInstance3D" parent="Body/Head/Camera3D/PistolManager"]
+transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.41082564, -0.27832702, -0.60187125)
+mesh = ExtResource("2_onrkg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_i3pqv")
+
+[node name="Marker3D" type="Marker3D" parent="Body/Head/Camera3D/PistolManager/Pistol"]
+unique_name_in_owner = true
+transform = Transform3D(3.2783532e-06, 0, 24.999996, 0, 25, 0, -24.999996, 0, 3.2783532e-06, 66.96985, -9.470774, 19.492435)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Head/Camera3D/PistolManager"]

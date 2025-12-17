@@ -17,6 +17,7 @@ speed = 180.0
 maxDistance = 250.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = SubResource("SphereMesh_v7oki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

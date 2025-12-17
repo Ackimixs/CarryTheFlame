@@ -4,7 +4,7 @@ using System;
 public partial class Bullet : Area3D
 {
 	[Export]
-	private float speed = 40f;
+	private float speed = 35f;
 
 	[Export]
 	private float maxDistance = 100f;

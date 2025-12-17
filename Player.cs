@@ -4,7 +4,9 @@ using System;
 public partial class Player : CharacterBody3D
 {
 	[Export] private Vector2 mouseSensitivity = new Vector2(0.1f, 0.1f);
-	[Export] private float speed = 10f;
+	[Export] private float sprintSpeed = 12f;
+	private float currentSpeed;
+	[Export] private float speed = 8f;
 	[Export] private float gravity = 20f;
 	[Export] private float jumpVelocity = 10f;
 	
@@ -42,6 +44,17 @@ public partial class Player : CharacterBody3D
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_back", "move_forward");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, -inputDir.Y)).Normalized();
 
+		// Gestion du Sprint
+		// Assure-toi d'avoir configuré "sprint" dans tes Input Map ou utilise KeyList.Shift
+		if (Input.IsActionPressed("sprint") && inputDir.Y > 0) // On sprint seulement si on avance
+		{
+			currentSpeed = sprintSpeed;
+		}
+		else
+		{
+			currentSpeed = speed;
+		}
+
 		Vector3 velocity = Velocity;
 
 		// Gravité
@@ -54,13 +67,13 @@ public partial class Player : CharacterBody3D
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
 			verticalVelocity = jumpVelocity;
 
-		// Mouvement horizontal
-		Vector3 horizontalVelocity = direction * speed;
+		// Mouvement horizontal (on utilise currentSpeed ici)
+		Vector3 horizontalVelocity = direction * currentSpeed;
 		velocity.X = horizontalVelocity.X;
 		velocity.Z = horizontalVelocity.Z;
 		velocity.Y = verticalVelocity;
 
-		// Application du Step Climb avant le MoveAndSlide
+		// Application du Step Climb
 		if (direction.Length() > 0)
 		{
 			ApplyStepClimb(ref velocity, direction, (float)delta);
