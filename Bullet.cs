@@ -14,11 +14,20 @@ public partial class Bullet : Area3D
 	{
 		Position += Transform.Basis.Z * speed * (float)delta;
 		travelledDistance += speed * (float)delta;
+
+		
 		if (travelledDistance > maxDistance)
 		{
 			QueueFree();
 		}
 	}
 
-
+	private void OnBodyEntered(Node body)
+	{
+		if (body is TargetStatue statue)
+		{
+			statue.OnHit();
+		}
+		QueueFree(); 
+	}
 }
