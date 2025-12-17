@@ -22,3 +22,5 @@ mesh = SubResource("SphereMesh_v7oki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_v8qja")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
