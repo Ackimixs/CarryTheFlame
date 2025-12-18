@@ -4,7 +4,7 @@ using System;
 public partial class PowerButton : Button
 {
     public PowerData Power { get; private set; }
-    public event Action<PowerData> PowerSelected;
+    public event Action<PowerButton> PowerSelected;
 
     public void Setup(PowerData power)
     {
@@ -14,13 +14,7 @@ public partial class PowerButton : Button
         Pressed += () =>
         {
             GD.Print($"Power Button Pressed: {power.DisplayName}");
-            PowerSelected?.Invoke(Power);
+            PowerSelected?.Invoke(this);
         };
-    }
-
-    public void _OnPressed()
-    {
-        GD.Print("Pressed");
-        PowerSelected?.Invoke(Power);
     }
 }

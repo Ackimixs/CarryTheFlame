@@ -185,7 +185,6 @@ data = PackedVector3Array(0.5, 0.14999999, -0.25, 0.5, 0.75, 0.25, 0.5, 0.75, -0
 [node name="Player" parent="." instance=ExtResource("9_i2t4f")]
 transform = Transform3D(0.9197667, 0, -0.39246553, 0, 1, 0, 0.39246553, 0, 0.9197667, 30.679071, 1.159, 62.994728)
 mouseSensitivity = Vector2(0.008, 0.2)
-speed = 8.0
 gravity = 10.0
 jumpVelocity = 4.0
 

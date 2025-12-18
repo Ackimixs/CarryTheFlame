@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b6wexcmxpghyp" path="res://Scripts/UI/ActivePowerUI.cs" id="1_adfkw"]
 
-[node name="ActivePower" type="Control" node_paths=PackedStringArray("PowerNameLabel", "PowerIcon")]
+[node name="Button" type="Button" node_paths=PackedStringArray("PowerNameLabel", "PowerIcon")]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 3
-anchors_preset = 0
+offset_right = 60.0
+offset_bottom = 61.0
+flat = true
 script = ExtResource("1_adfkw")
 PowerNameLabel = NodePath("VBoxContainer/Text")
 PowerIcon = NodePath("VBoxContainer/TextureRect")
@@ -26,3 +27,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 1
+
+[connection signal="pressed" from="." to="." method="_OnPressed"]
