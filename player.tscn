@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://272llceugjpx"]
+[gd_scene load_steps=27 format=3 uid="uid://272llceugjpx"]
 
 [ext_resource type="Script" uid="uid://vjudetqhg3os" path="res://Player.cs" id="1_onrkg"]
 [ext_resource type="ArrayMesh" uid="uid://p4ckxt0l4h7w" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/OBJ/Pistol.obj" id="2_onrkg"]
@@ -33,6 +33,21 @@ _data = {
 &"RESET": SubResource("Animation_1jxqw")
 }
 
+[sub_resource type="Animation" id="Animation_ivps1"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistol:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 3.1415927), Vector3(0, 1.5707964, 6.2831855)]
+}
+
 [sub_resource type="Animation" id="Animation_b26j0"]
 length = 0.5
 tracks/0/type = "value"
@@ -46,21 +61,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.6440265), Vector3(0, 1.5707964, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ivps1"]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 3.1415927), Vector3(0, 1.5707964, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n7ghd"]
@@ -107,8 +107,24 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.6440265), Vector3(0, 1.5707964, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_bwjto"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 3.1415927), Vector3(0, 1.5707964, 6.2831855)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nvl01"]
 _data = {
+&"reload": SubResource("Animation_bwjto"),
 &"shoot": SubResource("Animation_n7ghd")
 }
 
@@ -150,8 +166,24 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.6440265), Vector3(0, 1.5707964, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_606se"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PistolAxe:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 3.1415927), Vector3(0, 1.5707964, 6.2831855)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bwjto"]
 _data = {
+&"reload": SubResource("Animation_606se"),
 &"shoot": SubResource("Animation_urp6f")
 }
 
@@ -159,6 +191,7 @@ _data = {
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="Body" type="Node3D" parent="."]

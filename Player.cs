@@ -145,7 +145,6 @@ public partial class Player : CharacterBody3D
 	{
 		weapons[currentWeaponIndex].Hide(); // Cache l'arme actuelle
 		
-		// Calcule le nouvel index et boucle si on dépasse la taille de la liste
 		currentWeaponIndex = (currentWeaponIndex + direction + weapons.Count) % weapons.Count;
 		
 		weapons[currentWeaponIndex].Show(); // Affiche la nouvelle arme
