@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bog0f1bqgnvna"]
+
+[ext_resource type="PackedScene" uid="uid://desy52piyoxbx" path="res://arrow.tscn" id="1_unfoq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmck7"]
+size = Vector3(0.31318665, 0.0105896, 0.01928711)
+
+[node name="Area3D" type="Area3D"]
+
+[node name="arrow" parent="." instance=ExtResource("1_unfoq")]
+transform = Transform3D(-4.3666404e-08, 0.9989708, 0.045362994, 4.1728523e-08, 0.045363, -0.9989707, -1.0000004, -4.172852e-08, -4.3666393e-08, 0, 0, 0)
+rotation_order = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0031066327, 0, 0.9999952, 0, 1, 0, -0.9999952, 0, -0.0031066327, 0.00049371645, -0.0007370934, -0.026988536)
+shape = SubResource("BoxShape3D_wmck7")
