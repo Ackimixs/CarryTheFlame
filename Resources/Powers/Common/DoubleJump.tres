@@ -9,4 +9,5 @@ Id = "DoubleJump"
 DisplayName = "Double Jump"
 Description = "You can use 2 jump"
 Icon = ExtResource("1_5frow")
+isStackable = true
 metadata/_custom_type_script = "uid://ba2fy81d6ydfl"

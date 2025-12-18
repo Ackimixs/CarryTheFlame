@@ -12,8 +12,8 @@ public partial class Player : CharacterBody3D
 	[Export] private float acceleration = 10f;
 	[Export] private float airAcceleration = 2f;
 
-	public bool canDoubleJump = false;
 	private int jumpNb = 0;
+	private int maxJump = 1;
 
 	// Paramètres pour les marches
 	[Export] private float maxStepHeight = 0.5f;
@@ -95,7 +95,7 @@ public partial class Player : CharacterBody3D
 			jumpNb = 0;
 		}
 
-		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || (canDoubleJump && jumpNb < 2)))
+		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || (jumpNb < maxJump)))
 		{
 			verticalVelocity = jumpVelocity;
 			jumpNb++;
@@ -178,5 +178,15 @@ public partial class Player : CharacterBody3D
 	{
 		speed = newSpeed;
 		sprintSpeed = newSpeed * 1.5f;
+	}
+
+	public void AddJump(int amount)
+	{
+		maxJump += amount;
+	}
+
+	public void RemoveJump(int amount)
+	{
+		maxJump -= amount;
 	}
 }

@@ -8,6 +8,8 @@ public partial class PowerData : Resource
     [Export] public Texture2D Icon;
     [Export] public PowerRarity Rarity;
 
+    [Export] public bool isStackable = false;
+
     public virtual void Apply(Player player)
     {
         GD.Print($"Apply power: {DisplayName}");

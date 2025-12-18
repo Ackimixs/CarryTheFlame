@@ -8,7 +8,7 @@ public partial class DoubleJump : PowerData
     {
         base.Apply(player);
 
-        player.canDoubleJump = true;
+        player.AddJump(1);
         GD.Print($"{DisplayName} applied: Player can now double jump.");
     }
 
@@ -16,7 +16,7 @@ public partial class DoubleJump : PowerData
     {
         base.Remove(player);
 
-        player.canDoubleJump = false;
+        player.RemoveJump(1);
         GD.Print($"{DisplayName} removed: Player can no longer double jump.");
     }
 }

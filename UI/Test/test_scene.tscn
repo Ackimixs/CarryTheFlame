@@ -3025,11 +3025,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012893677, -0.24963379, -0.0014038086)
 shape = SubResource("BoxShape3D_25tdf")
 
-[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player")]
+[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer")]
 unique_name_in_owner = true
 script = ExtResource("5_r61e5")
 PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
 _player = NodePath("../Player")
+_endRoundTimer = NodePath("../EndRoud")
 
 [node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player")]
 unique_name_in_owner = true
@@ -3042,7 +3043,6 @@ Player = NodePath("../Player")
 
 [node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -3060,9 +3060,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="EndRoud" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
+one_shot = true
 
 [connection signal="timeout" from="EndRoud" to="RoundManager" method="_OnFireEndRoundTimeout"]

@@ -66,6 +66,10 @@ public partial class PowerManager : Node
 	public void AddSelectedPower(PowerData power)
 	{
 		_activePowers.Add(power);
+		if (!power.isStackable)
+		{
+			AllPowers.Remove(power);
+		}
 		power.Apply(Player);
 	}
 
@@ -74,6 +78,10 @@ public partial class PowerManager : Node
 		if (_activePowers.Contains(power))
 		{
 			_activePowers.Remove(power);
+			if (!power.isStackable)
+			{
+				AllPowers.Add(power);
+			}
 			power.Remove(Player);
 		}
 	}
