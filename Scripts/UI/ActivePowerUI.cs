@@ -1,17 +1,24 @@
 using Godot;
 using System;
 
-public partial class ActivePowerUI : Control
+public partial class ActivePowerUI : Button
 {
-    private PowerData power;
+    public PowerData Power { get; private set; }
 
     [Export] public Label PowerNameLabel;
     [Export] public TextureRect PowerIcon;
 
+    public event Action<ActivePowerUI> PowerSelected;
+
     public void Setup(PowerData powerData)
     {
-        power = powerData;
-        PowerNameLabel.Text = power.DisplayName;
-        PowerIcon.Texture = power.Icon;
+        Power = powerData;
+        PowerNameLabel.Text = Power.DisplayName;
+        PowerIcon.Texture = Power.Icon;
+        Pressed += () =>
+        {
+            GD.Print($"Power Button Pressed: {Power.DisplayName}");
+            PowerSelected?.Invoke(this);
+        };
     }
 }

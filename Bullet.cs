@@ -28,6 +28,11 @@ public partial class Bullet : Area3D
 		{
 			statue.OnHit();
 		}
+		if (body is Minion mob)
+		{
+			mob.TakeDamage();
+		}
+		
 		QueueFree(); 
 	}
 }
