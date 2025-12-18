@@ -8,8 +8,15 @@ public partial class PowerData : Resource
     [Export] public Texture2D Icon;
     [Export] public PowerRarity Rarity;
 
-    public virtual void Apply(Node player)
+    [Export] public bool isStackable = false;
+
+    public virtual void Apply(Player player)
     {
         GD.Print($"Apply power: {DisplayName}");
+    }
+
+    public virtual void Remove(Player player)
+    {
+        GD.Print($"Remove power: {DisplayName}");
     }
 }

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhqa75ni4jg17"]
+
+[ext_resource type="Script" uid="uid://el8uylbjylf0" path="res://Scripts/UI/PowerChoiceUI.cs" id="1_bv87k"]
+[ext_resource type="PackedScene" uid="uid://djmemkp5hr610" path="res://UI/PowerChoice/PowerButtonScene.tscn" id="2_8vhx2"]
+
+[node name="PowerChoice" type="Node2D"]
+
+[node name="PowerChoiceUI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bv87k")
+PowerButtonScene = ExtResource("2_8vhx2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PowerChoiceUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

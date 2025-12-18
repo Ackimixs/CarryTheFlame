@@ -4,19 +4,26 @@ using System;
 public partial class PowerChoiceUI : Control
 {
 	[Export] public PackedScene PowerButtonScene;
-	[Export] public NodePath PowerManagerPath;
+	[Export] public PackedScene ActivePowerScene;
+	[Export] public RoundManager RoundManager;
+	[Export] public HBoxContainer NewPowerContainer;
+	[Export] public HBoxContainer ActivePowerContainer;
 
 	private PowerManager _powerManager;
 
 	public override void _Ready()
 	{
-		_powerManager = GetNode<PowerManager>(PowerManagerPath);
+		_powerManager = GetNode<PowerManager>("%PowerManager");
 		Generate();
 	}
 
-	private void Generate()
+	public void Generate()
 	{
-		var container = GetNode<HBoxContainer>("HBoxContainer");
+		foreach (Node child in NewPowerContainer.GetChildren())
+		{
+			child.QueueFree();
+		}
+
 		var powers = _powerManager.GetRandomPowers(3);
 
 		foreach (var power in powers)
@@ -24,7 +31,7 @@ public partial class PowerChoiceUI : Control
 			var btn = PowerButtonScene.Instantiate<PowerButton>();
 			btn.Setup(power);
 			btn.PowerSelected += OnPowerSelected;
-			container.AddChild(btn);
+			NewPowerContainer.AddChild(btn);
 		}
 	}
 
@@ -32,5 +39,11 @@ public partial class PowerChoiceUI : Control
 	{
 		GD.Print($"Chosen: {power.DisplayName}");
 		Hide();
+		_powerManager.AddSelectedPower(power);
+		RoundManager.PowerChosen();
+
+		var activePowerUi = ActivePowerScene.Instantiate<ActivePowerUI>();
+		activePowerUi.Setup(power);
+		ActivePowerContainer.AddChild(activePowerUi);
 	}
 }

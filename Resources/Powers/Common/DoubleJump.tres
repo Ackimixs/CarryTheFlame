@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DoubleJump" load_steps=3 format=3 uid="uid://du88jvo4vfx3p"]
+
+[ext_resource type="Texture2D" uid="uid://wsmum7afda2f" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/chess_rook.png" id="1_5frow"]
+[ext_resource type="Script" uid="uid://ba2fy81d6ydfl" path="res://Scripts/Powers/Common/DoubleJump.cs" id="1_wmr3x"]
+
+[resource]
+script = ExtResource("1_wmr3x")
+Id = "DoubleJump"
+DisplayName = "+1 Jump"
+Description = "You can use an other jump"
+Icon = ExtResource("1_5frow")
+isStackable = true
+metadata/_custom_type_script = "uid://ba2fy81d6ydfl"

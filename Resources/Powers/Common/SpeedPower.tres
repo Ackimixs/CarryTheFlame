@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpeedPower" load_steps=3 format=3 uid="uid://c02uq3l5d5fdq"]
+
+[ext_resource type="Texture2D" uid="uid://i08sw3x0ygvj" path="res://Assets/kenney_board-game-icons/PNG/Double (128px)/tag_shield_4.png" id="1_daisg"]
+[ext_resource type="Script" uid="uid://b4xlf4tqkwpgf" path="res://Scripts/Powers/Common/SpeedPower.cs" id="1_nbevl"]
+
+[resource]
+script = ExtResource("1_nbevl")
+Id = "speed"
+DisplayName = "Speed"
+Description = "Grant you more speed"
+Icon = ExtResource("1_daisg")
+metadata/_custom_type_script = "uid://b4xlf4tqkwpgf"
