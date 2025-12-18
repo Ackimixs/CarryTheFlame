@@ -3042,7 +3042,7 @@ Player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager", "NewPowerContainer", "ActivePowerContainer")]
+[node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager", "NewPowerContainer", "ActivePowerContainer", "HaveToChangePowerLabel")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -3056,6 +3056,7 @@ ActivePowerScene = ExtResource("13_guuv3")
 RoundManager = NodePath("../../RoundManager")
 NewPowerContainer = NodePath("NewPowerContainer")
 ActivePowerContainer = NodePath("ActivePowerContainer")
+HaveToChangePowerLabel = NodePath("ReplaceError")
 
 [node name="Label" type="Label" parent="CanvasLayer/PowerChoiceUI"]
 layout_mode = 0
@@ -3098,8 +3099,18 @@ offset_right = 919.0
 offset_bottom = 627.0
 alignment = 1
 
+[node name="ReplaceError" type="Label" parent="CanvasLayer/PowerChoiceUI"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 615.0
+offset_right = 767.0
+offset_bottom = 652.0
+theme_override_colors/font_color = Color(1, 0.12156863, 0.13333334, 1)
+text = "Vous devez choisir un pouvoir à remplacé"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="EndRoud" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="EndRoud" to="RoundManager" method="_OnFireEndRoundTimeout"]

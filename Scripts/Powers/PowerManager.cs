@@ -12,6 +12,7 @@ public partial class PowerManager : Node
 	public static PowerManager Instance { get; private set; }
 
 	private List<PowerData> _activePowers = new();
+	public int MaxActivePowers = 3;
 
 	public override void _Ready()
 	{
@@ -63,8 +64,14 @@ public partial class PowerManager : Node
 		return PowerRarity.Legendary;
 	}
 
-	public void AddSelectedPower(PowerData power)
+	public bool AddSelectedPower(PowerData power)
 	{
+		if (_activePowers.Count >= MaxActivePowers)
+		{
+			GD.Print("Cannot add more powers, max reached.");
+			return false;
+		}
+
 		_activePowers.Add(power);
 		GD.Print("Active Powers: " + _activePowers.Count);
 		if (!power.isStackable)
@@ -72,6 +79,8 @@ public partial class PowerManager : Node
 			AllPowers.Remove(power);
 		}
 		power.Apply(Player);
+
+		return true;
 	}
 
 	public void RemovePower(PowerData power)
@@ -85,5 +94,11 @@ public partial class PowerManager : Node
 			}
 			power.Remove(Player);
 		}
+	}
+
+	public void ReplacePower(PowerData oldPower, PowerData newPower)
+	{
+		RemovePower(oldPower);
+		AddSelectedPower(newPower);
 	}
 }
