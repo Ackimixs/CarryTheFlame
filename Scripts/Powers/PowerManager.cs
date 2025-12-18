@@ -66,6 +66,7 @@ public partial class PowerManager : Node
 	public void AddSelectedPower(PowerData power)
 	{
 		_activePowers.Add(power);
+		GD.Print("Active Powers: " + _activePowers.Count);
 		if (!power.isStackable)
 		{
 			AllPowers.Remove(power);

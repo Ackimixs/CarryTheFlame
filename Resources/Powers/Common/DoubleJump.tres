@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_wmr3x")
 Id = "DoubleJump"
-DisplayName = "Double Jump"
-Description = "You can use 2 jump"
+DisplayName = "+1 Jump"
+Description = "You can use an other jump"
 Icon = ExtResource("1_5frow")
 isStackable = true
 metadata/_custom_type_script = "uid://ba2fy81d6ydfl"

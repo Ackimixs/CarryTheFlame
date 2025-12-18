@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=17 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://duw8hug3n1wi1" path="res://Resources/Powers/Common/HealthPower.tres" id="8_guuv3"]
 [ext_resource type="Resource" uid="uid://c02uq3l5d5fdq" path="res://Resources/Powers/Common/SpeedPower.tres" id="9_8uxng"]
 [ext_resource type="PackedScene" uid="uid://baytdi4lcie5s" path="res://UI/PowerChoice/PowerButton.tscn" id="9_124mh"]
+[ext_resource type="PackedScene" uid="uid://dor7vu7pvl81k" path="res://UI/PowerChoice/ActivePower.tscn" id="13_guuv3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25tdf"]
 size = Vector3(4.009018, 0.5007324, 4.002075)
@@ -3041,7 +3042,7 @@ Player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager")]
+[node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager", "NewPowerContainer", "ActivePowerContainer")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -3051,15 +3052,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_a6dix")
 PowerButtonScene = ExtResource("9_124mh")
+ActivePowerScene = ExtResource("13_guuv3")
 RoundManager = NodePath("../../RoundManager")
+NewPowerContainer = NodePath("NewPowerContainer")
+ActivePowerContainer = NodePath("ActivePowerContainer")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI"]
+[node name="Label" type="Label" parent="CanvasLayer/PowerChoiceUI"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 98.0
+offset_right = 761.0
+offset_bottom = 121.0
+text = "Choose your new POWER !!!!!!!!!!!!!!!!!!!!!!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewPowerContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 286.0
+offset_top = 136.0
+offset_right = -225.0
+offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/PowerChoiceUI"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 466.0
+offset_right = 777.0
+offset_bottom = 530.0
+text = "Active Power :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActivePowerContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 536.0
+offset_right = 919.0
+offset_bottom = 627.0
 alignment = 1
 
 [node name="EndRoud" type="Timer" parent="."]
