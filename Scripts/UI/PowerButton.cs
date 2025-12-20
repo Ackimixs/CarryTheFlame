@@ -8,6 +8,7 @@ public partial class PowerButton : Button
     [Export] public Label PowerNameLabel;
     [Export] public Label PowerDescriptionLabel;
     [Export] public TextureRect PowerIcon;
+    [Export] public NinePatchRect PowerBackground;
 
     public event Action<PowerButton> PowerSelected;
 
@@ -17,8 +18,7 @@ public partial class PowerButton : Button
         PowerNameLabel.Text = Power.DisplayName;
         PowerDescriptionLabel.Text = Power.Description;
         PowerIcon.Texture = Power.Icon;
-        PowerIcon.ExpandMode = TextureRect.ExpandModeEnum.KeepSize;
-        PowerIcon.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+        PowerBackground.SelfModulate = PowerData.RarityToColor(Power.Rarity);
         Pressed += () =>
         {
             PowerSelected?.Invoke(this);

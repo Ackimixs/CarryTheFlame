@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=31 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b4qitqp0mi7b5" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-001.png" id="16_4x35l"]
 [ext_resource type="Texture2D" uid="uid://cbf0dbkd8vw8k" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-028.png" id="17_1mmbb"]
 [ext_resource type="Texture2D" uid="uid://dr6q7xv7eawbw" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-005.png" id="17_lrpgy"]
+[ext_resource type="Texture2D" uid="uid://b15ki7mejmd4c" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-029.png" id="19_pa1lq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4t2s2"]
 vertices = PackedVector3Array(-3.5111594, 0.5, 29.935114, 12.48884, 0.5, 29.935114, 12.48884, 0.5, 28.435114, 14.48884, 0.5, 27.935114, 14.48884, 0.5, -3.5648866, -3.5111594, 0.5, -3.5648866, 15.48884, 0.5, 28.685114, 15.48884, 0.5, 31.185114, 32.488842, 0.5, 32.685112, 32.988842, 0.5, 31.935114, 33.988842, 0.5, 31.935114, 33.988842, 0.5, -3.5648866, 35.488842, 0.5, 32.685112, 35.488842, 0.5, 33.935112, 63.488842, 0.5, 33.935112, 34.738842, 0.5, 31.935114, 63.488842, 0.5, -3.5648866, 13.48884, -1, 30.685114, 14.48884, -1, 30.685114, 14.48884, -1, 29.185114, 13.48884, -0.5, 28.935114, 12.48884, 0.5, 31.435114, 14.23884, 0.5, 31.935114, -3.5111594, 0.5, 59.435112, 14.23884, 0.5, 59.435112, 32.488842, 0.5, 35.185112, 14.98884, 0.5, 31.935114, 27.73884, 0.5, 59.435112, 33.488842, -1, 34.685112, 34.488842, -1, 34.685112, 34.488842, -1, 33.185112, 33.488842, -0.5, 32.935112, 35.488842, 0.5, 35.435112, 33.988842, 0.5, 35.935112, 33.988842, 0.5, 59.435112, 63.488842, 0.5, 59.435112, 28.23884, 0.5, 59.685112, 28.23884, 0.5, 61.435112, 31.48884, 0.5, 61.435112, 31.73884, 0.5, 59.435112, 32.738842, 0.5, 35.685112, 28.23884, 0.5, 71.43511, 31.48884, 0.5, 71.43511)
@@ -44,26 +45,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("..:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("..:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4t2s2"]
@@ -72,26 +73,26 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("..:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.0333333, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jkdn7"]
@@ -3143,7 +3144,7 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012893677, -0.24963379, -0.0014038086)
 shape = SubResource("BoxShape3D_25tdf")
 
-[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayer", "_roundEndLabel", "_backgroundRect", "_mobSpawners")]
+[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayer", "_roundEndLabel", "_roundEndControl", "_backgroundRect", "_mobSpawners")]
 unique_name_in_owner = true
 script = ExtResource("5_r61e5")
 PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
@@ -3151,8 +3152,9 @@ _player = NodePath("../Player")
 _endRoundTimer = NodePath("../EndRoud")
 _teleportPoint = NodePath("../Marker3D")
 _timerLabel = NodePath("../CanvasLayer/PowerChoiceUI/NinePatchRect3/TimerRemaining")
-_animationPlayer = NodePath("../CanvasLayer/EndRound/AnimationPlayer")
-_roundEndLabel = NodePath("../CanvasLayer/EndRound")
+_animationPlayer = NodePath("../CanvasLayer/EndRoundRect/AnimationPlayer")
+_roundEndLabel = NodePath("../CanvasLayer/EndRoundRect/EndRound")
+_roundEndControl = NodePath("../CanvasLayer/EndRoundRect")
 _backgroundRect = NodePath("../CanvasLayer/ColorRect")
 _mobSpawners = [NodePath("../MobSpawner"), NodePath("../MobSpawner2"), NodePath("../MobSpawner3")]
 
@@ -3320,7 +3322,7 @@ offset_top = 104.0
 offset_right = 188.0
 offset_bottom = 168.0
 grow_horizontal = 2
-text = "Active Power :"
+text = "Pouvoir Actif :"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -3355,7 +3357,7 @@ offset_right = -19.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="ActivePower1" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2/NinePatchRect/ActivePowerContainer" instance=ExtResource("13_guuv3")]
@@ -3410,26 +3412,41 @@ text = "00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EndRound" type="Label" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
+[node name="EndRoundRect" type="NinePatchRect" parent="CanvasLayer"]
+self_modulate = Color(0.06469653, 0.06469653, 0.06469653, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -222.5
-offset_top = -50.75
-offset_right = 222.5
-offset_bottom = 50.75
+offset_left = -462.0
+offset_top = -128.25
+offset_right = 462.0
+offset_bottom = 128.25
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 0.1254902, 1)
+texture = ExtResource("19_pa1lq")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="EndRound" type="Label" parent="CanvasLayer/EndRoundRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5255283, 0, 0.04406973, 1)
 theme_override_font_sizes/font_size = 40
 text = "END ROUND"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/EndRound"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/EndRoundRect"]
+root_node = NodePath("../EndRound")
 libraries = {
 &"": SubResource("AnimationLibrary_jkdn7")
 }

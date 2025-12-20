@@ -9,4 +9,5 @@ Id = "health"
 DisplayName = "Health"
 Description = "Grant you more health"
 Icon = ExtResource("1_shepk")
+Rarity = 3
 metadata/_custom_type_script = "uid://dt8qii31d7k2r"

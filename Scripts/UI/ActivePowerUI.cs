@@ -7,6 +7,7 @@ public partial class ActivePowerUI : Button
 
     [Export] public Label PowerNameLabel;
     [Export] public TextureRect PowerIcon;
+    [Export] public NinePatchRect PowerBackground;
 
     public event Action<ActivePowerUI> PowerSelected;
 
@@ -15,6 +16,7 @@ public partial class ActivePowerUI : Button
         Power = power;
         PowerNameLabel.Text = Power.DisplayName;
         PowerIcon.Texture = Power.Icon;
+        PowerBackground.SelfModulate = PowerData.RarityToColor(Power.Rarity);
         Pressed += () =>
         {
             PowerSelected?.Invoke(this);

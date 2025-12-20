@@ -19,4 +19,16 @@ public partial class PowerData : Resource
     {
         GD.Print($"Remove power: {DisplayName}");
     }
+
+    public static Color RarityToColor(PowerRarity rarity)
+    {
+        return rarity switch
+        {
+            PowerRarity.Common => Colors.DarkGreen,
+            PowerRarity.Rare => Colors.Blue,
+            PowerRarity.Elite => Colors.Purple,
+            PowerRarity.Legendary => Colors.Orange,
+            _ => Colors.DarkGreen,
+        };
+    }
 }

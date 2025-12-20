@@ -20,6 +20,7 @@ public partial class RoundManager : Node
 
 	[Export] private AnimationPlayer _animationPlayer;
 	[Export] private Label _roundEndLabel;
+	[Export] private Control _roundEndControl;
 
 	[Export] private ColorRect _backgroundRect;
 
@@ -34,6 +35,7 @@ public partial class RoundManager : Node
 	public override void _Ready()
 	{
 		StartRound();
+		_roundEndControl.SetVisible(false);
 	}
 
 	public override void _Process(double delta)

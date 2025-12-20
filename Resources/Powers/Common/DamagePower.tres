@@ -9,4 +9,5 @@ Id = "damage"
 DisplayName = "Damage"
 Description = "Grant you more damage"
 Icon = ExtResource("1_rgdnw")
+Rarity = 1
 metadata/_custom_type_script = "uid://catruxrc3bmng"

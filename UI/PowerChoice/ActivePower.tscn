@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wsmum7afda2f" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/chess_rook.png" id="2_gc3rq"]
 [ext_resource type="Texture2D" uid="uid://b4qitqp0mi7b5" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-001.png" id="2_radv8"]
 
-[node name="Button" type="Button" node_paths=PackedStringArray("PowerNameLabel", "PowerIcon")]
+[node name="Button" type="Button" node_paths=PackedStringArray("PowerNameLabel", "PowerIcon", "PowerBackground")]
 custom_minimum_size = Vector2(128, 128)
 offset_right = 60.0
 offset_bottom = 61.0
@@ -12,6 +12,7 @@ flat = true
 script = ExtResource("1_adfkw")
 PowerNameLabel = NodePath("NinePatchRect/VBoxContainer/Text")
 PowerIcon = NodePath("NinePatchRect/VBoxContainer/TextureRect")
+PowerBackground = NodePath("NinePatchRect")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 self_modulate = Color(0.06053035, 0.06053035, 0.060530342, 1)
