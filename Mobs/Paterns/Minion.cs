@@ -12,14 +12,22 @@ public partial class Minion : CharacterBody3D
 	private Player player;
 	private State CurrentState;
 
+	[Export] private float DetectionRange = 20.0f;
+
+	[Signal] public delegate void OnKilledEventHandler(Minion minion);
+
+	private bool _everSeenPlayer = false;
+
 	public override void _Ready()
 	{
 		animationTree = GetNode<AnimationTree>("%AnimationTree");
 		navigationAgent = GetNode<NavigationAgent3D>("%NavigationAgent3D");
-		player = GetNode<Player>("%Player");
+		player = GetTree().GetFirstNodeInGroup("Player") as Player;
+		if (player == null)
+		{
+			GD.PrintErr("Erreur : Joueur non trouvé dans le groupe 'Player' !");
+		}
 		CurrentState = State.Idle;
-		SetPhysicsProcess(false);
-		NavigationServer3D.MapChanged += (_) => SetPhysicsProcess(true);
 	}
 
 	public void TakeDamage()
@@ -34,6 +42,7 @@ public partial class Minion : CharacterBody3D
 
 		if (Health == 0)
 		{
+			EmitSignal(SignalName.OnKilled, this);
 			QueueFree();
 		}
 	}
@@ -52,6 +61,19 @@ public partial class Minion : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!_everSeenPlayer)
+		{
+			float distanceToPlayer = GlobalPosition.DistanceTo(player.GlobalPosition);
+			if (distanceToPlayer <= DetectionRange && IsPlayerInNavigationRegion())
+			{
+				_everSeenPlayer = true;
+			}
+			else
+			{
+				return;
+			}
+		}
+
 		switch (CurrentState)
 		{
 			case State.Idle:
@@ -61,11 +83,14 @@ public partial class Minion : CharacterBody3D
 				}
 				break;
 			case State.LookingForPlayer:
-				// We will code the LookForPlayer function later
-				LookForPlayer();
 				if (!IsPlayerInNavigationRegion())
 				{
 					CurrentState = State.Idle;
+					Velocity = Vector3.Zero;
+				}
+				else
+				{
+					LookForPlayer();
 				}
 				break;
 		}
@@ -73,9 +98,18 @@ public partial class Minion : CharacterBody3D
 	
 	private void LookForPlayer()
 	{
-		Vector3 direction = GlobalPosition.DirectionTo(navigationAgent.GetNextPathPosition());
-		Vector3 playerDirection = GlobalPosition.DirectionTo(player.Position);
-		RotateY(Basis.Z.SignedAngleTo(playerDirection, Vector3.Up));
+		navigationAgent.TargetPosition = player.GlobalPosition;
+
+		Vector3 nextPathPos = navigationAgent.GetNextPathPosition();
+		Vector3 direction = GlobalPosition.DirectionTo(nextPathPos);
+
+		Vector3 playerDirection = GlobalPosition.DirectionTo(player.GlobalPosition);
+		playerDirection.Y = 0;
+
+		if (playerDirection.Length() > 0.1f)
+		{
+			LookAt(GlobalPosition - playerDirection, Vector3.Up);
+		}
 
 		Velocity = direction * speed;
 		MoveAndSlide();

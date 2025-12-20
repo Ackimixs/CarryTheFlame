@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhqa75ni4jg17"]
+[gd_scene load_steps=3 format=3 uid="uid://b563jhawcfdt6"]
 
 [ext_resource type="Script" uid="uid://el8uylbjylf0" path="res://Scripts/UI/PowerChoiceUI.cs" id="1_bv87k"]
 [ext_resource type="PackedScene" uid="uid://djmemkp5hr610" path="res://UI/PowerChoice/PowerButtonScene.tscn" id="2_8vhx2"]

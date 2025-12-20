@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://boj8kfnvx4eqb"]
 
-[ext_resource type="Texture2D" uid="uid://40frmpjc8hei" path="res://Mobs/Characters/Skeleton_Mage_skeleton_texture.png" id="1_80k2b"]
+[ext_resource type="Texture2D" uid="uid://kkdu74s6qnon" path="res://Mobs/Characters/Skeleton_Minion_skeleton_texture.png" id="1_80k2b"]
 
 [resource]
 resource_name = "skeleton"

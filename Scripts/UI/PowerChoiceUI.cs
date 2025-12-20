@@ -9,6 +9,7 @@ public partial class PowerChoiceUI : Control
 	[Export] public HBoxContainer NewPowerContainer;
 	[Export] public HBoxContainer ActivePowerContainer;
 	[Export] public Label HaveToChangePowerLabel;
+	[Export] public Button SkipButton;
 
 	private PowerManager _powerManager;
 	private PowerButton selectedPowerButton;
@@ -18,6 +19,7 @@ public partial class PowerChoiceUI : Control
 		_powerManager = GetNode<PowerManager>("%PowerManager");
 		Generate();
 		HaveToChangePowerLabel.Visible = false;
+		SkipButton.SetVisible(false);
 	}
 
 	public void Generate()
@@ -81,5 +83,11 @@ public partial class PowerChoiceUI : Control
 			selectedPowerButton = null;
 			HaveToChangePowerLabel.Visible = false;
 		}
+	}
+
+	private void _OnSkipButtonPressed()
+	{
+		RoundManager.PowerChosen();
+		Hide();
 	}
 }
