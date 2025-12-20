@@ -1,31 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://dor7vu7pvl81k"]
+[gd_scene load_steps=4 format=3 uid="uid://dor7vu7pvl81k"]
 
-[ext_resource type="Script" uid="uid://b6wexcmxpghyp" path="res://Scripts/UI/ActivePowerUI.cs" id="1_adfkw"]
+[ext_resource type="Script" uid="uid://blex55glcblsn" path="res://Scripts/UI/ActivePowerUI.cs" id="1_adfkw"]
+[ext_resource type="Texture2D" uid="uid://wsmum7afda2f" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/chess_rook.png" id="2_gc3rq"]
+[ext_resource type="Texture2D" uid="uid://b4qitqp0mi7b5" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-001.png" id="2_radv8"]
 
 [node name="Button" type="Button" node_paths=PackedStringArray("PowerNameLabel", "PowerIcon")]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(128, 128)
 offset_right = 60.0
 offset_bottom = 61.0
 flat = true
 script = ExtResource("1_adfkw")
-PowerNameLabel = NodePath("VBoxContainer/Text")
-PowerIcon = NodePath("VBoxContainer/TextureRect")
+PowerNameLabel = NodePath("NinePatchRect/VBoxContainer/Text")
+PowerIcon = NodePath("NinePatchRect/VBoxContainer/TextureRect")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(0.06053035, 0.06053035, 0.060530342, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_radv8")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
 
-[node name="Text" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Text" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = ExtResource("2_gc3rq")
 expand_mode = 1
 
 [connection signal="pressed" from="." to="." method="_OnPressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=30 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
@@ -15,7 +15,11 @@
 [ext_resource type="Shader" uid="uid://dk0b02qjv72tj" path="res://UI/Test/blur.gdshader" id="11_jkdn7"]
 [ext_resource type="PackedScene" uid="uid://dor7vu7pvl81k" path="res://UI/PowerChoice/ActivePower.tscn" id="13_guuv3"]
 [ext_resource type="Script" uid="uid://cjo2n6kclv0g3" path="res://Mobs/Spawner/MobSpawner.cs" id="14_4t2s2"]
+[ext_resource type="Texture2D" uid="uid://dwdqop5jtd0rg" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-004.png" id="15_4x35l"]
 [ext_resource type="PackedScene" uid="uid://du0ky6dvvvet3" path="res://Mobs/Scenes/skeleton_minion.tscn" id="15_jkdn7"]
+[ext_resource type="Texture2D" uid="uid://b4qitqp0mi7b5" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-001.png" id="16_4x35l"]
+[ext_resource type="Texture2D" uid="uid://cbf0dbkd8vw8k" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-028.png" id="17_1mmbb"]
+[ext_resource type="Texture2D" uid="uid://dr6q7xv7eawbw" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-005.png" id="17_lrpgy"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4t2s2"]
 vertices = PackedVector3Array(-3.5111594, 0.5, 29.935114, 12.48884, 0.5, 29.935114, 12.48884, 0.5, 28.435114, 14.48884, 0.5, 27.935114, 14.48884, 0.5, -3.5648866, -3.5111594, 0.5, -3.5648866, 15.48884, 0.5, 28.685114, 15.48884, 0.5, 31.185114, 32.488842, 0.5, 32.685112, 32.988842, 0.5, 31.935114, 33.988842, 0.5, 31.935114, 33.988842, 0.5, -3.5648866, 35.488842, 0.5, 32.685112, 35.488842, 0.5, 33.935112, 63.488842, 0.5, 33.935112, 34.738842, 0.5, 31.935114, 63.488842, 0.5, -3.5648866, 13.48884, -1, 30.685114, 14.48884, -1, 30.685114, 14.48884, -1, 29.185114, 13.48884, -0.5, 28.935114, 12.48884, 0.5, 31.435114, 14.23884, 0.5, 31.935114, -3.5111594, 0.5, 59.435112, 14.23884, 0.5, 59.435112, 32.488842, 0.5, 35.185112, 14.98884, 0.5, 31.935114, 27.73884, 0.5, 59.435112, 33.488842, -1, 34.685112, 34.488842, -1, 34.685112, 34.488842, -1, 33.185112, 33.488842, -0.5, 32.935112, 35.488842, 0.5, 35.435112, 33.988842, 0.5, 35.935112, 33.988842, 0.5, 59.435112, 63.488842, 0.5, 59.435112, 28.23884, 0.5, 59.685112, 28.23884, 0.5, 61.435112, 31.48884, 0.5, 61.435112, 31.73884, 0.5, 59.435112, 32.738842, 0.5, 35.685112, 28.23884, 0.5, 71.43511, 31.48884, 0.5, 71.43511)
@@ -35,9 +39,8 @@ data = PackedVector3Array(1.3406, 0.03, -1.1007, 1.3597, 0.03, -1.2997999, 1.539
 shader = ExtResource("11_jkdn7")
 shader_parameter/lod = 2.0
 
-[sub_resource type="Animation" id="Animation_4t2s2"]
-resource_name = "TransitionRound"
-length = 5.0
+[sub_resource type="Animation" id="Animation_jkdn7"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,10 +48,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.0333333, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -63,8 +66,9 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_jkdn7"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_4t2s2"]
+resource_name = "TransitionRound"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -72,10 +76,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 4.0333333, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -3146,7 +3150,7 @@ PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
 _player = NodePath("../Player")
 _endRoundTimer = NodePath("../EndRoud")
 _teleportPoint = NodePath("../Marker3D")
-_timerLabel = NodePath("../CanvasLayer/TimerRemaining")
+_timerLabel = NodePath("../CanvasLayer/PowerChoiceUI/NinePatchRect3/TimerRemaining")
 _animationPlayer = NodePath("../CanvasLayer/EndRound/AnimationPlayer")
 _roundEndLabel = NodePath("../CanvasLayer/EndRound")
 _backgroundRect = NodePath("../CanvasLayer/ColorRect")
@@ -3169,7 +3173,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager", "NewPowerContainer", "ActivePowerContainer", "HaveToChangePowerLabel")]
+[node name="PowerChoiceUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("RoundManager", "NewPowerContainer", "ActivePowerContainer", "HaveToChangePowerLabel", "SkipButton")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -3181,91 +3185,192 @@ script = ExtResource("4_a6dix")
 PowerButtonScene = ExtResource("9_124mh")
 ActivePowerScene = ExtResource("13_guuv3")
 RoundManager = NodePath("../../RoundManager")
-NewPowerContainer = NodePath("NewPowerContainer")
-ActivePowerContainer = NodePath("ActivePowerContainer")
-HaveToChangePowerLabel = NodePath("ReplaceError")
+NewPowerContainer = NodePath("NinePatchRect/NewPowerContainer")
+ActivePowerContainer = NodePath("NinePatchRect2/NinePatchRect/ActivePowerContainer")
+HaveToChangePowerLabel = NodePath("NinePatchRect2/ReplaceError")
+SkipButton = NodePath("NinePatchRect2/SkipButton")
 
-[node name="Label" type="Label" parent="CanvasLayer/PowerChoiceUI"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = -516.5
+offset_right = 443.0
+offset_bottom = -27.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_4x35l")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI/NinePatchRect"]
+self_modulate = Color(0.011437288, 0.023937687, 0.06467753, 0.62352943)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -154.5
-offset_top = 72.0
-offset_right = 154.5
-offset_bottom = 95.0
+offset_left = -181.5
+offset_top = 41.0
+offset_right = 182.0
+offset_bottom = 135.0
 grow_horizontal = 2
-text = "Choose your new POWER !!!!!!!!!!!!!!!!!!!!!!!!!"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("15_4x35l")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
 
-[node name="NewPowerContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI"]
+[node name="Label" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect/NinePatchRect2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 502.0
-offset_top = 132.0
-offset_right = -502.0
-offset_bottom = -365.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Choissisez votre prochain pouvoir"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewPowerContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 187.0
+offset_right = -20.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="SkipButton" type="Button" parent="CanvasLayer/PowerChoiceUI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -129.5
-offset_top = -339.0
-offset_right = 129.5
-offset_bottom = -264.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Skip"
+[node name="Button" parent="CanvasLayer/PowerChoiceUI/NinePatchRect/NewPowerContainer" instance=ExtResource("9_124mh")]
+layout_mode = 2
 
-[node name="Label2" type="Label" parent="CanvasLayer/PowerChoiceUI"]
+[node name="Button2" parent="CanvasLayer/PowerChoiceUI/NinePatchRect/NewPowerContainer" instance=ExtResource("9_124mh")]
+layout_mode = 2
+
+[node name="Button3" parent="CanvasLayer/PowerChoiceUI/NinePatchRect/NewPowerContainer" instance=ExtResource("9_124mh")]
+layout_mode = 2
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI"]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -188.0
-offset_top = -243.0
-offset_right = 188.0
-offset_bottom = -179.0
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = 73.0
+offset_right = 534.0
+offset_bottom = 469.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+texture = ExtResource("16_4x35l")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="SkipButton" type="Button" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.5
+offset_top = 32.0
+offset_right = 129.5
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Skip"
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2/SkipButton"]
+self_modulate = Color(0.015686275, 0.050980393, 0.06666667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_1mmbb")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label2" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -188.0
+offset_top = 104.0
+offset_right = 188.0
+offset_bottom = 168.0
+grow_horizontal = 2
 text = "Active Power :"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActivePowerContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2"]
+self_modulate = Color(0.011764706, 0.023529412, 0.0627451, 0.62352943)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -322.0
-offset_top = -155.0
-offset_right = 322.0
-offset_bottom = -64.0
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -41.0
+offset_right = 471.0
+offset_bottom = 141.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+texture = ExtResource("16_4x35l")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="ActivePowerContainer" type="HBoxContainer" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.5
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
 alignment = 1
 
-[node name="ReplaceError" type="Label" parent="CanvasLayer/PowerChoiceUI"]
+[node name="ActivePower1" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2/NinePatchRect/ActivePowerContainer" instance=ExtResource("13_guuv3")]
+layout_mode = 2
+
+[node name="ActivePower2" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2/NinePatchRect/ActivePowerContainer" instance=ExtResource("13_guuv3")]
+layout_mode = 2
+
+[node name="ReplaceError" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.95907927
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.95907927
 offset_left = -175.0
 offset_top = -37.0
 offset_right = 175.0
@@ -3277,15 +3382,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TimerRemaining" type="Label" parent="CanvasLayer"]
+[node name="NinePatchRect3" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -185.0
-offset_top = 18.0
-offset_right = -25.0
-offset_bottom = 83.0
+offset_left = -215.0
+offset_top = 24.0
+offset_right = -30.0
+offset_bottom = 96.0
 grow_horizontal = 0
+texture = ExtResource("17_lrpgy")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="TimerRemaining" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndRound" type="Label" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
@@ -3355,5 +3478,5 @@ shape = SubResource("BoxShape3D_guuv3")
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.466751, 1.1601009, 63.83973)
 
-[connection signal="pressed" from="CanvasLayer/PowerChoiceUI/SkipButton" to="CanvasLayer/PowerChoiceUI" method="_OnSkipButtonPressed"]
+[connection signal="pressed" from="CanvasLayer/PowerChoiceUI/NinePatchRect2/SkipButton" to="CanvasLayer/PowerChoiceUI" method="_OnSkipButtonPressed"]
 [connection signal="timeout" from="EndRoud" to="RoundManager" method="_OnFireEndRoundTimeout"]

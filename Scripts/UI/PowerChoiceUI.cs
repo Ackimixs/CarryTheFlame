@@ -20,6 +20,16 @@ public partial class PowerChoiceUI : Control
 		Generate();
 		HaveToChangePowerLabel.Visible = false;
 		SkipButton.SetVisible(false);
+
+		foreach (Node child in NewPowerContainer.GetChildren())
+		{
+			child.QueueFree();
+		}
+
+		foreach (Node child in ActivePowerContainer.GetChildren())
+		{
+			child.QueueFree();
+		}
 	}
 
 	public void Generate()

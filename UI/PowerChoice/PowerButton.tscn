@@ -1,9 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://baytdi4lcie5s"]
+[gd_scene load_steps=4 format=3 uid="uid://baytdi4lcie5s"]
 
 [ext_resource type="Script" uid="uid://dhx4il6ym0qra" path="res://Scripts/UI/PowerButton.cs" id="1_21fyg"]
+[ext_resource type="Texture2D" uid="uid://cbf0dbkd8vw8k" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-028.png" id="2_lvsqj"]
+[ext_resource type="Texture2D" uid="uid://dlhpnc0fvnirb" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/arrow_reserve.png" id="3_mdye6"]
 
-[node name="Button" type="Button"]
-offset_right = 59.0
-offset_bottom = 60.0
-text = "test"
+[node name="Button" type="Button" node_paths=PackedStringArray("PowerNameLabel", "PowerDescriptionLabel", "PowerIcon")]
+custom_minimum_size = Vector2(256, 256)
+offset_right = 252.0
+offset_bottom = 227.0
+flat = true
 script = ExtResource("1_21fyg")
+PowerNameLabel = NodePath("NinePatchRect/VBoxContainer/Name")
+PowerDescriptionLabel = NodePath("NinePatchRect/VBoxContainer/Description")
+PowerIcon = NodePath("NinePatchRect/VBoxContainer/TextureRect")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(0.01649427, 0.04908339, 0.06498312, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lvsqj")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_mdye6")
+stretch_mode = 3
+
+[node name="Description" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Description "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

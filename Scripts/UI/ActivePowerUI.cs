@@ -10,14 +10,13 @@ public partial class ActivePowerUI : Button
 
     public event Action<ActivePowerUI> PowerSelected;
 
-    public void Setup(PowerData powerData)
+    public void Setup(PowerData power)
     {
-        Power = powerData;
+        Power = power;
         PowerNameLabel.Text = Power.DisplayName;
         PowerIcon.Texture = Power.Icon;
         Pressed += () =>
         {
-            GD.Print($"Power Button Pressed: {Power.DisplayName}");
             PowerSelected?.Invoke(this);
         };
     }
