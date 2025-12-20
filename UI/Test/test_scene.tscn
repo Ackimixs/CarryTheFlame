@@ -3144,18 +3144,19 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012893677, -0.24963379, -0.0014038086)
 shape = SubResource("BoxShape3D_25tdf")
 
-[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayer", "_roundEndLabel", "_roundEndControl", "_backgroundRect", "_mobSpawners")]
+[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayer", "_roundEndLabel", "_roundEndControl", "_backgroundRect", "RoundLabel", "_mobSpawners")]
 unique_name_in_owner = true
 script = ExtResource("5_r61e5")
 PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
 _player = NodePath("../Player")
 _endRoundTimer = NodePath("../EndRoud")
 _teleportPoint = NodePath("../Marker3D")
-_timerLabel = NodePath("../CanvasLayer/PowerChoiceUI/NinePatchRect3/TimerRemaining")
+_timerLabel = NodePath("../CanvasLayer/NinePatchRect3/TimerRemaining")
 _animationPlayer = NodePath("../CanvasLayer/EndRoundRect/AnimationPlayer")
 _roundEndLabel = NodePath("../CanvasLayer/EndRoundRect/EndRound")
 _roundEndControl = NodePath("../CanvasLayer/EndRoundRect")
 _backgroundRect = NodePath("../CanvasLayer/ColorRect")
+RoundLabel = NodePath("../CanvasLayer/NinePatchRect3/Round")
 _mobSpawners = [NodePath("../MobSpawner"), NodePath("../MobSpawner2"), NodePath("../MobSpawner3")]
 
 [node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player")]
@@ -3384,13 +3385,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="CanvasLayer/PowerChoiceUI"]
+[node name="NinePatchRect3" type="NinePatchRect" parent="CanvasLayer"]
 self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -215.0
+offset_left = -342.0
 offset_top = 24.0
 offset_right = -30.0
 offset_bottom = 96.0
@@ -3401,14 +3401,37 @@ patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="TimerRemaining" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect3"]
+[node name="TimerRemaining" type="Label" parent="CanvasLayer/NinePatchRect3"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -28.0
+offset_right = -28.0
+offset_bottom = 28.0
+grow_horizontal = 0
 grow_vertical = 2
 text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Round" type="Label" parent="CanvasLayer/NinePatchRect3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -28.0
+offset_right = -179.0
+offset_bottom = 28.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Journée 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -3452,7 +3475,7 @@ libraries = {
 }
 
 [node name="EndRoud" type="Timer" parent="."]
-wait_time = 600.0
+wait_time = 180.0
 one_shot = true
 
 [node name="MobSpawner" type="Node3D" parent="." node_paths=PackedStringArray("_spawnArea")]

@@ -29,6 +29,7 @@ node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Idle", &"OneShot"
 
 [node name="Skeleton_Minion" instance=ExtResource("1_llxs8")]
 script = ExtResource("2_swl37")
+DetectionRange = 100.0
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(0, 0.39206383, 0)

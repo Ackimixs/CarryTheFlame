@@ -24,6 +24,8 @@ public partial class RoundManager : Node
 
 	[Export] private ColorRect _backgroundRect;
 
+	[Export] public Label RoundLabel;
+
 	private int remainingEnemies = 0;
 
 	[Export] private Godot.Collections.Array<MobSpawner> _mobSpawners;
@@ -105,6 +107,7 @@ public partial class RoundManager : Node
 		PowerChoiceUI.Hide();
 		_endRoundTimer.Start();
 		_backgroundRect.SetVisible(false);
+		RoundLabel.SetText("Journée " + _roundNumber);
 
 		for (int i = 0; i < nbEnemy + remainingEnemies; i++)
 		{
