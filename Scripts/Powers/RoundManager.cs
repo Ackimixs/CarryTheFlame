@@ -80,7 +80,7 @@ public partial class RoundManager : Node
 
 	public void _OnFireEndRoundTimeout()
 	{
-		_roundEndLabel.SetText("Vous n'avez pas survécu a cette journée ...\nLes enemies non tués reviendront demain !");
+		_roundEndLabel.SetText("Vous n'avez pas survécu à cette journée ...\nLes enemies non tués reviendront demain !");
 		_backgroundRect.SetVisible(true);
 
 		KillAllRemainingMobs();
