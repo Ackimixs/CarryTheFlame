@@ -47,11 +47,11 @@ public partial class RoundManager : Node
 
 	public void EndRound()
 	{
-		_roundNumber++;
 		if (_roundNumber % 5 == 0)
 		{
-			PowerManager.Instance.MaxActivePowers += 1;
+			PowerManager.Instance.AddMaxActivePowers(1);
 		}
+		_roundNumber++;
 
 		if (_animationPlayer != null)
 		{

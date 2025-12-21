@@ -3159,12 +3159,13 @@ _backgroundRect = NodePath("../CanvasLayer/ColorRect")
 RoundLabel = NodePath("../CanvasLayer/NinePatchRect3/Round")
 _mobSpawners = [NodePath("../MobSpawner"), NodePath("../MobSpawner2"), NodePath("../MobSpawner3")]
 
-[node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player")]
+[node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel")]
 unique_name_in_owner = true
 script = ExtResource("4_r61e5")
 AllPowers = Array[Resource]([ExtResource("5_25tdf"), ExtResource("7_aucwc"), ExtResource("8_guuv3"), ExtResource("9_8uxng")])
 WeightTable = ExtResource("7_124mh")
 Player = NodePath("../Player")
+ActivePowerLabel = NodePath("../CanvasLayer/PowerChoiceUI/NinePatchRect2/PouvoirActif")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -3313,7 +3314,7 @@ patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="Label2" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2"]
+[node name="PouvoirActif" type="Label" parent="CanvasLayer/PowerChoiceUI/NinePatchRect2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -3323,7 +3324,7 @@ offset_top = 104.0
 offset_right = 188.0
 offset_bottom = 168.0
 grow_horizontal = 2
-text = "Pouvoir Actif :"
+text = "Pouvoir Actif : 0/3"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -19,7 +19,6 @@ public partial class PowerChoiceUI : Control
 		_powerManager = GetNode<PowerManager>("%PowerManager");
 		Generate();
 		HaveToChangePowerLabel.Visible = false;
-		SkipButton.SetVisible(false);
 
 		foreach (Node child in NewPowerContainer.GetChildren())
 		{

@@ -14,6 +14,8 @@ public partial class PowerManager : Node
 	private List<PowerData> _activePowers = new();
 	public int MaxActivePowers = 3;
 
+	[Export] public Label ActivePowerLabel;
+
 	public override void _Ready()
 	{
 		Instance = this;
@@ -80,6 +82,8 @@ public partial class PowerManager : Node
 		}
 		power.Apply(Player);
 
+		ActivePowerLabel.SetText("Pouvoir Actif(s) : " + _activePowers.Count + "/" + MaxActivePowers);
+
 		return true;
 	}
 
@@ -94,11 +98,20 @@ public partial class PowerManager : Node
 			}
 			power.Remove(Player);
 		}
+
+		ActivePowerLabel.SetText("Pouvoir Actif(s) : " + _activePowers.Count + "/" + MaxActivePowers);
 	}
 
 	public void ReplacePower(PowerData oldPower, PowerData newPower)
 	{
 		RemovePower(oldPower);
 		AddSelectedPower(newPower);
+	}
+
+	public void AddMaxActivePowers(int nb)
+	{
+		MaxActivePowers += nb;
+
+		ActivePowerLabel.SetText("Pouvoir Actif(s) : " + _activePowers.Count + "/" + MaxActivePowers);
 	}
 }
