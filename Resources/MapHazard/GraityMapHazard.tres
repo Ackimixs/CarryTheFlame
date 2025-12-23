@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GravityMapHazard" load_steps=2 format=3 uid="uid://bdhvjdsepqsl"]
+
+[ext_resource type="Script" uid="uid://cel2gpycmf1mr" path="res://Scripts/MapHazard/GravityMapHazard.cs" id="1_u2dah"]
+
+[resource]
+script = ExtResource("1_u2dah")
+GravityMultiplier = 6.0
+Id = "GraivtyMapHazard"
+DisplayName = "Fixé au sol"
+Description = "La gravité vient de changé pour cette journée, faite attention !"
+metadata/_custom_type_script = "uid://cel2gpycmf1mr"

@@ -9,7 +9,7 @@ public partial class Player : CharacterBody3D
 	[Export] private float sprintMultiplier = 1.5f;
 
 	[Export] private float health = 16f;
-	[Export] private float gravity = 20f;
+	[Export] private float baseGravity = 10f;
 	[Export] private float jumpVelocity = 10f;
 	[Export] private float acceleration = 10f;
 	[Export] private float airAcceleration = 2f;
@@ -28,6 +28,7 @@ public partial class Player : CharacterBody3D
 
 	private float speed;
 	private float sprintSpeed;
+	private float gravity;
 
 	[Export] public PowerManager powerManager;
 
@@ -52,6 +53,7 @@ public partial class Player : CharacterBody3D
 		damage = baseDamage;
 		speed = baseSpeed;
 		sprintSpeed = baseSpeed * sprintMultiplier;
+		gravity = baseGravity;
 	}
 
 	public override void _UnhandledInput(InputEvent e)
@@ -268,5 +270,20 @@ public partial class Player : CharacterBody3D
 	public float GetHealth()
 	{
 		return health;
+	}
+
+	public float GetBaseGravity()
+	{
+		return baseGravity;
+	}
+
+	public void SetGravity(float newGravity)
+	{
+		gravity = newGravity;
+	}
+
+	public void AddGravity(float amount)
+	{
+		gravity += amount;
 	}
 }

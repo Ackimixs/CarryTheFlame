@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GravityMapHazard" load_steps=2 format=3 uid="uid://byr4gt7ngd2du"]
+
+[ext_resource type="Script" uid="uid://cel2gpycmf1mr" path="res://Scripts/MapHazard/GravityMapHazard.cs" id="1_v8y86"]
+
+[resource]
+script = ExtResource("1_v8y86")
+GravityMultiplier = 0.116
+Id = "OnTheMoonMapHazard"
+DisplayName = "TO THE MOON"
+Description = "La gravité vient de changé pour cette journée, faite attention !"
+metadata/_custom_type_script = "uid://cel2gpycmf1mr"

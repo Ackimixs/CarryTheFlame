@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DNKRound" load_steps=2 format=3 uid="uid://dvdn4kfvfpkxr"]
+
+[ext_resource type="Script" uid="uid://ddwtr8xm5rh37" path="res://Scripts/MapHazard/DNKRound.cs" id="1_nrefc"]
+
+[resource]
+script = ExtResource("1_nrefc")
+EnemyCount = 4
+Id = "DNKRound"
+DisplayName = "NE TUEZ PERSONNE"
+Description = "Ne tuez aucun mob ou ceux-ci réapparaîtrons demain, vous devez survivre 30 sec"
+metadata/_custom_type_script = "uid://ddwtr8xm5rh37"

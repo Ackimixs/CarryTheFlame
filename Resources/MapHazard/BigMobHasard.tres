@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MobScaleHazard" load_steps=2 format=3 uid="uid://dfo748v3amtc5"]
+
+[ext_resource type="Script" uid="uid://crtqbpgqyit4g" path="res://Scripts/MapHazard/MobScaleHazard.cs" id="1_ec2e1"]
+
+[resource]
+script = ExtResource("1_ec2e1")
+ScaleMultiplier = 3.0
+Id = "BIgMobHazard"
+DisplayName = "BIG ENEMIES"
+Description = "Les énemies ont un peu trop grandis dans la nuit"
+metadata/_custom_type_script = "uid://crtqbpgqyit4g"

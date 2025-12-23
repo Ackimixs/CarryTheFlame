@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MobScaleHazard" load_steps=2 format=3 uid="uid://cggaxwo7sb5s2"]
+
+[ext_resource type="Script" uid="uid://crtqbpgqyit4g" path="res://Scripts/MapHazard/MobScaleHazard.cs" id="1_5t0tw"]
+
+[resource]
+script = ExtResource("1_5t0tw")
+ScaleMultiplier = 0.3
+Id = "SmallMobHazard"
+DisplayName = "BABY"
+Description = "Tout les enemies seront rétrecie aujourd'hui"
+metadata/_custom_type_script = "uid://crtqbpgqyit4g"
