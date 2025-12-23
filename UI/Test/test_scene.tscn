@@ -20,7 +20,7 @@
 [ext_resource type="Resource" uid="uid://gs6rq1ny6xgh" path="res://Resources/Powers/2.Rare/PiercingBullets_Rare.tres" id="13_kd85q"]
 [ext_resource type="Script" uid="uid://cjo2n6kclv0g3" path="res://Mobs/Spawner/MobSpawner.cs" id="14_4t2s2"]
 [ext_resource type="Resource" uid="uid://csf1o23ndqnkr" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_2.tres" id="14_40imy"]
-[ext_resource type="Resource" uid="uid://ipnrke2hhu6j" path="res://Resources/Powers/3.Elite/OneHPPower_Elite.tres" id="14_ehg0x"]
+[ext_resource type="Resource" uid="uid://ipnrke2hhu6j" path="res://Resources/Powers/2.Rare/OneHPPower_Rare.tres" id="14_ehg0x"]
 [ext_resource type="Texture2D" uid="uid://dwdqop5jtd0rg" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-004.png" id="15_4x35l"]
 [ext_resource type="Resource" uid="uid://b1oecgt75v0u3" path="res://Resources/Powers/4.Legendary/TotemOfUndyingPower_Legendary.tres" id="15_17cpq"]
 [ext_resource type="PackedScene" uid="uid://du0ky6dvvvet3" path="res://Mobs/Scenes/skeleton_minion.tscn" id="15_jkdn7"]
