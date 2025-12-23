@@ -93,21 +93,6 @@ _data = {
 &"RESET": SubResource("Animation_dw050")
 }
 
-[sub_resource type="Animation" id="Animation_n7ghd"]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.6440265), Vector3(0, 1.5707964, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_bwjto"]
 length = 0.5
 tracks/0/type = "value"
@@ -121,6 +106,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 3.1415927), Vector3(0, 1.5707964, 6.2831855)]
+}
+
+[sub_resource type="Animation" id="Animation_n7ghd"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.6440265), Vector3(0, 1.5707964, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nvl01"]
@@ -687,8 +687,9 @@ _data = {
 &"shoot": SubResource("Animation_urp6f")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("healthBar")]
 script = ExtResource("1_onrkg")
+healthBar = NodePath("CanvasLayer/HealthProgressBar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
@@ -805,7 +806,7 @@ script = ExtResource("4_2hs0m")
 isMelee = true
 
 [node name="Sword" type="MeshInstance3D" parent="Body/Head/Camera3D/SwordManager"]
-transform = Transform3D(0.010018004, -0.99966156, -0.023997854, -0.2490536, -0.025737192, 0.9681474, -0.9684377, -0.0037221527, -0.2492272, 0.48102742, -0.3435643, -0.417605)
+transform = Transform3D(0.010018003, -0.9996615, -0.023997853, -0.24905358, -0.02573719, 0.96814734, -0.9684376, -0.0037221524, -0.24922718, 0.48102742, -0.3435643, -0.417605)
 mesh = SubResource("ArrayMesh_nvl01")
 skeleton = NodePath("")
 
@@ -814,3 +815,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_1jxqw"),
 &"local": SubResource("AnimationLibrary_bwjto")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = -112.0
+offset_right = 351.0
+offset_bottom = -28.0
+grow_vertical = 0

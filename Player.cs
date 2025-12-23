@@ -32,6 +32,8 @@ public partial class Player : CharacterBody3D
 
 	[Export] public PowerManager powerManager;
 
+	[Export] private ProgressBar healthBar;
+
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("%Camera3D");
@@ -54,6 +56,9 @@ public partial class Player : CharacterBody3D
 		speed = baseSpeed;
 		sprintSpeed = baseSpeed * sprintMultiplier;
 		gravity = baseGravity;
+
+		healthBar.MaxValue = health;
+		healthBar.Value = health;
 	}
 
 	public override void _UnhandledInput(InputEvent e)
@@ -228,16 +233,19 @@ public partial class Player : CharacterBody3D
 	public void TakeDamage(int attackDamage)
 	{
 		health -= attackDamage;
+		healthBar.Value = health;
 
 		if (health <= 0)
 		{
 			if (powerManager.HasPower<OneHPPower>())
 			{
 				health = 1;
+				healthBar.Value = health;
 			}
 			else
 			{
-				GD.Print("Player is dead!");
+				// TODO change that so the player is sent to the main menu
+				GetTree().Quit();
 			}
 		}
 	}
