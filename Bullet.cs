@@ -22,17 +22,5 @@ public partial class Bullet : Area3D
 		}
 	}
 
-	private void OnBodyEntered(Node body)
-	{
-		if (body is TargetStatue statue)
-		{
-			statue.OnHit();
-		}
-		if (body is Minion mob)
-		{
-			mob.TakeDamage();
-		}
-		
-		QueueFree(); 
-	}
+	
 }

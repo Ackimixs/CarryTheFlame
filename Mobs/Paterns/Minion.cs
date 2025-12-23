@@ -7,20 +7,28 @@ public partial class Minion : CharacterBody3D
 	private int Health = 3;
 	[Export]
 	private float speed = 10f;
+	[Export]
+	private float DetectionRange = 20.0f;
+	[Export]
+	private float AttackRange = 2.0f;
+	[Export]
+	private float AttackCooldown = 1.2f;
+	private double _attackTimer = 0.0;
+	
 	private AnimationTree animationTree;
 	private NavigationAgent3D  navigationAgent ;
 	private Player player;
 	private State CurrentState;
-
-	[Export] private float DetectionRange = 20.0f;
-
-	[Signal] public delegate void OnKilledEventHandler(Minion minion);
+	
+	[Signal]
+	public delegate void OnKilledEventHandler(Minion minion);
 
 	private bool _everSeenPlayer = false;
 
 	public override void _Ready()
 	{
 		animationTree = GetNode<AnimationTree>("%AnimationTree");
+		animationTree.Active = true;
 		navigationAgent = GetNode<NavigationAgent3D>("%NavigationAgent3D");
 		player = GetTree().GetFirstNodeInGroup("Player") as Player;
 		if (player == null)
@@ -30,16 +38,16 @@ public partial class Minion : CharacterBody3D
 		CurrentState = State.Idle;
 	}
 
-	public void TakeDamage()
+	public void TakeDamage(int damages)
 	{
 		if (Health <= 0)
 		{
 			return;
 		}
 
-		Health -= 1;
-		animationTree.Set("parameters/OneShot/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-
+		Health -= damages;
+		animationTree.Set("parameters/Get_Hit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+		
 		if (Health == 0)
 		{
 			EmitSignal(SignalName.OnKilled, this);
@@ -61,6 +69,7 @@ public partial class Minion : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		_attackTimer -= delta;
 		if (!_everSeenPlayer)
 		{
 			float distanceToPlayer = GlobalPosition.DistanceTo(player.GlobalPosition);
@@ -79,14 +88,22 @@ public partial class Minion : CharacterBody3D
 			case State.Idle:
 				if (IsPlayerInNavigationRegion())
 				{
+					animationTree.Set("parameters/Idle_Walking_Transition/transition_request", "Walking");
 					CurrentState = State.LookingForPlayer;
+
 				}
 				break;
 			case State.LookingForPlayer:
+				float distanceToPlayer = GlobalPosition.DistanceTo(player.GlobalPosition);
 				if (!IsPlayerInNavigationRegion())
 				{
+					animationTree.Set("parameters/Idle_Walking_Transition/transition_request", "Idle");
 					CurrentState = State.Idle;
 					Velocity = Vector3.Zero;
+				}
+				else if (distanceToPlayer <= AttackRange && _attackTimer <= 0.0)
+				{
+					AttackPlayer();
 				}
 				else
 				{
@@ -113,6 +130,20 @@ public partial class Minion : CharacterBody3D
 
 		Velocity = direction * speed;
 		MoveAndSlide();
+	}
+	
+	private void AttackPlayer()
+	{
+		Velocity = Vector3.Zero;
+
+		Vector3 dir = GlobalPosition.DirectionTo(player.GlobalPosition);
+		dir.Y = 0;
+		if (dir.Length() > 0.1f)
+			LookAt(GlobalPosition - dir, Vector3.Up);
+
+		animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+
+		_attackTimer = AttackCooldown;
 	}
 	
 	public void _OnTimerTimeout()
