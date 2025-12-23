@@ -134,7 +134,7 @@ public partial class RoundManager : Node
 
 		MapHazardManager.DeactivateAllHazards();
 
-		if (_roundNumber >= 1 && _rng.RandiRange(0, 1) < _roundNumber)
+		if (_roundNumber >= 5 && _rng.RandiRange(0, 20) < _roundNumber)
 		{
 			MapHazardManager.ActivateRandomHazard(GetHazardWeightedRandomNumber());
 
