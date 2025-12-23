@@ -8,7 +8,7 @@ public partial class Player : CharacterBody3D
 	[Export] private float baseSpeed = 8f;
 	[Export] private float sprintMultiplier = 1.5f;
 
-	[Export] private float health = 16f;
+	[Export] private float baseHealth = 16f;
 	[Export] private float baseGravity = 10f;
 	[Export] private float jumpVelocity = 10f;
 	[Export] private float acceleration = 10f;
@@ -29,6 +29,8 @@ public partial class Player : CharacterBody3D
 	private float speed;
 	private float sprintSpeed;
 	private float gravity;
+	private float health;
+
 
 	[Export] public PowerManager powerManager;
 
@@ -56,6 +58,7 @@ public partial class Player : CharacterBody3D
 		speed = baseSpeed;
 		sprintSpeed = baseSpeed * sprintMultiplier;
 		gravity = baseGravity;
+		health = baseHealth;
 
 		healthBar.MaxValue = health;
 		healthBar.Value = health;
@@ -268,16 +271,23 @@ public partial class Player : CharacterBody3D
 	public void SetHealth(float newHealth)
 	{
 		health = newHealth;
+		healthBar.Value = health;
 	}
 
 	public void AddHealth(float amount)
 	{
 		health += amount;
+		healthBar.Value = health;
 	}
 
 	public float GetHealth()
 	{
 		return health;
+	}
+
+	public float GetBaseHealth()
+	{
+		return baseHealth;
 	}
 
 	public float GetBaseGravity()
