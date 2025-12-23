@@ -229,7 +229,14 @@ public partial class Player : CharacterBody3D
 
 		if (health <= 0)
 		{
-			GD.Print("Player is dead!");
+			if (powerManager.HasPower<OneHPPower>())
+			{
+				health = 1;
+			}
+			else
+			{
+				GD.Print("Player is dead!");
+			}
 		}
 	}
 

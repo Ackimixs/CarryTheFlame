@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="OneHPPower" load_steps=3 format=3 uid="uid://ipnrke2hhu6j"]
+
+[ext_resource type="Texture2D" uid="uid://bfcmb5gxue5s" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/crown_b.png" id="1_cd8dk"]
+[ext_resource type="Script" uid="uid://ci8mgovowi3aa" path="res://Scripts/Powers/PowerData/OneHPPower.cs" id="1_vewf7"]
+
+[resource]
+script = ExtResource("1_vewf7")
+Id = "OnHPPower"
+DisplayName = "1 hp clutch"
+Description = "ous pouvez survivre une fois à une attaque mortelle"
+Icon = ExtResource("1_cd8dk")
+Rarity = 2
+metadata/_custom_type_script = "uid://ci8mgovowi3aa"

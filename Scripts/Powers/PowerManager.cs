@@ -139,8 +139,8 @@ public partial class PowerManager : Node
 		ActivePowerLabel.SetText("Pouvoir Actif(s) : " + _activePowers.Count + "/" + MaxActivePowers);
 	}
 
-	public bool HasPiercingBullets()
+	public bool HasPower<T>() where T : PowerData
 	{
-		return _activePowers.Any(p => p is PiercingBulletsPowers);
+		return _activePowers.Any(p => p is T);
 	}
 }
