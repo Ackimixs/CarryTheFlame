@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DamagePower" load_steps=3 format=3 uid="uid://cxganeclwm0ps"]
+
+[ext_resource type="Texture2D" uid="uid://uw5876dxbg7p" path="res://Assets/kenney_board-game-icons/PNG/Double (128px)/arrow_reserve.png" id="1_ijx6b"]
+[ext_resource type="Script" uid="uid://catruxrc3bmng" path="res://Scripts/Powers/Common/DamagePower.cs" id="2_04po1"]
+
+[resource]
+script = ExtResource("2_04po1")
+DamageMultipler = 3.0
+Id = "Damage_Legendary"
+DisplayName = "Dégât * 3"
+Description = "Te donne plus de dégât"
+Icon = ExtResource("1_ijx6b")
+Rarity = 3
+metadata/_custom_type_script = "uid://catruxrc3bmng"

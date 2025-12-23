@@ -1,22 +1,27 @@
-[gd_scene load_steps=31 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=36 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
 [ext_resource type="ArrayMesh" uid="uid://c7avjdh2b3caa" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_grave.obj" id="2_a6dix"]
 [ext_resource type="Script" uid="uid://el8uylbjylf0" path="res://Scripts/UI/PowerChoiceUI.cs" id="4_a6dix"]
 [ext_resource type="Script" uid="uid://dopmq2juwuwbm" path="res://Scripts/Powers/PowerManager.cs" id="4_r61e5"]
-[ext_resource type="Resource" uid="uid://du88jvo4vfx3p" path="res://Resources/Powers/Common/DoubleJump.tres" id="5_25tdf"]
+[ext_resource type="Resource" uid="uid://du88jvo4vfx3p" path="res://Resources/Powers/1.Common/DoubleJump_Common.tres" id="5_25tdf"]
 [ext_resource type="Script" uid="uid://mau1kphie7h1" path="res://Scripts/Powers/RoundManager.cs" id="5_r61e5"]
-[ext_resource type="Resource" uid="uid://d0e6dbar02xor" path="res://Resources/Powers/RarityWeightTable.tres" id="7_124mh"]
-[ext_resource type="Resource" uid="uid://8i6jjbveus0f" path="res://Resources/Powers/Common/DamagePower.tres" id="7_aucwc"]
-[ext_resource type="Resource" uid="uid://duw8hug3n1wi1" path="res://Resources/Powers/Common/HealthPower.tres" id="8_guuv3"]
-[ext_resource type="Resource" uid="uid://c02uq3l5d5fdq" path="res://Resources/Powers/Common/SpeedPower.tres" id="9_8uxng"]
+[ext_resource type="Resource" uid="uid://d0e6dbar02xor" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_1.tres" id="7_124mh"]
+[ext_resource type="Resource" uid="uid://8i6jjbveus0f" path="res://Resources/Powers/1.Common/DamagePower_Common.tres" id="7_aucwc"]
+[ext_resource type="Resource" uid="uid://duw8hug3n1wi1" path="res://Resources/Powers/1.Common/HealthPower_Common.tres" id="8_guuv3"]
+[ext_resource type="Resource" uid="uid://c02uq3l5d5fdq" path="res://Resources/Powers/1.Common/SpeedPower_Common.tres" id="9_8uxng"]
 [ext_resource type="PackedScene" uid="uid://baytdi4lcie5s" path="res://UI/PowerChoice/PowerButton.tscn" id="9_124mh"]
+[ext_resource type="Resource" uid="uid://duog1xtiw7cut" path="res://Resources/Powers/3.Elite/SpeedPower_Elite.tres" id="10_gpes6"]
 [ext_resource type="Shader" uid="uid://dk0b02qjv72tj" path="res://UI/Test/blur.gdshader" id="11_jkdn7"]
+[ext_resource type="Resource" uid="uid://cxganeclwm0ps" path="res://Resources/Powers/4.Legendary/DamagePower_Legendary.tres" id="11_lhnu3"]
+[ext_resource type="Resource" uid="uid://5k146odhchoh" path="res://Resources/Powers/4.Legendary/TreeMoreJump.tres" id="12_40imy"]
 [ext_resource type="PackedScene" uid="uid://dor7vu7pvl81k" path="res://UI/PowerChoice/ActivePower.tscn" id="13_guuv3"]
 [ext_resource type="Script" uid="uid://cjo2n6kclv0g3" path="res://Mobs/Spawner/MobSpawner.cs" id="14_4t2s2"]
+[ext_resource type="Resource" uid="uid://csf1o23ndqnkr" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_2.tres" id="14_40imy"]
 [ext_resource type="Texture2D" uid="uid://dwdqop5jtd0rg" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-004.png" id="15_4x35l"]
 [ext_resource type="PackedScene" uid="uid://du0ky6dvvvet3" path="res://Mobs/Scenes/skeleton_minion.tscn" id="15_jkdn7"]
+[ext_resource type="Resource" uid="uid://brunvfkehffdh" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_3.tres" id="15_kd85q"]
 [ext_resource type="Texture2D" uid="uid://b4qitqp0mi7b5" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-001.png" id="16_4x35l"]
 [ext_resource type="Texture2D" uid="uid://cbf0dbkd8vw8k" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-028.png" id="17_1mmbb"]
 [ext_resource type="Texture2D" uid="uid://dr6q7xv7eawbw" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-005.png" id="17_lrpgy"]
@@ -3159,13 +3164,18 @@ _backgroundRect = NodePath("../CanvasLayer/ColorRect")
 RoundLabel = NodePath("../CanvasLayer/NinePatchRect3/Round")
 _mobSpawners = [NodePath("../MobSpawner"), NodePath("../MobSpawner2"), NodePath("../MobSpawner3")]
 
-[node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel")]
+[node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel", "RoundManager")]
 unique_name_in_owner = true
 script = ExtResource("4_r61e5")
-AllPowers = Array[Resource]([ExtResource("5_25tdf"), ExtResource("7_aucwc"), ExtResource("8_guuv3"), ExtResource("9_8uxng")])
-WeightTable = ExtResource("7_124mh")
+AllPowers = Array[Resource]([ExtResource("7_aucwc"), ExtResource("5_25tdf"), ExtResource("8_guuv3"), ExtResource("9_8uxng"), ExtResource("10_gpes6"), ExtResource("11_lhnu3"), ExtResource("12_40imy")])
+WeightTables = Dictionary[int, Object]({
+0: ExtResource("7_124mh"),
+5: ExtResource("14_40imy"),
+10: ExtResource("15_kd85q")
+})
 Player = NodePath("../Player")
 ActivePowerLabel = NodePath("../CanvasLayer/PowerChoiceUI/NinePatchRect2/PouvoirActif")
+RoundManager = NodePath("../RoundManager")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -6,7 +6,30 @@ using System.Linq;
 public partial class PowerManager : Node
 {
 	[Export] public Godot.Collections.Array<PowerData> AllPowers;
-	[Export] public RarityWeightTable WeightTable;
+	[Export] public Godot.Collections.Dictionary<int, RarityWeightTable> WeightTables;
+
+	private RarityWeightTable ActiveWeightTable
+	{
+		get
+		{
+			int round = RoundManager._roundNumber;
+
+			int bestKey = int.MinValue;
+			RarityWeightTable bestTable = null;
+
+			foreach (int key in WeightTables.Keys)
+			{
+				if (key <= round && key > bestKey)
+				{
+					bestKey = key;
+					bestTable = WeightTables[key];
+				}
+			}
+
+			return bestTable ?? WeightTables.Values.First();
+		}
+	}
+
 	[Export] public Player Player;
 
 	public static PowerManager Instance { get; private set; }
@@ -15,6 +38,7 @@ public partial class PowerManager : Node
 	public int MaxActivePowers = 3;
 
 	[Export] public Label ActivePowerLabel;
+	[Export] private RoundManager RoundManager;
 
 	public override void _Ready()
 	{
@@ -51,16 +75,16 @@ public partial class PowerManager : Node
 
 	private PowerRarity RollRarity()
 	{
-		float roll = GD.Randf() * WeightTable.TotalWeight;
+		float roll = GD.Randf() * ActiveWeightTable.TotalWeight;
 		float acc = 0f;
 
-		acc += WeightTable.Common;
+		acc += ActiveWeightTable.Common;
 		if (roll <= acc) return PowerRarity.Common;
 
-		acc += WeightTable.Rare;
+		acc += ActiveWeightTable.Rare;
 		if (roll <= acc) return PowerRarity.Rare;
 
-		acc += WeightTable.Elite;
+		acc += ActiveWeightTable.Elite;
 		if (roll <= acc) return PowerRarity.Elite;
 
 		return PowerRarity.Legendary;

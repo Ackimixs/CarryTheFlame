@@ -12,7 +12,7 @@ public partial class RoundManager : Node
 
 	[Export] private Marker3D _teleportPoint;
 
-	private int _roundNumber = 1;
+	public int _roundNumber = 1;
 
 	[Export] private int nbEnemy = 2;
 

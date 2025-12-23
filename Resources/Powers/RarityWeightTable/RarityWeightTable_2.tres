@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RarityWeightTable" load_steps=2 format=3 uid="uid://csf1o23ndqnkr"]
+
+[ext_resource type="Script" uid="uid://bpvjq8axt6gx6" path="res://Scripts/Powers/RarityWeightTable.cs" id="1_abaic"]
+
+[resource]
+script = ExtResource("1_abaic")
+Common = 70.0
+Rare = 20.0
+Elite = 9.0
+Legendary = 1.0
+metadata/_custom_type_script = "uid://bpvjq8axt6gx6"

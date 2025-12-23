@@ -4,13 +4,16 @@ using System;
 public partial class Player : CharacterBody3D
 {
 	[Export] private Vector2 mouseSensitivity = new Vector2(0.1f, 0.1f);
-	[Export] private float sprintSpeed = 12f;
 	private float currentSpeed;
-	[Export] private float speed = 8f;
+	[Export] private float baseSpeed = 8f;
+	[Export] private float sprintMultiplier = 1.5f;
+
+	[Export] private float health = 16f;
 	[Export] private float gravity = 20f;
 	[Export] private float jumpVelocity = 10f;
 	[Export] private float acceleration = 10f;
 	[Export] private float airAcceleration = 2f;
+	[Export] private float baseDamage = 2f;
 
 	private int jumpNb = 0;
 	private int maxJump = 1;
@@ -21,6 +24,10 @@ public partial class Player : CharacterBody3D
 	private int currentWeaponIndex = 0;
 	private System.Collections.Generic.List<Node3D> weapons = new System.Collections.Generic.List<Node3D>();
 	private Camera3D camera;
+	private float damage;
+
+	private float speed;
+	private float sprintSpeed;
 
 	public override void _Ready()
 	{
@@ -39,6 +46,10 @@ public partial class Player : CharacterBody3D
 
 		// Affiche la première arme par défaut
 		if (weapons.Count > 0) weapons[currentWeaponIndex].Show();
+
+		damage = baseDamage;
+		speed = baseSpeed;
+		sprintSpeed = baseSpeed * sprintMultiplier;
 	}
 
 	public override void _UnhandledInput(InputEvent e)
@@ -176,7 +187,33 @@ public partial class Player : CharacterBody3D
 	public void SetSpeed(float newSpeed)
 	{
 		speed = newSpeed;
-		sprintSpeed = newSpeed * 1.5f;
+		sprintSpeed = newSpeed * sprintMultiplier;
+	}
+
+	public void AddSpeed(float newSpeed)
+	{
+		speed += newSpeed;
+		sprintSpeed += (newSpeed * sprintMultiplier);
+	}
+
+	public float GetSpeed()
+	{
+		return speed;
+	}
+
+	public float GetSprintSpeed()
+	{
+		return sprintSpeed;
+	}
+
+	public float GetBaseSpeed()
+	{
+		return baseSpeed;
+	}
+
+	public float GetSprintMultiplier()
+	{
+		return sprintMultiplier;
 	}
 
 	public void AddJump(int amount)
@@ -184,8 +221,43 @@ public partial class Player : CharacterBody3D
 		maxJump += amount;
 	}
 
-	public void RemoveJump(int amount)
+	public void TakeDamage(int attackDamage)
 	{
-		maxJump -= amount;
+		health -= attackDamage;
+
+		if (health <= 0)
+		{
+			GD.Print("Player is dead!");
+		}
+	}
+
+	public void AddDamage(float amount)
+	{
+		damage += amount;
+	}
+
+	public float GetDamage()
+	{
+		return damage;
+	}
+
+	public float GetBaseDamage()
+	{
+		return baseDamage;
+	}
+
+	public void SetHealth(float newHealth)
+	{
+		health = newHealth;
+	}
+
+	public void AddHealth(float amount)
+	{
+		health += amount;
+	}
+
+	public float GetHealth()
+	{
+		return health;
 	}
 }

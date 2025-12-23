@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HealthPower" load_steps=3 format=3 uid="uid://duw8hug3n1wi1"]
+
+[ext_resource type="Texture2D" uid="uid://bv8oip6t2rkjn" path="res://Assets/kenney_board-game-icons/PNG/Double (128px)/book_open.png" id="1_s7lbt"]
+[ext_resource type="Script" uid="uid://dt8qii31d7k2r" path="res://Scripts/Powers/Common/HealthPower.cs" id="2_aqr6f"]
+
+[resource]
+script = ExtResource("2_aqr6f")
+HealthBonus = 4
+Id = "Health_Common"
+DisplayName = "PV +4"
+Description = "Tu donne plus de vie"
+Icon = ExtResource("1_s7lbt")
+isStackable = true
+metadata/_custom_type_script = "uid://dt8qii31d7k2r"

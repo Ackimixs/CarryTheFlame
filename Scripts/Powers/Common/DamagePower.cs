@@ -4,19 +4,19 @@ using System;
 [GlobalClass]
 public partial class DamagePower : PowerData
 {
+	[Export] public float DamageMultipler = 2.0f;
+
 	public override void Apply(Player player)
 	{
 		base.Apply(player);
 
-		player.SetSpeed(16);
-		GD.Print($"{DisplayName} applied: Player has now more damage.");
+		player.AddDamage(player.GetBaseDamage() * (DamageMultipler - 1));
 	}
 
 	public override void Remove(Player player)
 	{
 		base.Remove(player);
 
-		player.SetSpeed(8);
-		GD.Print($"{DisplayName} removed: Player has no longer more damage.");
+		player.AddDamage(-player.GetBaseDamage() * (DamageMultipler - 1));
 	}
 }

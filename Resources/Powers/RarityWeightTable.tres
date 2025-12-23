@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="RarityWeightTable" load_steps=2 format=3 uid="uid://d0e6dbar02xor"]
-
-[ext_resource type="Script" uid="uid://bpvjq8axt6gx6" path="res://Scripts/Powers/RarityWeightTable.cs" id="1_114sv"]
-
-[resource]
-script = ExtResource("1_114sv")
-metadata/_custom_type_script = "uid://bpvjq8axt6gx6"

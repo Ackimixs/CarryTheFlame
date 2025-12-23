@@ -13,13 +13,15 @@ public partial class Minion : CharacterBody3D
 	private float AttackRange = 2.0f;
 	[Export]
 	private float AttackCooldown = 1.2f;
+	[Export]
+	private int AttackDamage = 1;
 	private double _attackTimer = 0.0;
 	
 	private AnimationTree animationTree;
 	private NavigationAgent3D  navigationAgent ;
 	private Player player;
 	private State CurrentState;
-	
+
 	[Signal]
 	public delegate void OnKilledEventHandler(Minion minion);
 
@@ -41,14 +43,12 @@ public partial class Minion : CharacterBody3D
 	public void TakeDamage(int damages)
 	{
 		if (Health <= 0)
-		{
 			return;
-		}
 
 		Health -= damages;
 		animationTree.Set("parameters/Get_Hit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 		
-		if (Health == 0)
+		if (Health <= 0)
 		{
 			EmitSignal(SignalName.OnKilled, this);
 			QueueFree();
@@ -144,6 +144,8 @@ public partial class Minion : CharacterBody3D
 		animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 
 		_attackTimer = AttackCooldown;
+
+		player.TakeDamage(AttackDamage);
 	}
 	
 	public void _OnTimerTimeout()
