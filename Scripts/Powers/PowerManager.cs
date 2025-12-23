@@ -34,7 +34,7 @@ public partial class PowerManager : Node
 
 	public static PowerManager Instance { get; private set; }
 
-	private List<PowerData> _activePowers = new();
+	public List<PowerData> _activePowers = new();
 	public int MaxActivePowers = 3;
 
 	[Export] public Label ActivePowerLabel;
@@ -124,6 +124,15 @@ public partial class PowerManager : Node
 		}
 
 		ActivePowerLabel.SetText("Pouvoir Actif(s) : " + _activePowers.Count + "/" + MaxActivePowers);
+	}
+
+	public void RemovePower<T>() where T : PowerData
+	{
+		var power = _activePowers.FirstOrDefault(p => p is T);
+		if (power != null)
+		{
+			RemovePower(power);
+		}
 	}
 
 	public void ReplacePower(PowerData oldPower, PowerData newPower)

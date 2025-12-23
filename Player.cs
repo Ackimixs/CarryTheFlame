@@ -244,10 +244,16 @@ public partial class Player : CharacterBody3D
 			{
 				health = 1;
 				healthBar.Value = health;
+				powerManager.RemovePower<OneHPPower>();
+			}
+			else if (powerManager.HasPower<TotemOfUndyingPower>())
+			{
+				health = baseHealth;
+				healthBar.Value = health;
+				powerManager.RemovePower<TotemOfUndyingPower>();
 			}
 			else
 			{
-				// TODO change that so the player is sent to the main menu
 				GetTree().Quit();
 			}
 		}

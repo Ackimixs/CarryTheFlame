@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TotemOfUndyingPower" load_steps=3 format=3 uid="uid://b1oecgt75v0u3"]
+
+[ext_resource type="Script" uid="uid://c0asguo8xnf78" path="res://Scripts/Powers/PowerData/TotemOfUndyingPower.cs" id="1_0pghe"]
+[ext_resource type="Texture2D" uid="uid://1i4yrp18iqvm" path="res://Assets/Custom/Totem_of_Undying_JE2_BE2.png" id="1_k7jes"]
+
+[resource]
+script = ExtResource("1_0pghe")
+Id = "TotemOfUndying_Legendary"
+DisplayName = "Totem d'immortalité"
+Description = "Vous pouvez survire d'une mort certaine"
+Icon = ExtResource("1_k7jes")
+Rarity = 3
+metadata/_custom_type_script = "uid://c0asguo8xnf78"

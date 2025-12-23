@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=51 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://csf1o23ndqnkr" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_2.tres" id="14_40imy"]
 [ext_resource type="Resource" uid="uid://ipnrke2hhu6j" path="res://Resources/Powers/3.Elite/OneHPPower_Elite.tres" id="14_ehg0x"]
 [ext_resource type="Texture2D" uid="uid://dwdqop5jtd0rg" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-004.png" id="15_4x35l"]
+[ext_resource type="Resource" uid="uid://b1oecgt75v0u3" path="res://Resources/Powers/4.Legendary/TotemOfUndyingPower_Legendary.tres" id="15_17cpq"]
 [ext_resource type="PackedScene" uid="uid://du0ky6dvvvet3" path="res://Mobs/Scenes/skeleton_minion.tscn" id="15_jkdn7"]
 [ext_resource type="Resource" uid="uid://brunvfkehffdh" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_3.tres" id="15_kd85q"]
 [ext_resource type="Texture2D" uid="uid://b4qitqp0mi7b5" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-001.png" id="16_4x35l"]
@@ -29,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dr6q7xv7eawbw" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-005.png" id="17_lrpgy"]
 [ext_resource type="Script" uid="uid://bysgqtgl6tng7" path="res://Scripts/MapHazard/MapHazardManager.cs" id="18_gxkoo"]
 [ext_resource type="Resource" uid="uid://dvdn4kfvfpkxr" path="res://Resources/MapHazard/DNKRoundHazard.tres" id="19_44tsb"]
+[ext_resource type="Resource" uid="uid://cht1ln7a32rqj" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_4.tres" id="19_a300p"]
 [ext_resource type="Texture2D" uid="uid://b15ki7mejmd4c" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-029.png" id="19_pa1lq"]
 [ext_resource type="Resource" uid="uid://bdhvjdsepqsl" path="res://Resources/MapHazard/GraityMapHazard.tres" id="19_ph2gc"]
 [ext_resource type="Resource" uid="uid://dfo748v3amtc5" path="res://Resources/MapHazard/BigMobHasard.tres" id="20_16v8y"]
@@ -3246,11 +3248,12 @@ hazardWeights = Dictionary[int, float]({
 [node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel", "RoundManager")]
 unique_name_in_owner = true
 script = ExtResource("4_r61e5")
-AllPowers = Array[Resource]([ExtResource("7_aucwc"), ExtResource("5_25tdf"), ExtResource("8_guuv3"), ExtResource("9_8uxng"), ExtResource("10_gpes6"), ExtResource("11_lhnu3"), ExtResource("12_40imy"), ExtResource("13_kd85q"), ExtResource("14_ehg0x")])
+AllPowers = Array[Resource]([ExtResource("7_aucwc"), ExtResource("5_25tdf"), ExtResource("8_guuv3"), ExtResource("9_8uxng"), ExtResource("10_gpes6"), ExtResource("11_lhnu3"), ExtResource("12_40imy"), ExtResource("13_kd85q"), ExtResource("14_ehg0x"), ExtResource("15_17cpq")])
 WeightTables = Dictionary[int, Object]({
 0: ExtResource("7_124mh"),
 5: ExtResource("14_40imy"),
-10: ExtResource("15_kd85q")
+10: ExtResource("15_kd85q"),
+15: ExtResource("19_a300p")
 })
 Player = NodePath("../Player")
 ActivePowerLabel = NodePath("../CanvasLayer/PowerChoiceUI/NinePatchRect2/PouvoirActif")

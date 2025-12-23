@@ -47,6 +47,19 @@ public partial class PowerChoiceUI : Control
 			btn.PowerSelected += OnPowerSelected;
 			NewPowerContainer.AddChild(btn);
 		}
+
+		foreach (Node child in ActivePowerContainer.GetChildren())
+		{
+			child.QueueFree();
+		}
+
+		foreach (var power in _powerManager._activePowers)
+		{
+			var activePowerUi = ActivePowerScene.Instantiate<ActivePowerUI>();
+			activePowerUi.Setup(power);
+			ActivePowerContainer.AddChild(activePowerUi);
+			activePowerUi.PowerSelected += OnActivePowerSelected;
+		}
 	}
 
 	private void OnPowerSelected(PowerButton powerButton)

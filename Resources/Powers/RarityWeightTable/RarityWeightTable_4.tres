@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_y18q6")
 Common = 0.0
-Rare = 10.0
-Elite = 40.0
-Legendary = 20.0
+Rare = 5.0
+Elite = 35.0
+Legendary = 30.0
 metadata/_custom_type_script = "uid://bpvjq8axt6gx6"
