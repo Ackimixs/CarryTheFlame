@@ -29,6 +29,8 @@ public partial class Player : CharacterBody3D
 	private float speed;
 	private float sprintSpeed;
 
+	[Export] public PowerManager powerManager;
+
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("%Camera3D");

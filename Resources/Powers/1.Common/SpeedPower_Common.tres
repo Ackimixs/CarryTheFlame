@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpeedPower" load_steps=3 format=3 uid="uid://c02uq3l5d5fdq"]
 
 [ext_resource type="Texture2D" uid="uid://i08sw3x0ygvj" path="res://Assets/kenney_board-game-icons/PNG/Double (128px)/tag_shield_4.png" id="1_87c5k"]
-[ext_resource type="Script" uid="uid://b4xlf4tqkwpgf" path="res://Scripts/Powers/Common/SpeedPower.cs" id="2_4mqq2"]
+[ext_resource type="Script" uid="uid://b4xlf4tqkwpgf" path="res://Scripts/Powers/PowerData/SpeedPower.cs" id="2_4mqq2"]
 
 [resource]
 script = ExtResource("2_4mqq2")

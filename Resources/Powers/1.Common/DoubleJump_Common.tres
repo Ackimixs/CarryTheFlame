@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DoubleJump" load_steps=3 format=3 uid="uid://du88jvo4vfx3p"]
 
 [ext_resource type="Texture2D" uid="uid://wsmum7afda2f" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/chess_rook.png" id="1_o74yu"]
-[ext_resource type="Script" uid="uid://ba2fy81d6ydfl" path="res://Scripts/Powers/Common/DoubleJump.cs" id="2_k7i6a"]
+[ext_resource type="Script" uid="uid://ba2fy81d6ydfl" path="res://Scripts/Powers/PowerData/DoubleJump.cs" id="2_k7i6a"]
 
 [resource]
 script = ExtResource("2_k7i6a")

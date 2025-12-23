@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=37 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://cxganeclwm0ps" path="res://Resources/Powers/4.Legendary/DamagePower_Legendary.tres" id="11_lhnu3"]
 [ext_resource type="Resource" uid="uid://5k146odhchoh" path="res://Resources/Powers/4.Legendary/TreeMoreJump.tres" id="12_40imy"]
 [ext_resource type="PackedScene" uid="uid://dor7vu7pvl81k" path="res://UI/PowerChoice/ActivePower.tscn" id="13_guuv3"]
+[ext_resource type="Resource" uid="uid://gs6rq1ny6xgh" path="res://Resources/Powers/2.Rare/PiercingBullets_Rare.tres" id="13_kd85q"]
 [ext_resource type="Script" uid="uid://cjo2n6kclv0g3" path="res://Mobs/Spawner/MobSpawner.cs" id="14_4t2s2"]
 [ext_resource type="Resource" uid="uid://csf1o23ndqnkr" path="res://Resources/Powers/RarityWeightTable/RarityWeightTable_2.tres" id="14_40imy"]
 [ext_resource type="Texture2D" uid="uid://dwdqop5jtd0rg" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-004.png" id="15_4x35l"]
@@ -111,12 +112,13 @@ size = Vector3(10, 1, 10)
 
 [node name="TestScene" type="Node3D"]
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_a6dix")]
+[node name="Player" parent="." node_paths=PackedStringArray("powerManager") groups=["Player"] instance=ExtResource("1_a6dix")]
 unique_name_in_owner = true
 transform = Transform3D(0.9197667, 0, -0.39246553, 0, 1, 0, 0.39246553, 0, 0.9197667, 30.679071, 1.159, 57.70026)
 mouseSensitivity = Vector2(0.008, 0.2)
 gravity = 10.0
 jumpVelocity = 4.0
+powerManager = NodePath("../PowerManager")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.6391035, -0.76912075, 0, 0.088280536, 0.07335701, 0.9933908, -0.7640375, -0.6348795, 0.11478111, 30.372398, 20.501862, 28.665882)
@@ -3167,7 +3169,7 @@ _mobSpawners = [NodePath("../MobSpawner"), NodePath("../MobSpawner2"), NodePath(
 [node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel", "RoundManager")]
 unique_name_in_owner = true
 script = ExtResource("4_r61e5")
-AllPowers = Array[Resource]([ExtResource("7_aucwc"), ExtResource("5_25tdf"), ExtResource("8_guuv3"), ExtResource("9_8uxng"), ExtResource("10_gpes6"), ExtResource("11_lhnu3"), ExtResource("12_40imy")])
+AllPowers = Array[Resource]([ExtResource("7_aucwc"), ExtResource("5_25tdf"), ExtResource("8_guuv3"), ExtResource("9_8uxng"), ExtResource("10_gpes6"), ExtResource("11_lhnu3"), ExtResource("12_40imy"), ExtResource("13_kd85q")])
 WeightTables = Dictionary[int, Object]({
 0: ExtResource("7_124mh"),
 5: ExtResource("14_40imy"),

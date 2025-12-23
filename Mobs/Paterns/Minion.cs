@@ -19,7 +19,7 @@ public partial class Minion : CharacterBody3D
 	
 	private AnimationTree animationTree;
 	private NavigationAgent3D  navigationAgent ;
-	private Player player;
+	public Player player;
 	private State CurrentState;
 
 	[Signal]

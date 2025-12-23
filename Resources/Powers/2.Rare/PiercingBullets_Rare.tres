@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PiercingBulletsPowers" load_steps=3 format=3 uid="uid://gs6rq1ny6xgh"]
+
+[ext_resource type="Texture2D" uid="uid://s4cflbqkg240" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/bow.png" id="1_ms2o5"]
+[ext_resource type="Script" uid="uid://nf0qdqcki380" path="res://Scripts/Powers/PowerData/PiercingBulletsPowers.cs" id="1_pt6vv"]
+
+[resource]
+script = ExtResource("1_pt6vv")
+Id = "PiercingBullets_Rare"
+DisplayName = "Balle Transpercante"
+Description = "Vos balles transpercent les énemies"
+Icon = ExtResource("1_ms2o5")
+Rarity = 1
+metadata/_custom_type_script = "uid://nf0qdqcki380"

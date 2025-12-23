@@ -3,7 +3,6 @@ using System;
 
 [GlobalClass]
 public partial class SpeedPower : PowerData
-
 {
 	[Export] public float SpeedMultiplier = 2.0f;
 
