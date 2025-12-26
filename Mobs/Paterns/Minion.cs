@@ -6,9 +6,9 @@ public partial class Minion : CharacterBody3D
 	[Export]
 	private int Health = 3;
 	[Export]
-	private float speed = 10f;
+	private float speed = 2f;
 	[Export]
-	private float DetectionRange = 20.0f;
+	private float DetectionRange = 10.0f;
 	[Export]
 	private float AttackRange = 2.0f;
 	[Export]
@@ -141,6 +141,7 @@ public partial class Minion : CharacterBody3D
 		if (dir.Length() > 0.1f)
 			LookAt(GlobalPosition - dir, Vector3.Up);
 
+		
 		animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 
 		_attackTimer = AttackCooldown;
