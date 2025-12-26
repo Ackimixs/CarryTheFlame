@@ -1,10 +1,9 @@
 using Godot;
 using System;
-using System.Data;
 
-public partial class Minion : Mobs
+public partial class Warrior : Mobs
 {
-	private AnimationTree animationTree;
+    private AnimationTree animationTree;
 	private NavigationAgent3D  navigationAgent ;
 	private State CurrentState;
 
@@ -15,7 +14,7 @@ public partial class Minion : Mobs
 
 	public override void _Ready()
 	{
-		Health = 3;
+		Health = 10;
 		speed = 5f;
 		DetectionRange = 10.0f;
 		AttackRange = 2.0f;

@@ -14,9 +14,9 @@ public partial class Hitbox : Area3D
     {
         if (area is Bullet bullet)
         {
-            Minion minion = GetParent<Minion>();
-            minion.TakeDamage(Damage);
-            if (!minion.player.powerManager.HasPower<PiercingBulletsPowers>())
+            Mobs mob = GetParentOrNull<Mobs>();
+            mob.TakeDamage(Damage);
+            if (!mob.player.powerManager.HasPower<PiercingBulletsPowers>())
             {
                 bullet.QueueFree();
             }

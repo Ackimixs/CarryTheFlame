@@ -1,10 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhoueolub7ran"]
+[gd_scene load_steps=19 format=3 uid="uid://bhoueolub7ran"]
 
 [ext_resource type="PackedScene" uid="uid://cqxbqux2g3knk" path="res://Mobs/Characters/Skeleton_Warrior.glb" id="1_ytvjx"]
 [ext_resource type="PackedScene" uid="uid://cerqoo0tt2gvk" path="res://Mobs/Accessories/Skeleton_Axe.gltf" id="2_3dqp1"]
+[ext_resource type="Script" uid="uid://bwnolu6n6tjop" path="res://Mobs/Paterns/Warrior.cs" id="2_fipsx"]
 [ext_resource type="AnimationLibrary" uid="uid://co1guw5vupsk8" path="res://Mobs/Animations/Animations_pack/Warrior.res" id="3_6ece0"]
+[ext_resource type="Script" uid="uid://srcs3mcktebi" path="res://Mobs/Axe.cs" id="3_hqc6a"]
+[ext_resource type="Script" uid="uid://cs80h871jqwah" path="res://Mobs/Paterns/Hitbox.cs" id="4_6ece0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q0jf7"]
+height = 0.28756714
+radius = 0.48339844
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hqc6a"]
+animation = &"Warrior/Melee_2H_Attack_Chop"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_q0jf7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7skeh"]
+animation = &"Warrior/Hit_B"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xm1a3"]
+animation = &"Warrior/Melee_2H_Idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_1nsa6"]
+xfade_time = 1.0
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Walking"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xwc3s"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kj7xr"]
+animation = &"Warrior/Walking_B"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_j2rll"]
+graph_offset = Vector2(-644.11334, 50.605698)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_xm1a3")
+nodes/Idle/position = Vector2(-930, 110)
+nodes/Walking/node = SubResource("AnimationNodeAnimation_kj7xr")
+nodes/Walking/position = Vector2(-910, 300)
+nodes/Hit/node = SubResource("AnimationNodeAnimation_7skeh")
+nodes/Hit/position = Vector2(-630, 410)
+nodes/Attack/node = SubResource("AnimationNodeAnimation_hqc6a")
+nodes/Attack/position = Vector2(-240, 400)
+nodes/Idle_Walking_Transition/node = SubResource("AnimationNodeTransition_1nsa6")
+nodes/Idle_Walking_Transition/position = Vector2(-640, 110)
+nodes/Get_Hit/node = SubResource("AnimationNodeOneShot_q0jf7")
+nodes/Get_Hit/position = Vector2(-270, 90)
+nodes/Is_Attacking/node = SubResource("AnimationNodeOneShot_xwc3s")
+nodes/Is_Attacking/position = Vector2(70, 80)
+node_connections = [&"output", 0, &"Is_Attacking", &"Idle_Walking_Transition", 0, &"Idle", &"Idle_Walking_Transition", 1, &"Walking", &"Get_Hit", 0, &"Idle_Walking_Transition", &"Get_Hit", 1, &"Hit", &"Is_Attacking", 0, &"Get_Hit", &"Is_Attacking", 1, &"Attack"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8vang"]
+radius = 0.4296875
+height = 1.878418
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o5n4u"]
+radius = 0.7
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2jqc"]
+radius = 0.5385742
+height = 1.6118164
 
 [node name="Skeleton_Warrior" instance=ExtResource("1_ytvjx")]
+script = ExtResource("2_fipsx")
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(0.008410764, 0.3780459, 1.2184853e-10)
@@ -41,9 +105,62 @@ transform = Transform3D(-0.22091907, 0.7619719, -0.60876304, -0.6175059, 0.37385
 bone_name = "handslot.r"
 bone_idx = 8
 
-[node name="Skeleton_Axe2" parent="Rig_Medium/Skeleton3D/Right_Hand" index="0" instance=ExtResource("2_3dqp1")]
+[node name="Axe" type="Area3D" parent="Rig_Medium/Skeleton3D/Right_Hand" index="0"]
+script = ExtResource("3_hqc6a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="Skeleton_Axe2" parent="Rig_Medium/Skeleton3D/Right_Hand/Axe" index="0" instance=ExtResource("2_3dqp1")]
+transform = Transform3D(1, 5.9604645e-08, 0, 0, 1, -2.9802322e-08, 0, -5.9604645e-08, 1, 0, 0, 0)
+
+[node name="AxeHitbox" type="CollisionShape3D" parent="Rig_Medium/Skeleton3D/Right_Hand/Axe" index="1"]
+transform = Transform3D(0.99998856, 1.9909478e-12, -5.456968e-12, -2.7000624e-13, -4.371209e-08, -1, -1.0574857e-12, 0.99998856, -4.3711395e-08, 1.7881393e-07, 0.65665776, 0.0032482147)
+shape = SubResource("CylinderShape3D_q0jf7")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeBlendTree_j2rll")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle_Walking_Transition/current_state = "Idle"
+parameters/Idle_Walking_Transition/transition_request = ""
+parameters/Idle_Walking_Transition/current_index = 0
+parameters/Get_Hit/active = false
+parameters/Get_Hit/internal_active = false
+parameters/Get_Hit/request = 0
+parameters/Is_Attacking/active = false
+parameters/Is_Attacking/internal_active = false
+parameters/Is_Attacking/request = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
 &"Warrior": ExtResource("3_6ece0")
 }
+
+[node name="BodyCollider" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8072823, 0)
+shape = SubResource("CapsuleShape3D_8vang")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="." index="5"]
+process_callback = 0
+autostart = true
+
+[node name="Head" type="Area3D" parent="." index="6"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_6ece0")
+Damage = 5
+
+[node name="HeadHitbox" type="CollisionShape3D" parent="Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7096018, 0)
+shape = SubResource("SphereShape3D_o5n4u")
+
+[node name="Body" type="Area3D" parent="." index="7"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_6ece0")
+
+[node name="BodyHitbox" type="CollisionShape3D" parent="Body" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6596724, 0)
+shape = SubResource("CapsuleShape3D_b2jqc")
