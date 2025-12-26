@@ -27,6 +27,7 @@ public partial class Minion : Mobs
 		animationTree.Active = true;
 		
 		navigationAgent = GetNode<NavigationAgent3D>("%NavigationAgent3D");
+		navigationAgent.TargetDesiredDistance = AttackRange - 0.2f;
 		player = GetTree().GetFirstNodeInGroup("Player") as Player;
 		if (player == null)
 		{
@@ -103,6 +104,12 @@ public partial class Minion : Mobs
 	{
 		navigationAgent.TargetPosition = player.GlobalPosition;
 
+		if (navigationAgent.IsNavigationFinished())
+		{
+			Velocity = Vector3.Zero;
+			return;
+		}
+		
 		Vector3 nextPathPos = navigationAgent.GetNextPathPosition();
 		Vector3 direction = GlobalPosition.DirectionTo(nextPathPos);
 
@@ -132,7 +139,6 @@ public partial class Minion : Mobs
 
 		_attackTimer = AttackCooldown;
 
-		player.TakeDamage(AttackDamage);
 	}
 	
 	public void _OnTimerTimeout()

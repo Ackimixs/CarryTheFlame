@@ -7,11 +7,11 @@ public partial class Mobs : CharacterBody3D
     [Export]
     protected float speed;
     [Export]
-    protected float DetectionRange = 10.0f;
+    protected float DetectionRange;
     [Export]
-    protected float AttackRange = 2.0f;
+    protected float AttackRange;
     [Export]
-    protected float AttackCooldown = 1.2f;
+    protected float AttackCooldown;
     [Export]
     protected int AttackDamage = 1;
     protected double _attackTimer = 0.0;

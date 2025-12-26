@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Warrior : Mobs
+public partial class Rogue : Mobs
 {
     private AnimationTree animationTree;
 	private NavigationAgent3D  navigationAgent ;
@@ -14,11 +14,11 @@ public partial class Warrior : Mobs
 
 	public override void _Ready()
 	{
-		Health = 10;
+		Health = 3;
 		speed = 5f;
-		DetectionRange = 10.0f;
-		AttackRange = 1.2f;
-		AttackCooldown = 1.2f;
+		DetectionRange = 25.0f;
+		AttackRange = 10f;
+		AttackCooldown = 10f;
 		AttackDamage = 1;
 		_attackTimer = 0.0;
 		
