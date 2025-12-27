@@ -19,7 +19,7 @@ public partial class Mobs : CharacterBody3D
     public Player player;
 
     [Signal]
-    public delegate void OnKilledEventHandler(Minion minion);
+    public delegate void OnKilledEventHandler(Mobs mob);
 
     public virtual void TakeDamage(int damage)
     {

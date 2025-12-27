@@ -40,7 +40,7 @@ public partial class RoundManager : Node
 
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 
-	private List<Minion> _activeMobs = new List<Minion>();
+	private List<Mobs> _activeMobs = new List<Mobs>();
 
 	[Export] private Godot.Collections.Dictionary<int, float> hazardWeights;
 
@@ -158,7 +158,7 @@ public partial class RoundManager : Node
 		{
 			int randomIndex = _rng.RandiRange(0, _mobSpawners.Count - 1);
 			var spawner = _mobSpawners[randomIndex];
-			Minion mob = spawner.SpawnMob();
+			Mobs mob = spawner.SpawnMob();
 			mob.SetScale(mob.Scale * mobScaleMultiplier);
 			_activeMobs.Add(mob);
 			mob.OnKilled += OnEnemyKilled;
@@ -169,11 +169,13 @@ public partial class RoundManager : Node
 		_endRoundTimer.Start();
 	}
 
-	private void OnEnemyKilled(Minion minion)
+	private void OnEnemyKilled(Mobs mob)
 	{
-		if (_activeMobs.Contains(minion))
+		GD.Print("Enemy killed");
+
+		if (_activeMobs.Contains(mob))
 		{
-			_activeMobs.Remove(minion);
+			_activeMobs.Remove(mob);
 		}
 
 		remainingEnemies--;

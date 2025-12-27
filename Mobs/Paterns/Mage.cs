@@ -7,9 +7,6 @@ public partial class Mage : Mobs
 	private NavigationAgent3D  navigationAgent ;
 	private State CurrentState;
 
-	[Signal]
-	public delegate void OnKilledEventHandler(Minion minion);
-
 	private bool _everSeenPlayer = false;
 
 	public override void _Ready()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://crmft6lupmoc3"]
+[gd_scene load_steps=52 format=3 uid="uid://crmft6lupmoc3"]
 
 [ext_resource type="PackedScene" uid="uid://272llceugjpx" path="res://player.tscn" id="1_a6dix"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_grec8"]
@@ -38,6 +38,7 @@
 [ext_resource type="Resource" uid="uid://cggaxwo7sb5s2" path="res://Resources/MapHazard/SmallMobHazard.tres" id="23_17cpq"]
 [ext_resource type="Texture2D" uid="uid://c3o1t0r8tyd0f" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-009.png" id="30_44tsb"]
 [ext_resource type="PackedScene" uid="uid://b1wodsdgpk21" path="res://UI/MapHazard/MapHazardCard.tscn" id="31_mad3s"]
+[ext_resource type="PackedScene" uid="uid://bbp3sohym4d6y" path="res://Mobs/Scenes/skeleton_mage.tscn" id="41_gthfn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4t2s2"]
 vertices = PackedVector3Array(-3.5111594, 0.5, 29.935114, 12.48884, 0.5, 29.935114, 12.48884, 0.5, 28.435114, 14.48884, 0.5, 27.935114, 14.48884, 0.5, -3.5648866, -3.5111594, 0.5, -3.5648866, 15.48884, 0.5, 28.685114, 15.48884, 0.5, 31.185114, 32.488842, 0.5, 32.685112, 32.988842, 0.5, 31.935114, 33.988842, 0.5, 31.935114, 33.988842, 0.5, -3.5648866, 35.488842, 0.5, 32.685112, 35.488842, 0.5, 33.935112, 63.488842, 0.5, 33.935112, 34.738842, 0.5, 31.935114, 63.488842, 0.5, -3.5648866, 13.48884, -1, 30.685114, 14.48884, -1, 30.685114, 14.48884, -1, 29.185114, 13.48884, -0.5, 28.935114, 12.48884, 0.5, 31.435114, 14.23884, 0.5, 31.935114, -3.5111594, 0.5, 59.435112, 14.23884, 0.5, 59.435112, 32.488842, 0.5, 35.185112, 14.98884, 0.5, 31.935114, 27.73884, 0.5, 59.435112, 33.488842, -1, 34.685112, 34.488842, -1, 34.685112, 34.488842, -1, 33.185112, 33.488842, -0.5, 32.935112, 35.488842, 0.5, 35.435112, 33.988842, 0.5, 35.935112, 33.988842, 0.5, 59.435112, 63.488842, 0.5, 59.435112, 28.23884, 0.5, 59.685112, 28.23884, 0.5, 61.435112, 31.48884, 0.5, 61.435112, 31.73884, 0.5, 59.435112, 32.738842, 0.5, 35.685112, 28.23884, 0.5, 71.43511, 31.48884, 0.5, 71.43511)
@@ -3666,8 +3667,8 @@ one_shot = true
 [node name="MobSpawner" type="Node3D" parent="." node_paths=PackedStringArray("_spawnArea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.369, 0, 4.599)
 script = ExtResource("14_4t2s2")
-MobScene = ExtResource("15_jkdn7")
 _spawnArea = NodePath("Area3D/CollisionShape3D")
+_mobScenes = Array[PackedScene]([ExtResource("41_gthfn")])
 
 [node name="Area3D" type="Area3D" parent="MobSpawner"]
 
@@ -3677,8 +3678,8 @@ shape = SubResource("BoxShape3D_guuv3")
 [node name="MobSpawner2" type="Node3D" parent="." node_paths=PackedStringArray("_spawnArea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.861, 0, 11.602)
 script = ExtResource("14_4t2s2")
-MobScene = ExtResource("15_jkdn7")
 _spawnArea = NodePath("Area3D/CollisionShape3D")
+_mobScenes = Array[PackedScene]([ExtResource("15_jkdn7")])
 
 [node name="Area3D" type="Area3D" parent="MobSpawner2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8828487, 0, 3.8932428)
@@ -3690,8 +3691,8 @@ shape = SubResource("BoxShape3D_guuv3")
 [node name="MobSpawner3" type="Node3D" parent="." node_paths=PackedStringArray("_spawnArea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.026, 0, 37.065)
 script = ExtResource("14_4t2s2")
-MobScene = ExtResource("15_jkdn7")
 _spawnArea = NodePath("Area3D/CollisionShape3D")
+_mobScenes = Array[PackedScene]([ExtResource("41_gthfn")])
 
 [node name="Area3D" type="Area3D" parent="MobSpawner3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8828487, 0, 3.8932428)

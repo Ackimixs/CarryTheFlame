@@ -3,18 +3,21 @@ using System;
 
 public partial class MobSpawner : Node3D
 {
-    [Export] public PackedScene MobScene;
-
     [Export] private CollisionShape3D _spawnArea;
     private RandomNumberGenerator _rng = new RandomNumberGenerator();
+
+    [Export] private Godot.Collections.Array<PackedScene> _mobScenes;
 
     public override void _Ready()
     {
     }
 
-    public Minion SpawnMob()
+    public Mobs SpawnMob()
     {
-        Minion mob = MobScene.Instantiate<Minion>();
+        int mobIndex = _rng.RandiRange(0, _mobScenes.Count - 1);
+        PackedScene mobScene = _mobScenes[mobIndex];
+
+        Mobs mob = mobScene.Instantiate<Mobs>();
 
         Vector3 randomPosition = GetRandomPositionInBox();
 
