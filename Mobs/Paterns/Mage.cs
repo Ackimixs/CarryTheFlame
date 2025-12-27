@@ -8,6 +8,10 @@ public partial class Mage : Mobs
 	private State CurrentState;
 
 	private bool _everSeenPlayer = false;
+	
+	[Export]
+	private PackedScene PumpkinScene;
+	private Marker3D shootPoint;
 
 	public override void _Ready()
 	{
@@ -30,6 +34,7 @@ public partial class Mage : Mobs
 			GD.PrintErr("Erreur : Joueur non trouvé dans le groupe 'Player' !");
 		}
 		CurrentState = State.Idle;
+		shootPoint = GetNode<Marker3D>("ShootPoint");
 	}
 
 	public override void TakeDamage(int damages)
@@ -132,10 +137,27 @@ public partial class Mage : Mobs
 
 		
 		animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-
+		Shoot();
 		_attackTimer = AttackCooldown;
 
-		player.TakeDamage(AttackDamage);
+	}
+	
+	private void Shoot()
+	{
+		if (PumpkinScene == null || player == null)
+			return;
+		
+		Pumpkin projectile = PumpkinScene.Instantiate<Pumpkin>();
+
+		// Set position
+		projectile.GlobalTransform = shootPoint.GlobalTransform;
+
+		// Aim toward player
+		Vector3 direction = (player.GlobalPosition - shootPoint.GlobalPosition).Normalized();
+		projectile.LookAt(shootPoint.GlobalPosition + direction, Vector3.Up);
+
+		// Add to scene (important!)
+		GetTree().CurrentScene.AddChild(projectile);
 	}
 	
 	public void _OnTimerTimeout()

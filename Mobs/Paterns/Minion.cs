@@ -135,8 +135,6 @@ public partial class Minion : Mobs
 		animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 
 		_attackTimer = AttackCooldown;
-
-		player.TakeDamage(AttackDamage);
 	}
 	
 	public void _OnTimerTimeout()

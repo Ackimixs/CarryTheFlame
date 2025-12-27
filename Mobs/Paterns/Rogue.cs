@@ -9,6 +9,10 @@ public partial class Rogue : Mobs
 
 	private bool _everSeenPlayer = false;
 
+	[Export]
+	private PackedScene ArrowScene;
+	private Marker3D shootPoint;
+	
 	public override void _Ready()
 	{
 		Health = 3;
@@ -30,6 +34,8 @@ public partial class Rogue : Mobs
 			GD.PrintErr("Erreur : Joueur non trouvé dans le groupe 'Player' !");
 		}
 		CurrentState = State.Idle;
+		
+		shootPoint = GetNode<Marker3D>("ShootPoint");
 	}
 
 	public override void TakeDamage(int damages)
@@ -132,10 +138,26 @@ public partial class Rogue : Mobs
 
 		
 		animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-
+		Shoot();
 		_attackTimer = AttackCooldown;
 
-		player.TakeDamage(AttackDamage);
+	}
+	
+	private void Shoot()
+	{
+		if (ArrowScene == null || player == null)
+			return;
+		Arrow projectile = ArrowScene.Instantiate<Arrow>();
+
+		// Set position
+		projectile.GlobalTransform = shootPoint.GlobalTransform;
+
+		// Aim toward player
+		Vector3 direction = (player.GlobalPosition - shootPoint.GlobalPosition).Normalized();
+		projectile.LookAt(shootPoint.GlobalPosition + direction, Vector3.Up);
+
+		// Add to scene (important!)
+		GetTree().CurrentScene.AddChild(projectile);
 	}
 	
 	public void _OnTimerTimeout()
