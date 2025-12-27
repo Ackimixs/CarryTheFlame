@@ -139,6 +139,7 @@ public partial class Minion : Mobs
 
 		_attackTimer = AttackCooldown;
 
+		player.TakeDamage(AttackDamage);
 	}
 	
 	public void _OnTimerTimeout()
