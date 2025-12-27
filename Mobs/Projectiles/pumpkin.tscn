@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://8n5isl7i50dq"]
+
+[ext_resource type="PackedScene" uid="uid://clq7vbqpsqwc7" path="res://Mobs/Projectiles/pumpkin_orange_jackolantern.gltf" id="1_pqhcu"]
+[ext_resource type="Script" uid="uid://ddikbiy43c6pk" path="res://Mobs/Projectiles/Pumpkin.cs" id="2_pth2r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pth2r"]
+radius = 0.8
+
+[node name="pumpkin_orange_jackolantern2" instance=ExtResource("1_pqhcu")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("2_pth2r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5719479, 0)
+shape = SubResource("SphereShape3D_pth2r")
