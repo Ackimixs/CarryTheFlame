@@ -8,7 +8,12 @@ radius = 0.8
 
 [node name="pumpkin_orange_jackolantern2" instance=ExtResource("1_pqhcu")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+collision_layer = 5
+collision_mask = 3
 script = ExtResource("2_pth2r")
+
+[node name="pumpkin_orange_jackolantern" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5719479, 0)

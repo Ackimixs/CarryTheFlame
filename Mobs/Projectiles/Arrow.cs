@@ -35,6 +35,7 @@ public partial class Arrow : Area3D
         if (body is Player player)
         {
             player.TakeDamage(damage);
+            QueueFree(); 
         }
     }
 }

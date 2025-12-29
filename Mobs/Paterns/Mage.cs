@@ -54,5 +54,6 @@ public partial class Mage : Mobs
 
 		// Add to scene (important!)
 		GetTree().CurrentScene.AddChild(projectile);
+		projectile.Initialize(player);
 	}
 }
