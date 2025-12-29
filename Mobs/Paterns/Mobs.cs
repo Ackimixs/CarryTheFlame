@@ -7,7 +7,7 @@ public partial class Mobs : CharacterBody3D
     [Export]
     protected float speed;
     [Export]
-    protected float DetectionRange;
+    protected float DetectionRange = 100.0f;
     [Export]
     protected float AttackRange;
     [Export]
@@ -70,6 +70,7 @@ public partial class Mobs : CharacterBody3D
                 }
                 else
                 {
+                    animationTree.Set("parameters/Idle_Walking_Transition/transition_request", "Idle");
                     LookForPlayer();
                 }
                 break;
@@ -85,6 +86,11 @@ public partial class Mobs : CharacterBody3D
             LookAt(GlobalPosition - dir, Vector3.Up);
         animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
         _attackTimer = AttackCooldown;
+    }
+
+    public void DealDamageToPlayer()
+    {
+        player.TakeDamage(AttackDamage);
     }
 
     public virtual void TakeDamage(int damage)

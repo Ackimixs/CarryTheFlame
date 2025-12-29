@@ -27,7 +27,7 @@ public partial class Gun : Node3D
 		// Si c'est un arc, on cherche le mesh de la flèche et on le cache
 		if (isBow)
 		{
-			arrow = GetNode<MeshInstance3D>("ArrowMesh"); // Nom à adapter selon ton nœud
+			arrow = GetNode<MeshInstance3D>("%arrow"); // Nom à adapter selon ton nœud
 			if (arrow != null) arrow.Hide();
 		}
 	}

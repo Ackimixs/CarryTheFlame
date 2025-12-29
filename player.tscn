@@ -797,6 +797,7 @@ mesh = SubResource("ArrayMesh_b26j0")
 skeleton = NodePath("")
 
 [node name="arrow" parent="Body/Head/Camera3D/BowManager/bow" instance=ExtResource("7_1jxqw")]
+unique_name_in_owner = true
 transform = Transform3D(0.9989709, -7.1054274e-14, 0.045363005, 7.1054274e-14, 1.0000002, 2.2620794e-15, -0.045363005, -1.9206858e-14, 0.9989709, -0.05496359, -0.013894975, 0.008962035)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Head/Camera3D/BowManager"]
@@ -806,7 +807,7 @@ script = ExtResource("4_2hs0m")
 isMelee = true
 
 [node name="Sword" type="MeshInstance3D" parent="Body/Head/Camera3D/SwordManager"]
-transform = Transform3D(0.010018003, -0.9996615, -0.023997853, -0.24905358, -0.02573719, 0.96814734, -0.9684376, -0.0037221524, -0.24922718, 0.48102742, -0.3435643, -0.417605)
+transform = Transform3D(0.010018003, -0.99966145, -0.02399785, -0.24905357, -0.025737189, 0.9681473, -0.96843755, -0.0037221522, -0.24922717, 0.48102742, -0.3435643, -0.417605)
 mesh = SubResource("ArrayMesh_nvl01")
 skeleton = NodePath("")
 

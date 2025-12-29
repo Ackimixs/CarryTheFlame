@@ -64,8 +64,6 @@ public partial class RoundManager : Node
 
 	public void EndRound()
 	{
-		_player.SetHealth(_player.GetBaseHealth());
-
 		if (_roundNumber % 5 == 0)
 		{
 			PowerManager.Instance.AddMaxActivePowers(1);
@@ -128,6 +126,8 @@ public partial class RoundManager : Node
 	public void StartRound()
 	{
 		TeleportPlayer();
+
+		_player.SetHealth(_player.GetBaseHealth());
 
 		_player.HideCursor();
 		PowerChoiceUI.Hide();

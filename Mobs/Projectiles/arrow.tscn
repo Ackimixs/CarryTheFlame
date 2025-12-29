@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7qp484oph8j4"]
 
 [ext_resource type="PackedScene" uid="uid://dw5tfa5dw5tls" path="res://Mobs/Projectiles/Skeleton_Arrow.gltf" id="1_e6fxc"]
-[ext_resource type="Script" uid="uid://brug65y5vq330" path="res://Mobs/Projectiles/Arrow.cs" id="2_7nafu"]
+[ext_resource type="Script" uid="uid://c3mmp5c3gv74c" path="res://Mobs/Projectiles/Arrow.cs" id="2_7nafu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7nafu"]
 radius = 0.03515625

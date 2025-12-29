@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cr4kdsj1iuxuy"
-path="res://.godot/imported/Skeleton_Rogue.glb-19322b680584da804d8a320b44ae3b29.scn"
+uid="uid://dw5tfa5dw5tls"
+path="res://.godot/imported/Skeleton_Arrow.gltf-806dc15ae3368f7fa0c27d7b86544532.scn"
 
 [deps]
 
-source_file="res://Mobs/Characters/Skeleton_Rogue.glb"
-dest_files=["res://.godot/imported/Skeleton_Rogue.glb-19322b680584da804d8a320b44ae3b29.scn"]
+source_file="res://Mobs/Projectiles/Skeleton_Arrow.gltf"
+dest_files=["res://.godot/imported/Skeleton_Arrow.gltf-806dc15ae3368f7fa0c27d7b86544532.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type="Area3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
@@ -34,9 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=2
+materials/extract=0
 materials/extract_format=0
-materials/extract_path="res://Mobs/Materials"
+materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
