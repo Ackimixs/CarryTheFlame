@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://gop24k6r56gq"]
+
+[ext_resource type="Script" uid="uid://dvr6l0xofh1gs" path="res://UI/MainMenu/MainMenuScript.cs" id="1_a0a8c"]
+[ext_resource type="PackedScene" uid="uid://btqkdw3kspncg" path="res://level.tscn" id="2_divag"]
+
+[node name="MainMenuScene" type="Control" node_paths=PackedStringArray("PlayButton", "QuitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0a8c")
+PlayButton = NodePath("CanvasLayer/VBoxContainer/PlayButton")
+QuitButton = NodePath("CanvasLayer/VBoxContainer/QuitButton")
+GameScene = ExtResource("2_divag")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -44.0
+offset_right = 37.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
