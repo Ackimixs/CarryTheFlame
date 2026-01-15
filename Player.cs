@@ -179,10 +179,12 @@ public partial class Player : CharacterBody3D
 	private void ChangeWeapon(int direction)
 	{
 		weapons[currentWeaponIndex].Hide();
-		
+		weapons[currentWeaponIndex].IsEquipped = false;
+
 		currentWeaponIndex = (currentWeaponIndex + direction + weapons.Count) % weapons.Count;
 
 		weapons[currentWeaponIndex].Show();
+		weapons[currentWeaponIndex].IsEquipped = true;
 	}
 
 	public void AddWeapon(Weapon newWeapon)
@@ -202,6 +204,7 @@ public partial class Player : CharacterBody3D
 		{
 			currentWeaponIndex = 0;
 			newWeapon.Show();
+			newWeapon.IsEquipped = true;
 		}
 	}
 
@@ -209,6 +212,16 @@ public partial class Player : CharacterBody3D
 	{
 		Weapon newWeapon = weaponScene.Instantiate<Weapon>();
 		AddWeapon(newWeapon);
+	}
+
+	public void ClearWeapons()
+	{
+		foreach (Weapon weapon in weapons)
+		{
+			weapon.QueueFree();
+		}
+		weapons.Clear();
+		currentWeaponIndex = 0;
 	}
 
 	public void ShowCursor()

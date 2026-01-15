@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxe38qe8h11r1"]
+
+[ext_resource type="Script" uid="uid://chjw5va0yuct" path="res://Scripts/Player/Weapon/LongRangeWeapon.cs" id="1_heau8"]
+[ext_resource type="PackedScene" uid="uid://dvs0asagx18s0" path="res://bullet.tscn" id="2_m8rkr"]
+[ext_resource type="ArrayMesh" uid="uid://bgti3vol072ii" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/OBJ/Musketoon.obj" id="3_fwolf"]
+[ext_resource type="Texture2D" uid="uid://p2r7sev8f5tm" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/SwordsTexture.png" id="4_c44aw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhaip"]
+albedo_texture = ExtResource("4_c44aw")
+
+[sub_resource type="Animation" id="Animation_dw050"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b26j0"]
+_data = {
+&"RESET": SubResource("Animation_dw050")
+}
+
+[sub_resource type="Animation" id="Animation_bwjto"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 3.1415927), Vector3(0, 1.5707964, 6.2831855)]
+}
+
+[sub_resource type="Animation" id="Animation_n7ghd"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.6440265), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvl01"]
+_data = {
+&"reload": SubResource("Animation_bwjto"),
+&"shoot": SubResource("Animation_n7ghd")
+}
+
+[node name="MusketoonManager" type="Node3D" node_paths=PackedStringArray("marker", "animPlayer")]
+script = ExtResource("1_heau8")
+bulletScene = ExtResource("2_m8rkr")
+marker = NodePath("Musketoon/Marker3D")
+Damage = 2
+animPlayer = NodePath("AnimationPlayer")
+WeaponName = "Musketoon"
+
+[node name="Musketoon" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.411, -0.278, -0.7017319)
+mesh = ExtResource("3_fwolf")
+skeleton = NodePath("../../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yhaip")
+
+[node name="Marker3D" type="Marker3D" parent="Musketoon"]
+transform = Transform3D(3.2783532e-06, 0, 24.999996, 0, 25, 0, -24.999996, 0, 3.2783532e-06, 66.96985, -9.470774, 19.492435)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Musketoon")
+libraries = {
+&"": SubResource("AnimationLibrary_b26j0"),
+&"local": SubResource("AnimationLibrary_nvl01")
+}

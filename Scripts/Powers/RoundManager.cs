@@ -127,6 +127,7 @@ public partial class RoundManager : Node
 	{
 		TeleportPlayer();
 
+		_player.ClearWeapons();
 		_player.SetHealth(_player.GetBaseHealth());
 
 		_player.HideCursor();
