@@ -3,7 +3,7 @@ using System;
 
 public partial class Hitbox : Area3D
 {
-    [Export] public int Damage = 1;
+    [Export] public int DamageMultiplier = 1;
 
     public override void _Ready()
     {
@@ -15,7 +15,7 @@ public partial class Hitbox : Area3D
         if (area is Bullet bullet)
         {
             Mobs mob = GetParentOrNull<Mobs>();
-            mob.TakeDamage(Damage);
+            mob.TakeDamage(bullet.damage * DamageMultiplier);
             if (!mob.player.powerManager.HasPower<PiercingBulletsPowers>())
             {
                 bullet.QueueFree();

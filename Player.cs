@@ -21,8 +21,12 @@ public partial class Player : CharacterBody3D
 	// Paramètres pour les marches
 	[Export] private float maxStepHeight = 0.5f;
 	private float verticalVelocity = 0;
+
+	protected Godot.Collections.Array<Weapon> weapons = new Godot.Collections.Array<Weapon>();
+	[Export] public PackedScene baseWeapon;
+	private int maxWeapons = 2;
 	private int currentWeaponIndex = 0;
-	private System.Collections.Generic.List<Node3D> weapons = new System.Collections.Generic.List<Node3D>();
+
 	private Camera3D camera;
 	private float damage;
 
@@ -44,19 +48,6 @@ public partial class Player : CharacterBody3D
 		camera = GetNode<Camera3D>("%Camera3D");
 		HideCursor();
 
-		// On récupère automatiquement Musketoon, PistolAxe et PistolManager
-		foreach (Node child in camera.GetChildren())
-		{
-			if (child is Node3D weapon)
-			{
-				weapons.Add(weapon);
-				weapon.Hide(); // Cache toutes les armes au départ
-			}
-		}
-
-		// Affiche la première arme par défaut
-		if (weapons.Count > 0) weapons[currentWeaponIndex].Show();
-
 		damage = baseDamage;
 		speed = baseSpeed;
 		sprintSpeed = baseSpeed * sprintMultiplier;
@@ -65,6 +56,11 @@ public partial class Player : CharacterBody3D
 
 		healthBar.MaxValue = health;
 		healthBar.Value = health;
+
+		if (baseWeapon != null)
+		{
+			AddWeapon(baseWeapon);
+		}
 	}
 
 	public override void _UnhandledInput(InputEvent e)
@@ -182,11 +178,37 @@ public partial class Player : CharacterBody3D
 
 	private void ChangeWeapon(int direction)
 	{
-		weapons[currentWeaponIndex].Hide(); // Cache l'arme actuelle
+		weapons[currentWeaponIndex].Hide();
 		
 		currentWeaponIndex = (currentWeaponIndex + direction + weapons.Count) % weapons.Count;
 
-		weapons[currentWeaponIndex].Show(); // Affiche la nouvelle arme
+		weapons[currentWeaponIndex].Show();
+	}
+
+	public void AddWeapon(Weapon newWeapon)
+	{
+		if (weapons.Count >= maxWeapons)
+		{
+			Weapon oldWeapon = weapons[0];
+			weapons.RemoveAt(0);
+			oldWeapon.QueueFree();
+		}
+
+		weapons.Add(newWeapon);
+		camera.AddChild(newWeapon);
+		newWeapon.Hide();
+
+		if (weapons.Count == 1)
+		{
+			currentWeaponIndex = 0;
+			newWeapon.Show();
+		}
+	}
+
+	public void AddWeapon(PackedScene weaponScene)
+	{
+		Weapon newWeapon = weaponScene.Instantiate<Weapon>();
+		AddWeapon(newWeapon);
 	}
 
 	public void ShowCursor()

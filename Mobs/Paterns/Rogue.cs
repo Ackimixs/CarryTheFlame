@@ -44,14 +44,8 @@ public partial class Rogue : Mobs
 			return;
 		Arrow projectile = ArrowScene.Instantiate<Arrow>();
 
-		// Set position
 		projectile.GlobalTransform = shootPoint.GlobalTransform;
 
-		// Aim toward player
-		Vector3 direction = (player.GlobalPosition - shootPoint.GlobalPosition).Normalized();
-		projectile.LookAt(shootPoint.GlobalPosition + direction, Vector3.Up);
-
-		// Add to scene (important!)
 		GetTree().CurrentScene.AddChild(projectile);
 	}
 }

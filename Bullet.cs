@@ -10,6 +10,8 @@ public partial class Bullet : Area3D
 	private float maxDistance = 100f;
 	private float travelledDistance;
 
+	public int damage;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Position += Transform.Basis.Z * speed * (float)delta;
@@ -22,5 +24,8 @@ public partial class Bullet : Area3D
 		}
 	}
 
-	
+	public void SetDamage(int damage)
+	{
+		this.damage = damage;
+	}
 }
