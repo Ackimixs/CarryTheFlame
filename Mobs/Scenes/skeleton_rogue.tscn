@@ -102,6 +102,7 @@ node_connections = [&"output", 0, &"Is_Attacking", &"Idle_Walking_Transition", 0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xvb"]
 radius = 0.3881836
+height = 1.7480469
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_erpwl"]
 radius = 0.63
@@ -208,7 +209,7 @@ process_callback = 0
 autostart = true
 
 [node name="BodyCollider" type="CollisionShape3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74996996, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8759465, 0)
 shape = SubResource("CapsuleShape3D_20xvb")
 
 [node name="Head" type="Area3D" parent="." index="6"]

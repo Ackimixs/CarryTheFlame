@@ -36,7 +36,7 @@ public partial class Player : CharacterBody3D
 
 	[Export] private ProgressBar healthBar;
 
-	[Export] public PackedScene MainMenuScene;
+	// [Export] public PackedScene MainMenuScene;
 
 
 	public override void _Ready()
@@ -257,7 +257,8 @@ public partial class Player : CharacterBody3D
 			}
 			else
 			{
-				GetTree().ChangeSceneToPacked(MainMenuScene);
+				// GetTree().ChangeSceneToPacked(MainMenuScene);
+				GetTree().Quit();
 			}
 		}
 	}
