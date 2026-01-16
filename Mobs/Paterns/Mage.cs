@@ -9,7 +9,7 @@ public partial class Mage : Mobs
 
 	public override void _Ready()
 	{
-		Health = 3;
+		Health = 10;
 		speed = 6f;
 		DetectionRange = 25.0f;
 		AttackRange = 10f;

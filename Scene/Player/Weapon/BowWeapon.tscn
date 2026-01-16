@@ -118,6 +118,7 @@ shadow_mesh = SubResource("ArrayMesh_3f7tp")
 script = ExtResource("1_5pt1w")
 bulletScene = ExtResource("2_usarl")
 marker = NodePath("bow/Marker3D")
+Damage = null
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Bow"
 

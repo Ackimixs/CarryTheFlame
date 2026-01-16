@@ -3,7 +3,7 @@
 public partial class Mobs : CharacterBody3D
 {
     [Export] 
-    protected int Health;
+    protected float Health;
     [Export]
     protected float speed;
     [Export]
@@ -13,7 +13,7 @@ public partial class Mobs : CharacterBody3D
     [Export]
     protected float AttackCooldown;
     [Export]
-    protected int AttackDamage;
+    protected float AttackDamage;
     protected double _attackTimer;
     protected NavigationAgent3D  navigationAgent ;
     protected AnimationTree animationTree;
@@ -88,12 +88,7 @@ public partial class Mobs : CharacterBody3D
         _attackTimer = AttackCooldown;
     }
 
-    public void DealDamageToPlayer()
-    {
-        player.TakeDamage(AttackDamage);
-    }
-
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
         animationTree.Set("parameters/Get_Hit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
         if (Health <= 0)

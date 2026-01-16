@@ -68,7 +68,7 @@ _data = {
 script = ExtResource("1_heau8")
 bulletScene = ExtResource("2_m8rkr")
 marker = NodePath("Musketoon/Marker3D")
-Damage = 2
+DamageMultiplier = 1.4
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Musketoon"
 

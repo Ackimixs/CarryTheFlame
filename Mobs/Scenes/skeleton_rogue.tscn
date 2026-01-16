@@ -114,6 +114,8 @@ height = 1.5458984
 [node name="Skeleton_Rogue" instance=ExtResource("1_imnqq")]
 script = ExtResource("2_5uyj6")
 ArrowScene = ExtResource("3_loai3")
+Health = 0
+AttackDamage = 0
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(0, 0.39206383, 0)
@@ -217,7 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.505115, 0)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("26_loai3")
-DamageMultiplier = 3
+DamageMultiplier = 2.5
 
 [node name="HeadHitbox" type="CollisionShape3D" parent="Head" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029188037, 0.11239195, 0.08086008)

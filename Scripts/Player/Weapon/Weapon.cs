@@ -3,10 +3,12 @@ using System;
 
 public partial class Weapon : Node3D
 {
-	[Export] public int Damage = 1;
+	[Export] public float DamageMultiplier = 1;
 
 	[Export] protected AnimationPlayer animPlayer;
 	[Export] public string WeaponName = "Weapon";
+
+	protected Player _player;
 
 	public bool IsEquipped = false;
 
@@ -21,6 +23,11 @@ public partial class Weapon : Node3D
 		{
 			HandleShoot();
 		}
+	}
+
+	public void SetPlayer(Player player)
+	{
+		_player = player;
 	}
 
 	protected virtual void HandleShoot()

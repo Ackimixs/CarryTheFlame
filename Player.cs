@@ -194,8 +194,15 @@ public partial class Player : CharacterBody3D
 			Weapon oldWeapon = weapons[0];
 			weapons.RemoveAt(0);
 			oldWeapon.QueueFree();
+
+			if (currentWeaponIndex == 0)
+			{
+				weapons[currentWeaponIndex].Show();
+				weapons[currentWeaponIndex].IsEquipped = true;
+			}
 		}
 
+		newWeapon.SetPlayer(this);
 		weapons.Add(newWeapon);
 		camera.AddChild(newWeapon);
 		newWeapon.Hide();

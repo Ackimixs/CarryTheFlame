@@ -9,7 +9,7 @@ public partial class Rogue : Mobs
 	
 	public override void _Ready()
 	{
-		Health = 4;
+		Health = 20;
 		speed = 7f;
 		DetectionRange = 30.0f;
 		AttackRange = 15f;

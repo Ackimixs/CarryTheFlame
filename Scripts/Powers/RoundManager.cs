@@ -48,6 +48,10 @@ public partial class RoundManager : Node
 
 	public bool isDNKRound;
 
+	[Export] private Godot.Collections.Array<Chest> ChestObjects;
+
+	[Export] private int nbChestsToActivate = 2;
+
 	public override void _Ready()
 	{
 		StartRound();
@@ -150,6 +154,27 @@ public partial class RoundManager : Node
 		else
 		{
 			SpawnEnemies();
+		}
+
+		foreach (var chest in ChestObjects)
+		{
+			chest.DisableChest(true);
+		}
+
+		if (nbChestsToActivate == -1)
+		{
+			foreach (var chest in ChestObjects)
+			{
+				chest.ActivateChest();
+			}
+		}
+		else
+		{
+			var shuffledChests = ChestObjects.OrderBy(x => _rng.Randi()).ToList();
+			for (int i = 0; i < Math.Min(nbChestsToActivate, shuffledChests.Count); i++)
+			{
+				shuffledChests[i].ActivateChest();
+			}
 		}
 	}
 

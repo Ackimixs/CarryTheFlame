@@ -10,7 +10,7 @@ public partial class Bullet : Area3D
 	private float maxDistance = 100f;
 	private float travelledDistance;
 
-	public int damage;
+	public float damage;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -24,7 +24,7 @@ public partial class Bullet : Area3D
 		}
 	}
 
-	public void SetDamage(int damage)
+	public void SetDamage(float damage)
 	{
 		this.damage = damage;
 	}

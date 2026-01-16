@@ -151,7 +151,7 @@ transform = Transform3D(0.9995783, 0.028309263, -0.006468866, -0.028075933, 0.99
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_lh5ge")
-DamageMultiplier = 3
+DamageMultiplier = 2.0
 
 [node name="HeadHitbox" type="CollisionShape3D" parent="Head" index="0"]
 shape = SubResource("SphereShape3D_jwy2w")

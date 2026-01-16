@@ -28,16 +28,18 @@ public partial class Chest : Node3D
 		if (ContainedWeapon.Count > 0 && Player != null && !HasGivenWeapon)
 		{
 			int randomIndex = (int) GD.Randi() % ContainedWeapon.Count;
-			GD.Print("Giving weapon index: " + randomIndex);
+
+			randomIndex = Math.Clamp(randomIndex, 0, ContainedWeapon.Count - 1);
+
 			PackedScene weaponScene = ContainedWeapon[randomIndex];
 			Player.AddWeapon(weaponScene);
 			HasGivenWeapon = true;
 		}
 	}
 
-	public void DeleteChest()
+	public void DisableChest(bool forceDisable = false)
 	{
-		if (HasGivenWeapon)
+		if (HasGivenWeapon || forceDisable)
 		{
 			IsActive = false;
 			Hide();

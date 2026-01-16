@@ -5,7 +5,7 @@ public partial class Warrior : Mobs
 {
 	public override void _Ready()
 	{
-		Health = 10;
+		Health = 30;
 		speed = 5f;
 		DetectionRange = 10.0f;
 		AttackRange = 2.0f;

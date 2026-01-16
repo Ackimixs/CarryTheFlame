@@ -6,7 +6,7 @@ public partial class Minion : Mobs
 {
 	public override void _Ready()
 	{
-		Health = 4;
+		Health = 15;
 		speed = 7f;
 		DetectionRange = 15.0f;
 		AttackRange = 2.0f;

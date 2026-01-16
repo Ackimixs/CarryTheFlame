@@ -3,7 +3,7 @@ using System;
 
 public partial class Hitbox : Area3D
 {
-    [Export] public int DamageMultiplier = 1;
+    [Export] public float DamageMultiplier = 1;
 
     public override void _Ready()
     {

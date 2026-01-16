@@ -164,20 +164,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(-1.3177236, 3.2375858, -1.6737708), Vector3(-0.82728606, 3.5604718, -1.6737708), Vector3(-0.5009095, 4.0439277, -1.0297443), Vector3(-1.3177236, 3.2375858, -1.6737708)]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.16666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"CheckHit"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bwjto"]
 _data = {
@@ -187,11 +173,12 @@ _data = {
 [node name="SwordManager" type="Node3D" node_paths=PackedStringArray("_hitCast", "animPlayer")]
 script = ExtResource("1_etlmt")
 _hitCast = NodePath("Sword/ShapeCast3D")
+DamageMultiplier = 2.0
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Épée"
 
 [node name="Sword" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.010018, -0.9996612, -0.023997845, -0.24905351, -0.025737183, 0.96814704, -0.9684373, -0.0037221513, -0.2492271, 0.48102742, -0.3435643, -0.417605)
+transform = Transform3D(0.010017999, -0.9996611, -0.023997843, -0.24905348, -0.02573718, 0.9681469, -0.9684372, -0.003722151, -0.24922708, 0.48102742, -0.3435643, -0.417605)
 mesh = SubResource("ArrayMesh_qo2xb")
 skeleton = NodePath("")
 

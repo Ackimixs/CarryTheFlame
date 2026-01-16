@@ -9,7 +9,7 @@ radius = 0.8
 [node name="pumpkin_orange_jackolantern2" instance=ExtResource("1_pqhcu")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 7
 script = ExtResource("2_pth2r")
 
 [node name="pumpkin_orange_jackolantern" parent="." index="0"]

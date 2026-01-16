@@ -16,7 +16,12 @@ public partial class MeleWeapon : Weapon
 
 	protected void AttackMelee()
 	{
-		PlayAnimation("local/shoot");
+		if (!animPlayer.IsPlaying())
+		{
+			PlayAnimation("local/shoot");
+		}
+
+		CheckHit();
 	}
 
 	public void CheckHit()
@@ -34,7 +39,7 @@ public partial class MeleWeapon : Weapon
 				Mobs mob = box.GetParentOrNull<Mobs>();
 				if (mob != null)
 				{
-					mob.TakeDamage(Damage * box.DamageMultiplier);
+					mob.TakeDamage(_player.GetDamage() * DamageMultiplier * box.DamageMultiplier);
 				}
 			}
 			else if (collider is Pumpkin pumpkin)

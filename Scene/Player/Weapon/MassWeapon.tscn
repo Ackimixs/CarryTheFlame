@@ -168,20 +168,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(-1.8936822, 0.75049156, 0), Vector3(-2.4731317, 0.61086524, 0), Vector3(-1.8936822, 0.75049156, 0)]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.16),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"CheckHit"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pylmc"]
 _data = {
@@ -191,6 +177,7 @@ _data = {
 [node name="MassManager" type="Node3D" node_paths=PackedStringArray("_hitCast", "animPlayer")]
 script = ExtResource("1_jgeer")
 _hitCast = NodePath("Mass/ShapeCast3D")
+DamageMultiplier = 2.0
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Mass"
 

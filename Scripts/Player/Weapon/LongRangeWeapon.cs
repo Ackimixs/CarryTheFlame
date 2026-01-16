@@ -51,7 +51,7 @@ public partial class LongRangeWeapon : Weapon
 			var bullet = bulletScene.Instantiate<Bullet>();
 			GetTree().CurrentScene.AddChild(bullet);
 			bullet.GlobalTransform = marker.GlobalTransform;
-			bullet.SetDamage(Damage);
+			bullet.SetDamage(_player.GetDamage() * DamageMultiplier);
 		}
 	}
 

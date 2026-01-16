@@ -39,11 +39,11 @@
 [ext_resource type="Texture2D" uid="uid://c3o1t0r8tyd0f" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-009.png" id="30_44tsb"]
 [ext_resource type="PackedScene" uid="uid://b1wodsdgpk21" path="res://UI/MapHazard/MapHazardCard.tscn" id="31_mad3s"]
 [ext_resource type="PackedScene" uid="uid://ctgrvs6u54jhy" path="res://Scene/Player/Weapon/HammerWeapon.tscn" id="40_0au1h"]
-[ext_resource type="PackedScene" uid="uid://dxe38qe8h11r1" path="res://Scene/Player/Weapon/MusketoonWeapon.tscn" id="40_3amm2"]
 [ext_resource type="PackedScene" uid="uid://cwkic2ulv4lqx" path="res://Scene/Chest/chest.tscn" id="40_vee7v"]
 [ext_resource type="PackedScene" uid="uid://1soay8lr0y7a" path="res://Scene/Player/Weapon/MassWeapon.tscn" id="41_3amm2"]
 [ext_resource type="PackedScene" uid="uid://bbp3sohym4d6y" path="res://Mobs/Scenes/skeleton_mage.tscn" id="41_gthfn"]
 [ext_resource type="PackedScene" uid="uid://dq20v5sxbmllt" path="res://Scene/Player/Weapon/PistolWeapon.tscn" id="41_m7cem"]
+[ext_resource type="PackedScene" uid="uid://dx8lychngiibb" path="res://Scene/Player/Weapon/BowWeapon.tscn" id="43_ottr1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4t2s2"]
 vertices = PackedVector3Array(-3.5111594, 0.5, 29.935114, 12.48884, 0.5, 29.935114, 12.48884, 0.5, 28.435114, 14.48884, 0.5, 27.935114, 14.48884, 0.5, -3.5648866, -3.5111594, 0.5, -3.5648866, 15.48884, 0.5, 28.685114, 15.48884, 0.5, 31.185114, 32.488842, 0.5, 32.685112, 32.988842, 0.5, 31.935114, 33.988842, 0.5, 31.935114, 33.988842, 0.5, -3.5648866, 35.488842, 0.5, 32.685112, 35.488842, 0.5, 33.935112, 63.488842, 0.5, 33.935112, 34.738842, 0.5, 31.935114, 63.488842, 0.5, -3.5648866, 13.48884, -1, 30.685114, 14.48884, -1, 30.685114, 14.48884, -1, 29.185114, 13.48884, -0.5, 28.935114, 12.48884, 0.5, 31.435114, 14.23884, 0.5, 31.935114, -3.5111594, 0.5, 59.435112, 14.23884, 0.5, 59.435112, 32.488842, 0.5, 35.185112, 14.98884, 0.5, 31.935114, 27.73884, 0.5, 59.435112, 33.488842, -1, 34.685112, 34.488842, -1, 34.685112, 34.488842, -1, 33.185112, 33.488842, -0.5, 32.935112, 35.488842, 0.5, 35.435112, 33.988842, 0.5, 35.935112, 33.988842, 0.5, 59.435112, 63.488842, 0.5, 59.435112, 28.23884, 0.5, 59.685112, 28.23884, 0.5, 61.435112, 31.48884, 0.5, 61.435112, 31.73884, 0.5, 59.435112, 32.738842, 0.5, 35.685112, 28.23884, 0.5, 71.43511, 31.48884, 0.5, 71.43511)
@@ -195,6 +195,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.9197667, 0, -0.39246553, 0, 1, 0, 0.39246553, 0, 0.9197667, 30.679071, 1.159, 57.70026)
 mouseSensitivity = Vector2(0.008, 0.2)
 jumpVelocity = 4.0
+baseDamage = 5.0
 baseWeapon = null
 powerManager = NodePath("../PowerManager")
 
@@ -3229,7 +3230,7 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012893677, -0.24963379, -0.0014038086)
 shape = SubResource("BoxShape3D_25tdf")
 
-[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayerEndRound", "_roundEndLabel", "_roundEndControl", "_animationPlayerMapHazardUI", "_mapHazardUIControl", "_backgroundRect", "RoundLabel", "MapHazardManager", "_mobSpawners")]
+[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayerEndRound", "_roundEndLabel", "_roundEndControl", "_animationPlayerMapHazardUI", "_mapHazardUIControl", "_backgroundRect", "RoundLabel", "MapHazardManager", "_mobSpawners", "ChestObjects")]
 unique_name_in_owner = true
 script = ExtResource("5_r61e5")
 PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
@@ -3251,6 +3252,7 @@ hazardWeights = Dictionary[int, float]({
 2: 30.0,
 3: 10.0
 })
+ChestObjects = [NodePath("../chest"), NodePath("../chest3"), NodePath("../chest4"), NodePath("../chest5"), NodePath("../chest6"), NodePath("../chest2")]
 
 [node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel", "RoundManager")]
 unique_name_in_owner = true
@@ -3714,9 +3716,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.466751, 1.1601009, 63.8397
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 53.099056, 0, 54.845844)
 ContainedWeapon = Array[PackedScene]([ExtResource("40_0au1h"), ExtResource("41_3amm2"), ExtResource("2_61u4s")])
 
+[node name="chest3" parent="." instance=ExtResource("40_vee7v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 47.789616, 0, 46.405273)
+ContainedWeapon = Array[PackedScene]([ExtResource("40_0au1h")])
+
+[node name="chest4" parent="." instance=ExtResource("40_vee7v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 56.964306, 0, 37.59883)
+ContainedWeapon = Array[PackedScene]([ExtResource("43_ottr1")])
+
+[node name="chest5" parent="." instance=ExtResource("40_vee7v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 49.935806, 0, 34.09659)
+ContainedWeapon = Array[PackedScene]([ExtResource("41_3amm2")])
+
+[node name="chest6" parent="." instance=ExtResource("40_vee7v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 38.63743, 0, 48.52088)
+ContainedWeapon = Array[PackedScene]([ExtResource("2_61u4s")])
+
 [node name="chest2" parent="." instance=ExtResource("40_vee7v")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 57.744392, 0, 46.050022)
-ContainedWeapon = Array[PackedScene]([ExtResource("40_3amm2"), ExtResource("41_m7cem")])
+ContainedWeapon = Array[PackedScene]([ExtResource("41_m7cem")])
 
 [connection signal="pressed" from="CanvasLayer/PowerChoiceUI/NinePatchRect2/SkipButton" to="CanvasLayer/PowerChoiceUI" method="_OnSkipButtonPressed"]
 [connection signal="timeout" from="EndRoud" to="RoundManager" method="_OnFireEndRoundTimeout"]
