@@ -12606,15 +12606,15 @@ transform = Transform3D(0.31397206, 0, -1.9752017, 0, 2, 0, 1.9752017, 0, 0.3139
 ContainedWeapon = Array[PackedScene]([ExtResource("82_03k3n"), ExtResource("84_03k3n")])
 
 [node name="chest2" parent="." instance=ExtResource("79_la0c1")]
-transform = Transform3D(-1.0105617, 0, 1.72591, 0, 2, 0, -1.72591, 0, -1.0105617, 10.532541, 4.0586867, 42.611675)
+transform = Transform3D(-1.0105617, 0, 1.72591, 0, 2, 0, -1.72591, 0, -1.0105617, 10.532541, 3.5976868, 42.611675)
 ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0qfi3"), ExtResource("82_03k3n")])
 
 [node name="chest3" parent="." instance=ExtResource("79_la0c1")]
-transform = Transform3D(-0.22675318, 0, 1.9871043, 0, 2, 0, -1.9871043, 0, -0.22675318, 12.86752, 4.0586867, 46.05122)
+transform = Transform3D(-0.22675318, 0, 1.9871043, 0, 2, 0, -1.9871043, 0, -0.22675318, 12.86752, 3.5849214, 46.05122)
 ContainedWeapon = Array[PackedScene]([ExtResource("84_03k3n"), ExtResource("83_0qfi3")])
 
 [node name="chest4" parent="." instance=ExtResource("79_la0c1")]
-transform = Transform3D(1.464254, 0, 1.3623365, 0, 2, 0, -1.3623365, 0, 1.464254, 10.023323, 4.058686, 29.978216)
+transform = Transform3D(1.464254, 0, 1.3623365, 0, 2, 0, -1.3623365, 0, 1.464254, 10.023323, 3.5269504, 29.978216)
 ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0qfi3"), ExtResource("82_03k3n"), ExtResource("83_0qfi3"), ExtResource("84_03k3n")])
 
 [node name="chest5" parent="." instance=ExtResource("79_la0c1")]
