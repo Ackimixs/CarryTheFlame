@@ -278,7 +278,7 @@ public partial class Player : CharacterBody3D
 		maxJump += amount;
 	}
 
-	public void TakeDamage(int attackDamage)
+	public void TakeDamage(float attackDamage)
 	{
 		health -= attackDamage;
 		healthBar.Value = health;

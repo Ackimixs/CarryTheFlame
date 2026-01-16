@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=151 format=3 uid="uid://btqkdw3kspncg"]
 
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_vonw3"]
 [ext_resource type="ArrayMesh" uid="uid://c7avjdh2b3caa" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_grave.obj" id="3_2orkt"]
@@ -78,6 +78,12 @@
 [ext_resource type="PackedScene" uid="uid://bbp3sohym4d6y" path="res://Mobs/Scenes/skeleton_mage.tscn" id="76_3s4rp"]
 [ext_resource type="PackedScene" uid="uid://bxs64pahdakhs" path="res://Mobs/Scenes/skeleton_rogue.tscn" id="77_b68vv"]
 [ext_resource type="PackedScene" uid="uid://bhoueolub7ran" path="res://Mobs/Scenes/skeleton_warrior.tscn" id="78_dv2ly"]
+[ext_resource type="PackedScene" uid="uid://cwkic2ulv4lqx" path="res://Scene/Chest/chest.tscn" id="79_la0c1"]
+[ext_resource type="PackedScene" uid="uid://ctgrvs6u54jhy" path="res://Scene/Player/Weapon/HammerWeapon.tscn" id="80_ofs7l"]
+[ext_resource type="PackedScene" uid="uid://1soay8lr0y7a" path="res://Scene/Player/Weapon/MassWeapon.tscn" id="81_0qfi3"]
+[ext_resource type="PackedScene" uid="uid://dilxftl3isi4u" path="res://Scene/Player/Weapon/SwordWeapon.tscn" id="82_03k3n"]
+[ext_resource type="PackedScene" uid="uid://dq20v5sxbmllt" path="res://Scene/Player/Weapon/PistolWeapon.tscn" id="83_0qfi3"]
+[ext_resource type="PackedScene" uid="uid://dxe38qe8h11r1" path="res://Scene/Player/Weapon/MusketoonWeapon.tscn" id="84_03k3n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaehd"]
 albedo_color = Color(0.024099626, 0.17607522, 7.219613e-08, 1)
@@ -12094,7 +12100,7 @@ mesh = ExtResource("17_4c15r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Mechanism/MovingWall/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_f8y3u")
 
-[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayerEndRound", "_roundEndLabel", "_roundEndControl", "_animationPlayerMapHazardUI", "_mapHazardUIControl", "_backgroundRect", "RoundLabel", "MapHazardManager", "_mobSpawners")]
+[node name="RoundManager" type="Node" parent="." node_paths=PackedStringArray("PowerChoiceUI", "_player", "_endRoundTimer", "_teleportPoint", "_timerLabel", "_animationPlayerEndRound", "_roundEndLabel", "_roundEndControl", "_animationPlayerMapHazardUI", "_mapHazardUIControl", "_backgroundRect", "RoundLabel", "MapHazardManager", "_mobSpawners", "ChestObjects")]
 unique_name_in_owner = true
 script = ExtResource("41_1acxm")
 PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
@@ -12116,6 +12122,7 @@ hazardWeights = Dictionary[int, float]({
 2: 30.0,
 3: 10.0
 })
+ChestObjects = [NodePath("../chest"), NodePath("../chest8"), NodePath("../chest9"), NodePath("../chest6"), NodePath("../chest7"), NodePath("../chest2"), NodePath("../chest3"), NodePath("../chest4"), NodePath("../chest5")]
 
 [node name="PowerManager" type="Node" parent="." node_paths=PackedStringArray("Player", "ActivePowerLabel", "RoundManager")]
 unique_name_in_owner = true
@@ -12577,5 +12584,41 @@ _mobScenes = Array[PackedScene]([ExtResource("40_f8y3u")])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5455208, 0, 0.60998154)
 shape = SubResource("BoxShape3D_u38so")
 debug_color = Color(16.00457, 0, 17.624435, 1)
+
+[node name="chest" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 33.9532, 4.0586867, 42.042225)
+ContainedWeapon = Array[PackedScene]([ExtResource("82_03k3n")])
+
+[node name="chest8" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 31.317087, -0.033582807, 26.011776)
+ContainedWeapon = Array[PackedScene]([ExtResource("83_0qfi3"), ExtResource("84_03k3n")])
+
+[node name="chest9" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 27.42052, -3.5648158, 17.90648)
+ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0qfi3"), ExtResource("82_03k3n"), ExtResource("83_0qfi3")])
+
+[node name="chest6" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(-1.0000001, 0, -1.7320508, 0, 2, 0, 1.7320508, 0, -1.0000001, 50.643753, -0.020066023, 42.837578)
+ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0qfi3"), ExtResource("82_03k3n"), ExtResource("83_0qfi3"), ExtResource("84_03k3n")])
+
+[node name="chest7" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(0.31397206, 0, -1.9752017, 0, 2, 0, 1.9752017, 0, 0.31397206, 74.05162, -0.020066023, 51.39414)
+ContainedWeapon = Array[PackedScene]([ExtResource("82_03k3n"), ExtResource("84_03k3n")])
+
+[node name="chest2" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(-1.0105617, 0, 1.72591, 0, 2, 0, -1.72591, 0, -1.0105617, 10.532541, 4.0586867, 42.611675)
+ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0qfi3"), ExtResource("82_03k3n")])
+
+[node name="chest3" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(-0.22675318, 0, 1.9871043, 0, 2, 0, -1.9871043, 0, -0.22675318, 12.86752, 4.0586867, 46.05122)
+ContainedWeapon = Array[PackedScene]([ExtResource("84_03k3n"), ExtResource("83_0qfi3")])
+
+[node name="chest4" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(1.464254, 0, 1.3623365, 0, 2, 0, -1.3623365, 0, 1.464254, 10.023323, 4.058686, 29.978216)
+ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0qfi3"), ExtResource("82_03k3n"), ExtResource("83_0qfi3"), ExtResource("84_03k3n")])
+
+[node name="chest5" parent="." instance=ExtResource("79_la0c1")]
+transform = Transform3D(1.9997959, 0, -0.02858758, 0, 2, 0, 0.02858758, 0, 1.9997959, 23.851711, 7.494275, 16.69577)
+ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l")])
 
 [connection signal="pressed" from="CanvasLayer/PowerChoiceUI/NinePatchRect2/SkipButton" to="CanvasLayer/PowerChoiceUI" method="_OnSkipButtonPressed"]
