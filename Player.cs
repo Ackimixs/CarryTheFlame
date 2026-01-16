@@ -43,6 +43,9 @@ public partial class Player : CharacterBody3D
 	// [Export] public PackedScene MainMenuScene;
 
 
+	[Export] private Godot.Collections.Array<MarginContainer> WeaponContainers;
+	[Export] private Godot.Collections.Array<Label> WeaponLabels;
+
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("%Camera3D");
@@ -60,6 +63,19 @@ public partial class Player : CharacterBody3D
 		if (baseWeapon != null)
 		{
 			AddWeapon(baseWeapon);
+		}
+
+		foreach (var weapon in WeaponLabels)
+		{
+			weapon.Text = "";
+		}
+
+		foreach (var container in WeaponContainers)
+		{
+			container.AddThemeConstantOverride("margin_right", 7);
+			container.AddThemeConstantOverride("margin_left", 7);
+			container.AddThemeConstantOverride("margin_top", 7);
+			container.AddThemeConstantOverride("margin_bottom", 7);
 		}
 	}
 
@@ -178,13 +194,7 @@ public partial class Player : CharacterBody3D
 
 	private void ChangeWeapon(int direction)
 	{
-		weapons[currentWeaponIndex].Hide();
-		weapons[currentWeaponIndex].IsEquipped = false;
-
-		currentWeaponIndex = (currentWeaponIndex + direction + weapons.Count) % weapons.Count;
-
-		weapons[currentWeaponIndex].Show();
-		weapons[currentWeaponIndex].IsEquipped = true;
+		EquipWeapon(currentWeaponIndex + direction);
 	}
 
 	public void AddWeapon(Weapon newWeapon)
@@ -197,8 +207,7 @@ public partial class Player : CharacterBody3D
 
 			if (currentWeaponIndex == 0)
 			{
-				weapons[currentWeaponIndex].Show();
-				weapons[currentWeaponIndex].IsEquipped = true;
+				EquipWeapon(0);
 			}
 		}
 
@@ -207,11 +216,11 @@ public partial class Player : CharacterBody3D
 		camera.AddChild(newWeapon);
 		newWeapon.Hide();
 
+		WeaponLabels[weapons.Count - 1].Text = newWeapon.WeaponName;
+
 		if (weapons.Count == 1)
 		{
-			currentWeaponIndex = 0;
-			newWeapon.Show();
-			newWeapon.IsEquipped = true;
+			EquipWeapon(0);
 		}
 	}
 
@@ -229,6 +238,30 @@ public partial class Player : CharacterBody3D
 		}
 		weapons.Clear();
 		currentWeaponIndex = 0;
+	}
+
+	public void EquipWeapon(int index)
+	{
+		if (index < 0 || index >= weapons.Count) return;
+
+		weapons[currentWeaponIndex].Hide();
+		weapons[currentWeaponIndex].IsEquipped = false;
+
+		currentWeaponIndex = index;
+
+		weapons[currentWeaponIndex].Show();
+		weapons[currentWeaponIndex].IsEquipped = true;
+
+		// Update UI
+
+		for (int i = 0; i < maxWeapons; i++)
+		{
+			WeaponContainers[i].AddThemeConstantOverride("margin_right",currentWeaponIndex == i ? 0 : 7);
+			WeaponContainers[i].AddThemeConstantOverride("margin_left", currentWeaponIndex == i ? 0 : 7);
+			WeaponContainers[i].AddThemeConstantOverride("margin_top", currentWeaponIndex == i ? 0 : 7);
+			WeaponContainers[i].AddThemeConstantOverride("margin_bottom", currentWeaponIndex == i ? 0 : 7);
+			WeaponContainers[i].AddThemeColorOverride("panel", currentWeaponIndex == i ? new Color(1, 1, 1, 0.3f) : new Color(1, 1, 1, 0.1f));
+		}
 	}
 
 	public void ShowCursor()

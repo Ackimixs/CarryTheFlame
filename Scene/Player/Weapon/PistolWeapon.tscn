@@ -69,7 +69,7 @@ script = ExtResource("1_afixk")
 bulletScene = ExtResource("2_4pbfq")
 marker = NodePath("Pistol/Marker3D")
 animPlayer = NodePath("AnimationPlayer")
-WeaponName = "Pistol"
+WeaponName = "Pistolet"
 
 [node name="Pistol" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.41082564, -0.27832702, -0.60187125)

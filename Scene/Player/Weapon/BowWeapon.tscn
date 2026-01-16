@@ -118,9 +118,8 @@ shadow_mesh = SubResource("ArrayMesh_3f7tp")
 script = ExtResource("1_5pt1w")
 bulletScene = ExtResource("2_usarl")
 marker = NodePath("bow/Marker3D")
-Damage = null
 animPlayer = NodePath("AnimationPlayer")
-WeaponName = "Bow"
+WeaponName = "Arc"
 
 [node name="bow" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.3711378e-08, -0.99999976, -4.3711378e-08, 0.14437346, -4.9564193e-08, 0.9895232, -0.9895232, 3.6942662e-08, 0.14437345, 0.4403838, -0.13440242, -0.50303537)

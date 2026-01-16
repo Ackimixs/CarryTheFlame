@@ -178,7 +178,7 @@ animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Épée"
 
 [node name="Sword" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.010017999, -0.9996611, -0.023997843, -0.24905348, -0.02573718, 0.9681469, -0.9684372, -0.003722151, -0.24922708, 0.48102742, -0.3435643, -0.417605)
+transform = Transform3D(0.0100179985, -0.999661, -0.023997841, -0.24905346, -0.025737178, 0.96814686, -0.96843714, -0.0037221508, -0.24922706, 0.48102742, -0.3435643, -0.417605)
 mesh = SubResource("ArrayMesh_qo2xb")
 skeleton = NodePath("")
 

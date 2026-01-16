@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=153 format=3 uid="uid://btqkdw3kspncg"]
 
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_vonw3"]
 [ext_resource type="ArrayMesh" uid="uid://c7avjdh2b3caa" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_grave.obj" id="3_2orkt"]
@@ -72,8 +72,10 @@
 [ext_resource type="Texture2D" uid="uid://dwdqop5jtd0rg" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-004.png" id="69_lupeo"]
 [ext_resource type="Texture2D" uid="uid://cbf0dbkd8vw8k" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-028.png" id="70_5ta2p"]
 [ext_resource type="Texture2D" uid="uid://dr6q7xv7eawbw" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-005.png" id="71_yegu8"]
+[ext_resource type="Texture2D" uid="uid://bj511gll8hs2o" path="res://Assets/kenney_fantasy-ui-borders/PNG/Default/Transparent center/panel-transparent-center-030.png" id="72_7rhug"]
 [ext_resource type="Texture2D" uid="uid://b15ki7mejmd4c" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-029.png" id="72_wpw4j"]
 [ext_resource type="Texture2D" uid="uid://c3o1t0r8tyd0f" path="res://Assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-009.png" id="73_2hcxj"]
+[ext_resource type="Texture2D" uid="uid://dmgv4rs4sbxsy" path="res://Assets/kenney_fantasy-ui-borders/PNG/Default/Transparent center/panel-transparent-center-000.png" id="73_7rhug"]
 [ext_resource type="Script" uid="uid://cjo2n6kclv0g3" path="res://Mobs/Spawner/MobSpawner.cs" id="74_w2ykt"]
 [ext_resource type="PackedScene" uid="uid://bbp3sohym4d6y" path="res://Mobs/Scenes/skeleton_mage.tscn" id="76_3s4rp"]
 [ext_resource type="PackedScene" uid="uid://bxs64pahdakhs" path="res://Mobs/Scenes/skeleton_rogue.tscn" id="77_b68vv"]
@@ -392,12 +394,14 @@ size = Vector3(4.1354218, 1, 7.6388683)
 
 [node name="Level" type="Node3D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("powerManager") groups=["Player"] instance=ExtResource("9_i2t4f")]
+[node name="Player" parent="." node_paths=PackedStringArray("powerManager", "WeaponContainers", "WeaponLabels") groups=["Player"] instance=ExtResource("9_i2t4f")]
 unique_name_in_owner = true
 transform = Transform3D(0.9197667, 0, -0.39246553, 0, 1, 0, 0.39246553, 0, 0.9197667, 30.679071, 1.159, 62.994728)
 mouseSensitivity = Vector2(0.008, 0.2)
 jumpVelocity = 4.0
 powerManager = NodePath("../PowerManager")
+WeaponContainers = [NodePath("../CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer"), NodePath("../CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer2")]
+WeaponLabels = [NodePath("../CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer/Weapon1/Weapon1Label"), NodePath("../CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer2/Weapon2/Weapon2Label")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.6391035, -0.76912075, 0, 0.088280536, 0.07335701, 0.9933908, -0.7640375, -0.6348795, 0.11478111, 30.372398, 20.501862, 28.665882)
@@ -12107,14 +12111,14 @@ PowerChoiceUI = NodePath("../CanvasLayer/PowerChoiceUI")
 _player = NodePath("../Player")
 _endRoundTimer = NodePath("../EndRoud")
 _teleportPoint = NodePath("../Marker3D")
-_timerLabel = NodePath("../CanvasLayer/ATH/TimerRemaining")
+_timerLabel = NodePath("../CanvasLayer/ATH/TOP-INFO/TimerRemaining")
 _animationPlayerEndRound = NodePath("../CanvasLayer/EndRoundRect/AnimationPlayer")
 _roundEndLabel = NodePath("../CanvasLayer/EndRoundRect/EndRound")
 _roundEndControl = NodePath("../CanvasLayer/EndRoundRect")
 _animationPlayerMapHazardUI = NodePath("../CanvasLayer/MapHazardUI/NinePatchRect/AnimationPlayer")
 _mapHazardUIControl = NodePath("../CanvasLayer/MapHazardUI")
 _backgroundRect = NodePath("../CanvasLayer/ColorRect")
-RoundLabel = NodePath("../CanvasLayer/ATH/Round")
+RoundLabel = NodePath("../CanvasLayer/ATH/TOP-INFO/Round")
 MapHazardManager = NodePath("../MapHazard")
 _mobSpawners = [NodePath("../MobSpawner"), NodePath("../MobSpawner3"), NodePath("../MobSpawner2")]
 hazardWeights = Dictionary[int, float]({
@@ -12364,8 +12368,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ATH" type="NinePatchRect" parent="CanvasLayer"]
+[node name="ATH" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TOP-INFO" type="NinePatchRect" parent="CanvasLayer/ATH"]
 self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -12380,7 +12394,7 @@ patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="TimerRemaining" type="Label" parent="CanvasLayer/ATH"]
+[node name="TimerRemaining" type="Label" parent="CanvasLayer/ATH/TOP-INFO"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -12397,7 +12411,7 @@ text = "00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Round" type="Label" parent="CanvasLayer/ATH"]
+[node name="Round" type="Label" parent="CanvasLayer/ATH/TOP-INFO"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -12408,6 +12422,97 @@ offset_right = 133.0
 offset_bottom = 28.0
 grow_vertical = 2
 text = "Journée 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/ATH"]
+self_modulate = Color(0.19861427, 0.19861427, 0.19861431, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -169.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_behavior_recursive = 1
+texture = ExtResource("72_7rhug")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ATH/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -60.5
+offset_right = 129.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ATH/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Weapon1" type="NinePatchRect" parent="CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("73_7rhug")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Weapon1Label" type="Label" parent="CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer/Weapon1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Weapon 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/ATH/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="Weapon2" type="NinePatchRect" parent="CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer2"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("73_7rhug")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Weapon2Label" type="Label" parent="CanvasLayer/ATH/NinePatchRect/VBoxContainer/MarginContainer2/Weapon2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Weapon 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
