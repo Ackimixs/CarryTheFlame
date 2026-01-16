@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HealOnKillPower" load_steps=3 format=3 uid="uid://kg1ubgoytkps"]
+
+[ext_resource type="Script" uid="uid://umetriswaovb" path="res://Scripts/Powers/PowerData/HealOnKillPower.cs" id="1_7qd6h"]
+[ext_resource type="Texture2D" uid="uid://bfce4kyuvbeih" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/suit_hearts.png" id="1_dtuyb"]
+
+[resource]
+script = ExtResource("1_7qd6h")
+HealthBonus = 32
+Id = "FullHealOnKill_Legenderay"
+DisplayName = "heal complet au kill"
+Description = "Vous êtes completement soigné lorsque vous tuer un enemie"
+Icon = ExtResource("1_dtuyb")
+Rarity = 3
+metadata/_custom_type_script = "uid://umetriswaovb"

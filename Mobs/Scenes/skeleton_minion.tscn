@@ -19,7 +19,7 @@ radius = 0.6
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqpf6"]
 radius = 0.51416016
-height = 1.6554413
+height = 1.4659042
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pe3x3"]
 animation = &"Minion/Melee_1H_Attack_Stab"
@@ -170,7 +170,7 @@ collision_mask = 2
 script = ExtResource("4_hns76")
 
 [node name="BodyHitbox" type="CollisionShape3D" parent="Body" index="0"]
-transform = Transform3D(0.99999034, 8.9928065e-15, 1.438849e-13, -4.440892e-15, 1, 0, 7.194245e-14, 0, 1, -0.0010460312, 0.6439661, 7.1203336e-05)
+transform = Transform3D(0.9999868, 1.2267964e-14, 1.9628743e-13, -6.1617378e-15, 1, 0, 1.5010215e-13, 0, 1, -0.001046031, 0.7387346, 7.1208924e-05)
 shape = SubResource("CapsuleShape3D_kqpf6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]

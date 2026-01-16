@@ -294,6 +294,7 @@ public partial class RoundManager : Node
 		lastEnemyCount = nbEnemy;
 		nbEnemy = enemyCount;
 		_endRoundTimer.WaitTime = roundDuration;
+		nbChestsToActivate = 0;
 	}
 
 	public void ResetDNKRound()
@@ -303,5 +304,6 @@ public partial class RoundManager : Node
 		remainingEnemies = 0;
 		_endRoundTimer.WaitTime = _defaultRoundDuration;
 		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + nbEnemy);
+		nbChestsToActivate = 2;
 	}
 }

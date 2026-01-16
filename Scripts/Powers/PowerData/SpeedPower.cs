@@ -10,13 +10,13 @@ public partial class SpeedPower : PowerData
 	{
 		base.Apply(player);
 
-		player.AddSpeed(player.GetBaseSpeed() * (SpeedMultiplier - 1));
+		player.AddSprintSpeed(player.GetBaseSpeed() * (SpeedMultiplier - 1));
 	}
 
 	public override void Remove(Player player)
 	{
 		base.Remove(player);
 
-		player.AddSpeed(-player.GetBaseSpeed() * (SpeedMultiplier - 1));
+		player.AddSprintSpeed(-player.GetBaseSpeed() * (SpeedMultiplier - 1));
 	}
 }

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealOnKillPower" load_steps=3 format=3 uid="uid://cfrbl7h71jke0"]
+
+[ext_resource type="Texture2D" uid="uid://bfce4kyuvbeih" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/suit_hearts.png" id="1_1g5na"]
+[ext_resource type="Script" uid="uid://umetriswaovb" path="res://Scripts/Powers/PowerData/HealOnKillPower.cs" id="1_d5itd"]
+
+[resource]
+script = ExtResource("1_d5itd")
+Id = "HealOnKill_Rare"
+DisplayName = "Soigne au kill"
+Description = "Vous soigne un petit peu à chaque kill"
+Icon = ExtResource("1_1g5na")
+Rarity = 1
+metadata/_custom_type_script = "uid://umetriswaovb"

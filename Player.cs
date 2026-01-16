@@ -307,6 +307,11 @@ public partial class Player : CharacterBody3D
 		return sprintSpeed;
 	}
 
+	public void AddSprintSpeed(float newSpeed)
+	{
+		sprintSpeed += newSpeed * sprintMultiplier;
+	}
+
 	public float GetBaseSpeed()
 	{
 		return baseSpeed;

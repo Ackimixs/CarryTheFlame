@@ -109,13 +109,11 @@ radius = 0.63
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_87tsm"]
 radius = 0.4868164
-height = 1.5458984
+height = 1.2885742
 
 [node name="Skeleton_Rogue" instance=ExtResource("1_imnqq")]
 script = ExtResource("2_5uyj6")
 ArrowScene = ExtResource("3_loai3")
-Health = 0
-AttackDamage = 0
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(0, 0.39206383, 0)
@@ -232,7 +230,7 @@ collision_mask = 2
 script = ExtResource("26_loai3")
 
 [node name="BodyHitbox" type="CollisionShape3D" parent="Body" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22705078, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3557129, 0)
 shape = SubResource("CapsuleShape3D_87tsm")
 
 [node name="ShootPoint" type="Marker3D" parent="." index="8"]
