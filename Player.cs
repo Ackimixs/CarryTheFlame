@@ -8,12 +8,13 @@ public partial class Player : CharacterBody3D
 	[Export] private float baseSpeed = 8f;
 	[Export] private float sprintMultiplier = 1.5f;
 
-	[Export] private float baseHealth = 16f;
+	[Export] private float baseHealth = 32f;
 	[Export] private float baseGravity = 10f;
 	[Export] private float jumpVelocity = 10f;
 	[Export] private float acceleration = 10f;
 	[Export] private float airAcceleration = 2f;
 	[Export] private float baseDamage = 2f;
+	[Export] private float healOnKill = 0f;
 
 	private int jumpNb = 0;
 	private int maxJump = 1;
@@ -342,8 +343,8 @@ public partial class Player : CharacterBody3D
 			}
 			else
 			{
-				GetTree().ChangeSceneToPacked(MainMenuScene);
-				// GetTree().Quit();
+				// GetTree().ChangeSceneToPacked(MainMenuScene);
+				GetTree().Quit();
 			}
 		}
 	}
@@ -385,6 +386,11 @@ public partial class Player : CharacterBody3D
 		return baseHealth;
 	}
 
+	public void SetBaseHealth(float newBaseHealth)
+	{
+		baseHealth = newBaseHealth;
+	}
+
 	public float GetBaseGravity()
 	{
 		return baseGravity;
@@ -398,5 +404,15 @@ public partial class Player : CharacterBody3D
 	public void AddGravity(float amount)
 	{
 		gravity += amount;
+	}
+
+	public void AddHealOnKill(int healthBonus)
+	{
+		healOnKill += healthBonus;
+	}
+
+	public void OnEnemyKilled(Mobs mob)
+	{
+		AddHealth(healOnKill);
 	}
 }

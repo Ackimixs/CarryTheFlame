@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpeedPower" load_steps=3 format=3 uid="uid://duog1xtiw7cut"]
 
-[ext_resource type="Texture2D" uid="uid://i08sw3x0ygvj" path="res://Assets/kenney_board-game-icons/PNG/Double (128px)/tag_shield_4.png" id="1_q3tbn"]
+[ext_resource type="Texture2D" uid="uid://b6pe0c636ou4r" path="res://Assets/kenney_board-game-icons/PNG/Default (64px)/arrow_right.png" id="1_gihao"]
 [ext_resource type="Script" uid="uid://b4xlf4tqkwpgf" path="res://Scripts/Powers/PowerData/SpeedPower.cs" id="2_b6hw4"]
 
 [resource]
@@ -9,6 +9,6 @@ SpeedMultiplier = 3.0
 Id = "speed"
 DisplayName = "Vitesse * 3"
 Description = "Tu deonne plus de vitesse"
-Icon = ExtResource("1_q3tbn")
+Icon = ExtResource("1_gihao")
 Rarity = 2
 metadata/_custom_type_script = "uid://b4xlf4tqkwpgf"

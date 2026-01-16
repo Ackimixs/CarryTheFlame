@@ -152,10 +152,13 @@ public partial class RoundManager : Node
 				_animationPlayerMapHazardUI.Play("MapHazardUI");
 				_animationPlayerMapHazardUI.AnimationFinished += OnMapHazardUITransitionFinished;
 			}
+
+			_backgroundRect.SetVisible(true);
 		}
 		else
 		{
 			SpawnEnemies();
+			_backgroundRect.SetVisible(false);
 		}
 
 		foreach (var chest in ChestObjects)
@@ -218,6 +221,8 @@ public partial class RoundManager : Node
 			EndRound();
 			_endRoundTimer.Stop();
 		}
+
+		_player.OnEnemyKilled(mob);
 	}
 
 	private void TeleportPlayer()
@@ -258,6 +263,7 @@ public partial class RoundManager : Node
 		{
 			_animationPlayerMapHazardUI.AnimationFinished -= OnMapHazardUITransitionFinished;
 			SpawnEnemies();
+			_backgroundRect.SetVisible(false);
 		}
 	}
 

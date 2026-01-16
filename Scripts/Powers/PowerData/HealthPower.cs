@@ -5,19 +5,19 @@ using System;
 public partial class HealthPower : PowerData
 {
 
-	[Export] public int HealthBonus = 8;
+	[Export] public float HealthMultiplier = 1.2f;
 
 	public override void Apply(Player player)
 	{
 		base.Apply(player);
 
-		player.AddHealth(HealthBonus);
+		player.SetBaseHealth(player.GetBaseHealth() * HealthMultiplier);
 	}
 
 	public override void Remove(Player player)
 	{
 		base.Remove(player);
 
-		player.AddHealth(-HealthBonus);
+		player.SetBaseHealth(player.GetBaseHealth() / HealthMultiplier);
 	}
 }
