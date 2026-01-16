@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ChestMapHazard" load_steps=2 format=3 uid="uid://bficybko70a52"]
+
+[ext_resource type="Script" uid="uid://dt5q4j6uylhec" path="res://Scripts/MapHazard/ChestMapHazard.cs" id="1_v1vgg"]
+
+[resource]
+script = ExtResource("1_v1vgg")
+MaxChestsToActivate = 9
+metadata/_custom_type_script = "uid://dt5q4j6uylhec"

@@ -194,7 +194,7 @@ public partial class Player : CharacterBody3D
 
 	private void ChangeWeapon(int direction)
 	{
-		EquipWeapon(currentWeaponIndex + direction);
+		EquipWeapon((currentWeaponIndex + direction + weapons.Count) % weapons.Count);
 	}
 
 	public void AddWeapon(Weapon newWeapon)
