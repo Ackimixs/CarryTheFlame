@@ -36,6 +36,8 @@ public partial class RoundManager : Node
 
 	private int remainingEnemies = 0;
 
+	[Export] private Label RemainingEnemiesLabel;
+
 	[Export] private Godot.Collections.Array<MobSpawner> _mobSpawners;
 
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
@@ -50,7 +52,7 @@ public partial class RoundManager : Node
 
 	[Export] private Godot.Collections.Array<Chest> ChestObjects;
 
-	[Export] private int nbChestsToActivate = 2;
+	[Export] public int nbChestsToActivate = 2;
 
 	public override void _Ready()
 	{
@@ -192,6 +194,8 @@ public partial class RoundManager : Node
 
 		remainingEnemies = nbEnemy;
 
+		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + nbEnemy);
+
 		_endRoundTimer.Start();
 	}
 
@@ -205,6 +209,7 @@ public partial class RoundManager : Node
 		}
 
 		remainingEnemies--;
+		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + nbEnemy);
 		if (remainingEnemies <= 0)
 		{
 			_roundEndLabel.SetText("Vous avez survécu a cette journée ...\nRendez-vous à l'aube !");
@@ -291,5 +296,6 @@ public partial class RoundManager : Node
 		nbEnemy = lastEnemyCount + (nbEnemy - remainingEnemies) + 2; // TODO change the 2 with the nb of enemies increase per round
 		remainingEnemies = 0;
 		_endRoundTimer.WaitTime = _defaultRoundDuration;
+		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + nbEnemy);
 	}
 }

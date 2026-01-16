@@ -40,7 +40,7 @@ public partial class Player : CharacterBody3D
 
 	[Export] private ProgressBar healthBar;
 
-	// [Export] public PackedScene MainMenuScene;
+	[Export] public PackedScene MainMenuScene;
 
 
 	[Export] private Godot.Collections.Array<MarginContainer> WeaponContainers;
@@ -218,10 +218,7 @@ public partial class Player : CharacterBody3D
 
 		WeaponLabels[weapons.Count - 1].Text = newWeapon.WeaponName;
 
-		if (weapons.Count == 1)
-		{
-			EquipWeapon(0);
-		}
+		EquipWeapon(0);
 	}
 
 	public void AddWeapon(PackedScene weaponScene)
@@ -238,6 +235,19 @@ public partial class Player : CharacterBody3D
 		}
 		weapons.Clear();
 		currentWeaponIndex = 0;
+
+		foreach (var weapon in WeaponLabels)
+		{
+			weapon.Text = "";
+		}
+
+		foreach (var container in WeaponContainers)
+		{
+			container.AddThemeConstantOverride("margin_right", 7);
+			container.AddThemeConstantOverride("margin_left", 7);
+			container.AddThemeConstantOverride("margin_top", 7);
+			container.AddThemeConstantOverride("margin_bottom", 7);
+		}
 	}
 
 	public void EquipWeapon(int index)
@@ -332,8 +342,8 @@ public partial class Player : CharacterBody3D
 			}
 			else
 			{
-				// GetTree().ChangeSceneToPacked(MainMenuScene);
-				GetTree().Quit();
+				GetTree().ChangeSceneToPacked(MainMenuScene);
+				// GetTree().Quit();
 			}
 		}
 	}

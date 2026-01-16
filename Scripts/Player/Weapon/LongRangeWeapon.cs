@@ -36,7 +36,7 @@ public partial class LongRangeWeapon : Weapon
 
 	protected void Shoot()
 	{
-		if (currentAmmo <= 0)
+		if (currentAmmo <= 0 || isReloading)
 		{
 			return;
 		}
@@ -57,7 +57,7 @@ public partial class LongRangeWeapon : Weapon
 
 	protected async void Reload()
 	{
-		if (animPlayer != null && animPlayer.HasAnimation("local/reload"))
+		if (animPlayer != null && animPlayer.HasAnimation("local/reload") && !isReloading && currentAmmo < maxAmmo)
 		{
 			isReloading = true;
 			GD.Print("Recharge...");

@@ -11,7 +11,7 @@ public partial class Mage : Mobs
 	{
 		Health = 10;
 		speed = 6f;
-		DetectionRange = 25.0f;
+		DetectionRange = 1000.0f;
 		AttackRange = 10f;
 		AttackCooldown = 7f;
 		AttackDamage = 2;

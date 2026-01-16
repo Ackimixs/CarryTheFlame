@@ -7,7 +7,7 @@ public partial class Warrior : Mobs
 	{
 		Health = 30;
 		speed = 5f;
-		DetectionRange = 10.0f;
+		DetectionRange = 1000.0f;
 		AttackRange = 2.0f;
 		AttackCooldown = 2.5f;
 		AttackDamage = 4;

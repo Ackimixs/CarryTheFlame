@@ -11,7 +11,7 @@ public partial class Rogue : Mobs
 	{
 		Health = 20;
 		speed = 7f;
-		DetectionRange = 30.0f;
+		DetectionRange = 1000.0f;
 		AttackRange = 15f;
 		AttackCooldown = 10f;
 		AttackDamage = 3;

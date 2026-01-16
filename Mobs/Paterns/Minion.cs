@@ -8,7 +8,7 @@ public partial class Minion : Mobs
 	{
 		Health = 15;
 		speed = 7f;
-		DetectionRange = 15.0f;
+		DetectionRange = 1000.0f;
 		AttackRange = 2.0f;
 		AttackCooldown = 2.0f;
 		AttackDamage = 2;
