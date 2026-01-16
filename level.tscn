@@ -1,6 +1,5 @@
 [gd_scene load_steps=155 format=3 uid="uid://btqkdw3kspncg"]
 
-[ext_resource type="PackedScene" uid="uid://gop24k6r56gq" path="res://UI/MainMenu/MainMenuScene.tscn" id="2_8oijn"]
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_vonw3"]
 [ext_resource type="ArrayMesh" uid="uid://c7avjdh2b3caa" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_grave.obj" id="3_2orkt"]
 [ext_resource type="ArrayMesh" uid="uid://bw0gy4tl6oyog" path="res://Assets/kenney_mini-dungeon/Models/OBJ format/dirt.obj" id="3_8cye3"]
@@ -402,7 +401,6 @@ transform = Transform3D(0.9197667, 0, -0.39246553, 0, 1, 0, 0.39246553, 0, 0.919
 mouseSensitivity = Vector2(0.008, 0.2)
 jumpVelocity = 4.0
 powerManager = NodePath("../PowerManager")
-MainMenuScene = ExtResource("2_8oijn")
 WeaponContainers = [NodePath("../CanvasLayer/ATH/WeaponContainer/VBoxContainer/MarginContainer"), NodePath("../CanvasLayer/ATH/WeaponContainer/VBoxContainer/MarginContainer2")]
 WeaponLabels = [NodePath("../CanvasLayer/ATH/WeaponContainer/VBoxContainer/MarginContainer/Weapon1/Weapon1Label"), NodePath("../CanvasLayer/ATH/WeaponContainer/VBoxContainer/MarginContainer2/Weapon2/Weapon2Label")]
 

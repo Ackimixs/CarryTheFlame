@@ -41,9 +41,6 @@ public partial class Player : CharacterBody3D
 
 	[Export] private ProgressBar healthBar;
 
-	[Export] public PackedScene MainMenuScene;
-
-
 	[Export] private Godot.Collections.Array<MarginContainer> WeaponContainers;
 	[Export] private Godot.Collections.Array<Label> WeaponLabels;
 
