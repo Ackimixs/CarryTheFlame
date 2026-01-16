@@ -35,6 +35,7 @@ public partial class RoundManager : Node
 	[Export] public MapHazardManager MapHazardManager;
 
 	private int remainingEnemies = 0;
+	private int lastRoundRemainingEnemies = 0;
 
 	[Export] private Label RemainingEnemiesLabel;
 
@@ -185,7 +186,8 @@ public partial class RoundManager : Node
 
 	public void SpawnEnemies()
 	{
-		for (int i = 0; i < nbEnemy + remainingEnemies; i++)
+		lastRoundRemainingEnemies = remainingEnemies;
+		for (int i = 0; i < nbEnemy + lastRoundRemainingEnemies; i++)
 		{
 			int randomIndex = _rng.RandiRange(0, _mobSpawners.Count - 1);
 			var spawner = _mobSpawners[randomIndex];
@@ -195,9 +197,9 @@ public partial class RoundManager : Node
 			mob.OnKilled += OnEnemyKilled;
 		}
 
-		remainingEnemies = nbEnemy;
+		remainingEnemies = nbEnemy + lastRoundRemainingEnemies;
 
-		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + nbEnemy);
+		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + (nbEnemy + lastRoundRemainingEnemies));
 
 		_endRoundTimer.Start();
 	}
@@ -212,7 +214,7 @@ public partial class RoundManager : Node
 		}
 
 		remainingEnemies--;
-		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + nbEnemy);
+		RemainingEnemiesLabel.SetText(remainingEnemies + "/" + (nbEnemy + lastRoundRemainingEnemies));
 		if (remainingEnemies <= 0)
 		{
 			_roundEndLabel.SetText("Vous avez survécu a cette journée ...\nRendez-vous à l'aube !");
