@@ -28,4 +28,13 @@ public partial class Bullet : Area3D
 	{
 		this.damage = damage;
 	}
+
+	private void OnBodyEntered(Node body)
+	{
+		if (body is TargetStatue statue)
+		{
+			statue.OnHit();
+		}
+		QueueFree();
+	}
 }
