@@ -6,6 +6,8 @@ public partial class LongRangeWeapon : Weapon
 	[ExportGroup("Munitions")]
 	[Export] protected PackedScene bulletScene;
 	[Export] protected int maxAmmo = 10;
+	[Export] public AudioStreamPlayer3D AudioPlayer2;
+
 	protected int currentAmmo;
 	protected bool isReloading = false;
 
@@ -14,7 +16,7 @@ public partial class LongRangeWeapon : Weapon
 	public override void _Ready()
 	{
 		base._Ready();
-
+		AudioPlayer2 = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D2");
 		currentAmmo = maxAmmo;
 	}
 
@@ -59,6 +61,7 @@ public partial class LongRangeWeapon : Weapon
 	{
 		if (animPlayer != null && animPlayer.HasAnimation("local/reload") && !isReloading && currentAmmo < maxAmmo)
 		{
+			AudioPlayer2.Play();
 			isReloading = true;
 			GD.Print("Recharge...");
 			animPlayer.Play("local/reload");

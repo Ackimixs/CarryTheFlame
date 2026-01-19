@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxe38qe8h11r1"]
+[gd_scene load_steps=13 format=3 uid="uid://dxe38qe8h11r1"]
 
 [ext_resource type="Script" uid="uid://chjw5va0yuct" path="res://Scripts/Player/Weapon/LongRangeWeapon.cs" id="1_heau8"]
 [ext_resource type="PackedScene" uid="uid://dvs0asagx18s0" path="res://bullet.tscn" id="2_m8rkr"]
 [ext_resource type="ArrayMesh" uid="uid://bgti3vol072ii" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/OBJ/Musketoon.obj" id="3_fwolf"]
 [ext_resource type="Texture2D" uid="uid://p2r7sev8f5tm" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/SwordsTexture.png" id="4_c44aw"]
 [ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/Sound/pistol_sound.wav" id="5_m8rkr"]
+[ext_resource type="AudioStream" uid="uid://b282q8y3u7qd4" path="res://Assets/Sound/reload_sound.wav" id="6_fwolf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhaip"]
 albedo_texture = ExtResource("4_c44aw")
@@ -94,3 +95,6 @@ libraries = {
 stream = ExtResource("5_m8rkr")
 volume_db = -35.821
 max_polyphony = 8
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_fwolf")

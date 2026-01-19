@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://ctgrvs6u54jhy"]
 
 [ext_resource type="Script" uid="uid://jyftfg0epf04" path="res://Scripts/Player/Weapon/MeleWeapon.cs" id="1_04crb"]
-[ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/Sound/pistol_sound.wav" id="2_867s0"]
+[ext_resource type="AudioStream" uid="uid://dhi8q7wtfh8ya" path="res://Assets/Sound/bonk_sound.wav" id="2_867s0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0tl2"]
 resource_name = "steel"

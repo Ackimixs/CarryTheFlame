@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://dilxftl3isi4u"]
 
 [ext_resource type="Script" uid="uid://jyftfg0epf04" path="res://Scripts/Player/Weapon/MeleWeapon.cs" id="1_etlmt"]
-[ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/Sound/pistol_sound.wav" id="2_qo2xb"]
+[ext_resource type="AudioStream" uid="uid://b5u5mnf5nad5e" path="res://Assets/Sound/sword_sound.wav" id="2_qo2xb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0tl2"]
 resource_name = "steel"
@@ -180,7 +180,7 @@ WeaponName = "Épée"
 AudioPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="Sword" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0100179985, -0.99966097, -0.02399784, -0.24905345, -0.025737176, 0.9681468, -0.9684371, -0.0037221506, -0.24922705, 0.48102742, -0.3435643, -0.417605)
+transform = Transform3D(0.010017998, -0.9996609, -0.023997838, -0.24905343, -0.025737176, 0.96814674, -0.968437, -0.0037221503, -0.24922703, 0.48102742, -0.3435643, -0.417605)
 mesh = SubResource("ArrayMesh_qo2xb")
 skeleton = NodePath("")
 
