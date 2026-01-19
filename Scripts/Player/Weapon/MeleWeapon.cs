@@ -16,10 +16,7 @@ public partial class MeleWeapon : Weapon
 
 	protected void AttackMelee()
 	{
-		if (!animPlayer.IsPlaying())
-		{
-			PlayAnimation("local/shoot");
-		}
+		PlayAnimation("local/shoot");
 
 		CheckHit();
 	}
