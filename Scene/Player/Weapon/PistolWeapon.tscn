@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dvs0asagx18s0" path="res://bullet.tscn" id="2_4pbfq"]
 [ext_resource type="ArrayMesh" uid="uid://p4ckxt0l4h7w" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/OBJ/Pistol.obj" id="3_qy2dq"]
 [ext_resource type="Texture2D" uid="uid://p2r7sev8f5tm" path="res://Assets/Flintlock Weapons Pack by @TheTeaGuns/SwordsTexture.png" id="4_penak"]
-[ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/pistol_sound.wav" id="5_7gr2o"]
+[ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/Sound/pistol_sound.wav" id="5_7gr2o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21n15"]
 albedo_texture = ExtResource("4_penak")
@@ -65,13 +65,13 @@ _data = {
 &"shoot": SubResource("Animation_b26j0")
 }
 
-[node name="PistolManager" type="Node3D" node_paths=PackedStringArray("AudioPlayer", "marker", "animPlayer")]
+[node name="PistolManager" type="Node3D" node_paths=PackedStringArray("marker", "animPlayer", "AudioPlayer")]
 script = ExtResource("1_afixk")
 bulletScene = ExtResource("2_4pbfq")
-AudioPlayer = NodePath("AudioStreamPlayer3D")
 marker = NodePath("Pistol/Marker3D")
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Pistolet"
+AudioPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="Pistol" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0.41082564, -0.27832702, -0.60187125)
