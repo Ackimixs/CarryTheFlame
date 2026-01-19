@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxe38qe8h11r1" path="res://Scene/Player/Weapon/MusketoonWeapon.tscn" id="5_bb4dk"]
 [ext_resource type="PackedScene" uid="uid://dq20v5sxbmllt" path="res://Scene/Player/Weapon/PistolWeapon.tscn" id="6_7v42r"]
 [ext_resource type="PackedScene" uid="uid://dilxftl3isi4u" path="res://Scene/Player/Weapon/SwordWeapon.tscn" id="7_4skhd"]
-[ext_resource type="AudioStream" uid="uid://dl43py4wqrm8o" path="res://Assets/chest_sound_effect.wav" id="7_ca212"]
+[ext_resource type="AudioStream" uid="uid://dl43py4wqrm8o" path="res://Assets/Sound/chest_sound_effect.wav" id="7_ca212"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_if2wm"]
 height = 0.5192871

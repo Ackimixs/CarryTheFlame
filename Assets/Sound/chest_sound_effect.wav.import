@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dl43py4wqrm8o"
-path="res://.godot/imported/chest_sound_effect.wav-568755159ff94d5f42c3109ab5f52ab9.sample"
+path="res://.godot/imported/chest_sound_effect.wav-f6e51eee988c49788403aab351f35fa0.sample"
 
 [deps]
 
-source_file="res://Assets/chest_sound_effect.wav"
-dest_files=["res://.godot/imported/chest_sound_effect.wav-568755159ff94d5f42c3109ab5f52ab9.sample"]
+source_file="res://Assets/Sound/chest_sound_effect.wav"
+dest_files=["res://.godot/imported/chest_sound_effect.wav-f6e51eee988c49788403aab351f35fa0.sample"]
 
 [params]
 
