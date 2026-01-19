@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://btqkdw3kspncg"]
+[gd_scene load_steps=168 format=3 uid="uid://btqkdw3kspncg"]
 
 [ext_resource type="ArrayMesh" uid="uid://ruowkdo0tlcw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_vonw3"]
 [ext_resource type="ArrayMesh" uid="uid://c7avjdh2b3caa" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_grave.obj" id="3_2orkt"]
@@ -91,6 +91,7 @@
 [ext_resource type="ArrayMesh" uid="uid://x5ja1t67lsyw" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/coffin_decorated.obj" id="89_f3hnb"]
 [ext_resource type="ArrayMesh" uid="uid://2mdx1vdeipi3" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/plaque_candles.obj" id="90_j70ly"]
 [ext_resource type="ArrayMesh" uid="uid://dc2xgs7as5abk" path="res://Assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/post_skull.obj" id="91_rx63s"]
+[ext_resource type="AudioStream" uid="uid://dab22h54tbna" path="res://Assets/Sound/411_full_deathmatch_0156_preview.mp3" id="92_rx63s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaehd"]
 albedo_color = Color(0.024099626, 0.17607522, 7.219613e-08, 1)
@@ -14129,6 +14130,10 @@ ContainedWeapon = Array[PackedScene]([ExtResource("80_ofs7l"), ExtResource("81_0
 [node name="chest5" parent="." instance=ExtResource("79_la0c1")]
 transform = Transform3D(1.9997959, 0, -0.02858758, 0, 2, 0, 0.02858758, 0, 1.9997959, 23.851711, 7.494275, 16.69577)
 ContainedWeapon = Array[PackedScene]([ExtResource("82_03k3n")])
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("92_rx63s")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/PowerChoiceUI/NinePatchRect2/SkipButton" to="CanvasLayer/PowerChoiceUI" method="_OnSkipButtonPressed"]
 [connection signal="timeout" from="EndRoud" to="RoundManager" method="_OnFireEndRoundTimeout"]
