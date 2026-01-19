@@ -7,7 +7,7 @@
 script = ExtResource("1_0pghe")
 Id = "TotemOfUndying_Legendary"
 DisplayName = "Totem d'immortalité"
-Description = "Vous pouvez survire d'une mort certaine"
+Description = "Tu peux survire d'une mort certaine"
 Icon = ExtResource("1_k7jes")
 Rarity = 3
 metadata/_custom_type_script = "uid://c0asguo8xnf78"

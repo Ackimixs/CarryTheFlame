@@ -7,7 +7,7 @@
 script = ExtResource("1_d5itd")
 Id = "HealOnKill_Rare"
 DisplayName = "Soigne au kill"
-Description = "Vous soigne un petit peu à chaque kill"
+Description = "Te soigne un peu à chaque élimination"
 Icon = ExtResource("1_1g5na")
 Rarity = 1
 metadata/_custom_type_script = "uid://umetriswaovb"

@@ -7,5 +7,5 @@ script = ExtResource("1_nrefc")
 EnemyCount = 4
 Id = "DNKRound"
 DisplayName = "NE TUEZ PERSONNE"
-Description = "Ne tuez aucun mob ou ceux-ci réapparaîtrons demain, vous devez survivre 30 sec"
+Description = "Ne tues aucun enemi ou ceux-ci réapparaîtrons demain, tu dois survivre 30 secondes !"
 metadata/_custom_type_script = "uid://ddwtr8xm5rh37"

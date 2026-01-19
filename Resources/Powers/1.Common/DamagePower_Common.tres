@@ -7,7 +7,7 @@
 script = ExtResource("2_7v4ho")
 Id = "Damage_Common"
 DisplayName = "Dégât *2"
-Description = "Tu donne plus de dégât"
+Description = "Te donnes plus de dégâts"
 Icon = ExtResource("1_dq5m6")
 isStackable = true
 metadata/_custom_type_script = "uid://catruxrc3bmng"
