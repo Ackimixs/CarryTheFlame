@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://1soay8lr0y7a"]
+[gd_scene load_steps=14 format=4 uid="uid://1soay8lr0y7a"]
 
 [ext_resource type="Script" uid="uid://jyftfg0epf04" path="res://Scripts/Player/Weapon/MeleWeapon.cs" id="1_jgeer"]
+[ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/pistol_sound.wav" id="2_1wh1t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0tl2"]
 resource_name = "steel"
@@ -174,12 +175,13 @@ _data = {
 &"shoot": SubResource("Animation_q13i1")
 }
 
-[node name="MassManager" type="Node3D" node_paths=PackedStringArray("_hitCast", "animPlayer")]
+[node name="MassManager" type="Node3D" node_paths=PackedStringArray("_hitCast", "animPlayer", "AudioPlayer")]
 script = ExtResource("1_jgeer")
 _hitCast = NodePath("Mass/ShapeCast3D")
 DamageMultiplier = 2.0
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Masse"
+AudioPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="Mass" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.30062258, 0.95374286, 0, -0.95374286, -0.30062258, 0.4584415, -0.13734889, -0.5688938)
@@ -198,3 +200,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_op7ga"),
 &"local": SubResource("AnimationLibrary_pylmc")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_1wh1t")
+volume_db = -35.821
+max_polyphony = 8

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://ctgrvs6u54jhy"]
+[gd_scene load_steps=14 format=4 uid="uid://ctgrvs6u54jhy"]
 
 [ext_resource type="Script" uid="uid://jyftfg0epf04" path="res://Scripts/Player/Weapon/MeleWeapon.cs" id="1_04crb"]
+[ext_resource type="AudioStream" uid="uid://b7d4r5yksbrf" path="res://Assets/pistol_sound.wav" id="2_867s0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0tl2"]
 resource_name = "steel"
@@ -174,12 +175,13 @@ _data = {
 &"shoot": SubResource("Animation_nvl01")
 }
 
-[node name="HammerManager" type="Node3D" node_paths=PackedStringArray("_hitCast", "animPlayer")]
+[node name="HammerManager" type="Node3D" node_paths=PackedStringArray("_hitCast", "animPlayer", "AudioPlayer")]
 script = ExtResource("1_04crb")
 _hitCast = NodePath("Hammer/ShapeCast3D")
 DamageMultiplier = 2.0
 animPlayer = NodePath("AnimationPlayer")
 WeaponName = "Marteau"
+AudioPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="Hammer" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.88848e-07, -1, 2.9328547e-08, -0.29246587, -8.490247e-09, 0.98095506, -1.4770616, -1.9387471e-07, -0.19423418, 0.46301386, 0.08152944, -0.7027519)
@@ -197,3 +199,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_u1c27"),
 &"local": SubResource("AnimationLibrary_ivps1")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_867s0")
+volume_db = -35.821
+max_polyphony = 8

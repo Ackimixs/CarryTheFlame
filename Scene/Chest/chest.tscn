@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwkic2ulv4lqx"]
+[gd_scene load_steps=9 format=3 uid="uid://cwkic2ulv4lqx"]
 
 [ext_resource type="PackedScene" uid="uid://bd5o4rlvo5bnk" path="res://Assets/kenney_mini-dungeon/Models/FBX format/chest.fbx" id="1_if2wm"]
 [ext_resource type="PackedScene" uid="uid://ctgrvs6u54jhy" path="res://Scene/Player/Weapon/HammerWeapon.tscn" id="3_1crmm"]
@@ -6,19 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://dxe38qe8h11r1" path="res://Scene/Player/Weapon/MusketoonWeapon.tscn" id="5_bb4dk"]
 [ext_resource type="PackedScene" uid="uid://dq20v5sxbmllt" path="res://Scene/Player/Weapon/PistolWeapon.tscn" id="6_7v42r"]
 [ext_resource type="PackedScene" uid="uid://dilxftl3isi4u" path="res://Scene/Player/Weapon/SwordWeapon.tscn" id="7_4skhd"]
+[ext_resource type="AudioStream" uid="uid://dl43py4wqrm8o" path="res://Assets/chest_sound_effect.wav" id="7_ca212"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_if2wm"]
 height = 0.5192871
 radius = 1.4023438
 
-[node name="chest" node_paths=PackedStringArray("Area", "AnimationPlayer") instance=ExtResource("1_if2wm")]
+[node name="chest" node_paths=PackedStringArray("Area", "AnimationPlayer", "AudioPlayer") instance=ExtResource("1_if2wm")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 Area = NodePath("Area3D")
 AnimationPlayer = NodePath("AnimationPlayer")
 ContainedWeapon = Array[PackedScene]([ExtResource("3_1crmm"), ExtResource("4_bxg6h"), ExtResource("5_bb4dk"), ExtResource("6_7v42r"), ExtResource("7_4skhd")])
+AudioPlayer = NodePath("AudioStreamPlayer3D")
+
+[node name="lid" parent="chest" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.7439344e-16, 0, -1.7439344e-16, 1, -3.7252983e-09, 0.2, -0.2)
 
 [node name="Area3D" type="Area3D" parent="." index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21374512, 0)
 shape = SubResource("CylinderShape3D_if2wm")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("7_ca212")
