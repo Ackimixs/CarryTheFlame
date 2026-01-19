@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bxs64pahdakhs"]
+[gd_scene load_steps=41 format=3 uid="uid://bxs64pahdakhs"]
 
 [ext_resource type="PackedScene" uid="uid://cr4kdsj1iuxuy" path="res://Mobs/Characters/Skeleton_Rogue.glb" id="1_imnqq"]
 [ext_resource type="Script" uid="uid://g5mlncevqcr1" path="res://Mobs/Paterns/Rogue.cs" id="2_5uyj6"]
@@ -27,6 +27,7 @@
 [ext_resource type="Animation" uid="uid://d1iyqildlx7iy" path="res://Mobs/Animations/Rig_Medium_Animations/Walking_C.res" id="23_difhb"]
 [ext_resource type="Animation" uid="uid://d2u8dmbn60ped" path="res://Mobs/Animations/Rig_Medium_Animations/Melee_2H_Idle.res" id="24_2c63c"]
 [ext_resource type="Script" uid="uid://cs80h871jqwah" path="res://Mobs/Paterns/Hitbox.cs" id="26_loai3"]
+[ext_resource type="AudioStream" uid="uid://dcga8gphxp3mp" path="res://Assets/Sound/Raaaaawh screaming skeleton.mp3" id="28_20xvb"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3we6"]
 _data = {
@@ -111,9 +112,10 @@ radius = 0.63
 radius = 0.4868164
 height = 1.2885742
 
-[node name="Skeleton_Rogue" instance=ExtResource("1_imnqq")]
+[node name="Skeleton_Rogue" node_paths=PackedStringArray("AudioAttack") instance=ExtResource("1_imnqq")]
 script = ExtResource("2_5uyj6")
 ArrowScene = ExtResource("3_loai3")
+AudioAttack = NodePath("AudioStreamPlayer3D")
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(0, 0.39206383, 0)
@@ -235,3 +237,6 @@ shape = SubResource("CapsuleShape3D_87tsm")
 
 [node name="ShootPoint" type="Marker3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42010784, 0.88689137, 0.89856106)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="9"]
+stream = ExtResource("28_20xvb")
