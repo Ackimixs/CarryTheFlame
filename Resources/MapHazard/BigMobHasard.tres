@@ -7,5 +7,5 @@ script = ExtResource("1_ec2e1")
 ScaleMultiplier = 3.0
 Id = "BIgMobHazard"
 DisplayName = "BIG ENEMIES"
-Description = "Les énemies ont un peu trop grandis dans la nuit"
+Description = "Les enemis ont un peu trop grandis dans la nuit"
 metadata/_custom_type_script = "uid://crtqbpgqyit4g"

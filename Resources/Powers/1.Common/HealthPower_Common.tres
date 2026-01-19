@@ -7,7 +7,7 @@
 script = ExtResource("2_aqr6f")
 Id = "Health_Common"
 DisplayName = "PV 120%"
-Description = "Tu donne plus de vie"
+Description = "Te donnes plus de vie"
 Icon = ExtResource("1_s7lbt")
 isStackable = true
 metadata/_custom_type_script = "uid://dt8qii31d7k2r"

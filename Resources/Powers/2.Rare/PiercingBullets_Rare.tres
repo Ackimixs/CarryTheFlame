@@ -7,7 +7,7 @@
 script = ExtResource("1_pt6vv")
 Id = "PiercingBullets_Rare"
 DisplayName = "Balle Transpercante"
-Description = "Vos balles transpercent les énemies"
+Description = "Tes balles transpercent les enemis"
 Icon = ExtResource("1_ms2o5")
 Rarity = 1
 metadata/_custom_type_script = "uid://nf0qdqcki380"

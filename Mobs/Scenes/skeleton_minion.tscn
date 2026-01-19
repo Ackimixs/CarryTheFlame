@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://du0ky6dvvvet3"]
+[gd_scene load_steps=20 format=3 uid="uid://du0ky6dvvvet3"]
 
 [ext_resource type="PackedScene" uid="uid://cfv2bfasi8ay" path="res://Mobs/Characters/Skeleton_Minion.glb" id="1_llxs8"]
 [ext_resource type="PackedScene" uid="uid://cue3vv3bcnbsd" path="res://Mobs/Accessories/Skeleton_Blade.gltf" id="2_kqpf6"]
@@ -6,6 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://bsekjm26rlpre" path="res://Mobs/Animations/Animations_pack/Minion.res" id="2_t102l"]
 [ext_resource type="Script" uid="uid://d1pil0wsknhsu" path="res://Mobs/Paterns/Sword.cs" id="3_vrbj8"]
 [ext_resource type="Script" uid="uid://cs80h871jqwah" path="res://Mobs/Paterns/Hitbox.cs" id="4_hns76"]
+[ext_resource type="AudioStream" uid="uid://dcga8gphxp3mp" path="res://Assets/Sound/Raaaaawh screaming skeleton.mp3" id="7_sv5ar"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sv5ar"]
 size = Vector3(0.43920898, 0.9069824, 0.2208252)
@@ -67,8 +68,9 @@ nodes/Attack/node = SubResource("AnimationNodeAnimation_pe3x3")
 nodes/Attack/position = Vector2(90, 420)
 node_connections = [&"output", 0, &"Is_Attacking", &"Get_Hit", 0, &"Idle_Walking_Transition", &"Get_Hit", 1, &"Hit", &"Idle_Walking_Transition", 0, &"Idle", &"Idle_Walking_Transition", 1, &"Walking", &"Is_Attacking", 0, &"Get_Hit", &"Is_Attacking", 1, &"Attack"]
 
-[node name="Skeleton_Minion" instance=ExtResource("1_llxs8")]
+[node name="Skeleton_Minion" node_paths=PackedStringArray("AudioAttack") instance=ExtResource("1_llxs8")]
 script = ExtResource("2_swl37")
+AudioAttack = NodePath("AudioStreamPlayer3D")
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(0, 0.39206383, 0)
@@ -192,5 +194,8 @@ parameters/Idle_Walking_Transition/current_index = 0
 parameters/Is_Attacking/active = false
 parameters/Is_Attacking/internal_active = false
 parameters/Is_Attacking/request = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="8"]
+stream = ExtResource("7_sv5ar")
 
 [connection signal="timeout" from="Timer" to="." method="_OnTimerTimeout"]

@@ -7,5 +7,5 @@ script = ExtResource("1_v8y86")
 GravityMultiplier = 0.116
 Id = "OnTheMoonMapHazard"
 DisplayName = "TO THE MOON"
-Description = "La gravité vient de changé pour cette journée, faite attention !"
+Description = "La gravité vient de changer pour cette journée, fais attention !"
 metadata/_custom_type_script = "uid://cel2gpycmf1mr"

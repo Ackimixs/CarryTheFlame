@@ -7,7 +7,7 @@
 script = ExtResource("2_620it")
 Id = "OnHPPower"
 DisplayName = "1 hp clutch"
-Description = "ous pouvez survivre une fois à une attaque mortelle"
+Description = "Tu peux survivre une fois à une attaque mortelle"
 Icon = ExtResource("1_dm884")
 Rarity = 1
 metadata/_custom_type_script = "uid://ci8mgovowi3aa"

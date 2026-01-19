@@ -7,7 +7,7 @@
 script = ExtResource("2_k7i6a")
 Id = "DoubleJump_Common"
 DisplayName = "+1 Saut"
-Description = "Tu peux utilisé un saut supplémentaire"
+Description = "Tu peux utiliser un saut supplémentaire"
 Icon = ExtResource("1_o74yu")
 isStackable = true
 metadata/_custom_type_script = "uid://ba2fy81d6ydfl"

@@ -7,5 +7,5 @@ script = ExtResource("1_v1vgg")
 MaxChestsToActivate = 9
 Id = "ChestMapHazard"
 DisplayName = "Coffre à gogo"
-Description = "Tout les coffre sont disponible aujourd'hui, faite vous plaisir !"
+Description = "Tous les coffres sont disponibles aujourd'hui, fais-toi plaisir !"
 metadata/_custom_type_script = "uid://dt5q4j6uylhec"
