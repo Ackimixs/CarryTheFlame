@@ -21,6 +21,8 @@ public partial class Mobs : CharacterBody3D
     protected bool _everSeenPlayer;
     
     public Player player;
+
+    [Export] protected AudioStreamPlayer3D AudioAttack;
     
     public enum State
     {
@@ -33,6 +35,11 @@ public partial class Mobs : CharacterBody3D
     
     public override void _PhysicsProcess(double delta)
     {
+        if ((int)(GD.Randi() % 3000) == 0)
+        {
+            AudioAttack.Play();
+        }
+
         _attackTimer -= delta;
         if (!_everSeenPlayer)
         {
@@ -86,6 +93,7 @@ public partial class Mobs : CharacterBody3D
             LookAt(GlobalPosition - dir, Vector3.Up);
         animationTree.Set("parameters/Is_Attacking/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
         _attackTimer = AttackCooldown;
+        // TODO Play audio here
     }
 
     public void DealDamageToPlayer()
